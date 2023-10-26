@@ -1,0 +1,5 @@
+.venv
+justfile
+*.pyc
+*.sqlite
+media
