@@ -1,5 +1,6 @@
 .venv
 justfile
 *.pyc
-*.sqlite
+db.sqlite3
 media
+.mypy_cache
