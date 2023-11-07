@@ -1,3 +1,20 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Account, Card, Client
+
+
+@admin.register(Client)
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ['user', 'status']
+
+
+@admin.register(Account)
+class AccountAdmin(admin.ModelAdmin):
+    list_display = ['alias', 'balance', 'status', 'user']
+    raw_id_fields = ['user']
+
+
+@admin.register(Card)
+class CardAdmin(admin.ModelAdmin):
+    list_display = ['alias', 'status', 'user', 'account']
+    raw_id_fields = ['user', 'account']

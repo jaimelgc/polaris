@@ -16,6 +16,9 @@ class Client(models.Model):
     avatar = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
     status = models.CharField(max_length=2, choices=States.choices, default=States.ACTIVE)
 
+    def __str__(self):
+        return self.user.username
+
 
 class Account(models.Model):
     class States(models.TextChoices):
@@ -27,8 +30,13 @@ class Account(models.Model):
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=2, choices=States.choices)
     user = models.ForeignKey(
-        Client, related_name='accounts', on_delete=models.CASCADE, default=States.ACTIVE
+        Client,
+        related_name='accounts',
+        on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return self.alias
 
     @property
     def code(self):
@@ -44,6 +52,11 @@ class Card(models.Model):
     alias = models.CharField(max_length=120)
     status = models.CharField(max_length=2, choices=States.choices, default=States.ACTIVE)
     pin = models.CharField(max_length=3)
+    user = models.ForeignKey(Client, related_name='cards', on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, related_name='cards', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.alias
 
     @property
     def code(self):
