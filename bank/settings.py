@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'guest.apps.GuestConfig',
     'client.apps.ClientConfig',
     'transactions.apps.TransactionsConfig',
+    'bootstrap5'
 ]
 
 MIDDLEWARE = [
