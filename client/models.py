@@ -9,10 +9,6 @@ class Client(models.Model):
         TERMINATED = "TE", "Terminated"
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # username = models.CharField(max_length=50)
-    # first_name = models.CharField(max_length=50)
-    # last_name = models.CharField(max_length=50)
-    # email = models.EmailField()
     avatar = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
     status = models.CharField(max_length=2, choices=States.choices, default=States.ACTIVE)
 
