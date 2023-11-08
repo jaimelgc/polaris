@@ -1,7 +1,8 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
 from django.shortcuts import render
 
-from .forms import ClientRegistrationForm
+from .forms import ClientRegistrationForm, LoginForm
 from .models import Client
 
 
@@ -20,3 +21,22 @@ def register(request):
     else:
         user_form = ClientRegistrationForm()
         return render(request, 'client/register.html', {'user_form': user_form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(request, username=cd['username'], password=cd['password'])
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponse('Authenticated successfully')
+            else:
+                return HttpResponse('Disabled account')
+        else:
+            return HttpResponse('Invalid login')
+    else:
+        form = LoginForm()
+    return render(request, 'client/login.html', {'form': form})
