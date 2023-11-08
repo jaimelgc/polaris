@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'guest.apps.GuestConfig',
     'client.apps.ClientConfig',
     'transactions.apps.TransactionsConfig',
-    'bootstrap5'
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'client:dashboard'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 LOGIN_URL = 'login'
 
