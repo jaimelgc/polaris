@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -22,7 +21,7 @@ def register(request):
             return render(request, 'client/register_done.html', {'new_user': new_user})
     else:
         user_form = ClientRegistrationForm()
-        return render(request, 'client/register.html', {'user_form': user_form})
+    return render(request, 'client/register.html', {'user_form': user_form})
 
 
 def user_login(request):
