@@ -6,90 +6,109 @@
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <title>{% block title %}{% endblock %}</title>
-        <!-- <link href="{% static 'css/base.css' %}" rel="stylesheet"> -->
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
     </head>
     <body>
         <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
-            <div class="row d-md-flex d-none justify-content-end mb-2">
-                <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-                    <a href="#" class="link-under">ES</a>
+            <div class="container">
+                <div class="row d-md-flex d-none justify-content-end mb-2">
+                    <div class="w-auto text-center bg-lgt-gray border-end border-dark">
+                        <a href="#" class="link-under">ES</a>
+                    </div>
+                    <div class="w-auto text-center bg-lgt-gray">
+                        <a href="#" class="link-under">EN</a>
+                    </div>
                 </div>
-                <div class="w-auto text-center bg-lgt-gray">
-                    <a href="#" class="link-under">EN</a>
-                </div>
-            </div>
-            <div class="row">
-                <!-- logo -->
-                <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
-                    <a href="#"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
-                </div>
-                <!-- menú extendido para pantallas grandes-->
-                <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
-                    <a href="#" class="link-nos-white">Particulares</a>
-                    <a href="#" class="link-nos-white">Empresas</a>
-                    <a href="#" class="link-nos-white">Oficinas</a>
-                    <a href="#" class="link-nos-white">Contacto</a>
-                </div>
-                <!-- login, registro, idiomas, menú desplegable -->
-                <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-center align-items-center">
-                    <div class="btn-group">
-                        <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                            Menú
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                            <li><a class="dropdown-item d-md-none" href="#">Hazte cliente</a></li>
-                            <li><a class="dropdown-item" href="#">Oficinas</a></li>
-                            <li><a class="dropdown-item" href="#">Particulares</a></li>
-                            <li><a class="dropdown-item" href="#">Empresas</a></li>
-                            <li><a class="dropdown-item" href="#">Contacto</a></li>
-                        </ul>
-                      </div>
-                </div>
-                <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-center align-items-center">
-                    <div class="row">
-                        <div class="col-md-5 bg-lgt-gray p-2 w-auto d-none d-md-block">
-                            <a href="#" class="fw-bold text-center link-nos">Acceso clientes</a>
+                <div class="row">
+                    <!-- logo -->
+                    <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
+                        <a href="#"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
+                    </div>
+                    <!-- menú extendido para pantallas grandes-->
+                    <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
+                        <a href="#" class="link-nos-white">Particulares</a>
+                        <a href="#" class="link-nos-white">Empresas</a>
+                        <a href="#" class="link-nos-white">Oficinas</a>
+                        <a href="#" class="link-nos-white">Contacto</a>
+                    </div>
+                    <!-- login, registro, idiomas, menú desplegable -->
+                    <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-center align-items-center">
+                        <div class="btn-group">
+                            <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                Menú
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                <li><a class="dropdown-item d-md-none" href="#">Hazte cliente</a></li>
+                                <li><a class="dropdown-item" href="#">Oficinas</a></li>
+                                <li><a class="dropdown-item" href="#">Particulares</a></li>
+                                <li><a class="dropdown-item" href="#">Empresas</a></li>
+                                <li><a class="dropdown-item" href="#">Contacto</a></li>
+                            </ul>
                         </div>
-                        <div class="col-5 p-2 w-auto d-md-none">
-                            <a href="#" class="link-nos fw-bold text-white text-center">Acceso clientes</a>
-                        </div>
-                        <div class="col-md-5 bg-cyan p-2 w-auto d-md-block d-none ms-2">
-                            <a href="#" class="link-nos fw-bold text-white text-center">Hazte cliente</a>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-center align-items-center">
+                        <div class="row">
+                            <div class="col-md-5 bg-lgt-gray p-2 w-auto d-none d-md-block">
+                                <a href="#" class="fw-bold text-center link-nos">Acceso clientes</a>
+                            </div>
+                            <div class="col-5 p-2 w-auto d-md-none">
+                                <a href="#" class="link-nos fw-bold text-white text-center">Acceso clientes</a>
+                            </div>
+                            <div class="col-md-5 bg-cyan p-2 w-auto d-md-block d-none ms-2">
+                                <a href="#" class="link-nos fw-bold text-white text-center">Hazte cliente</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>    
 <!-- bloque de contenidos -->
-        <div id="content">
-
+{% block content %}
+    <!-- banner nivel de riesgo -->
+        {% include "guest/product/includes/risk_banner.html" %}
+        <div id="content" class="container">
+            <!-- lista de productos en formato card -->
+            <div class="card-deck row justify-content-evenly d-md-flex d-none my-2">
+                {% for product in products %}
+                    {% include "guest/product/includes/card.html" %}
+                {% endfor %}
+            </div>
+            <!-- list of products in split-banner format -->
+            <div class="container my-4">
+                {% for product in products %}
+                    {% include "guest/product/includes/split_banner.html" %}
+                {% endfor %}
+            </div>
         </div>
+{% endblock %}
 <!-- footer -->
         <footer class="container-fluid bg-drk-gray py-2">
-            <div class="row text-center">
-                <!-- navegación -->
-                <div class="col-md-4">
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="link-under">Cuentas Particulares</a></li>
-                        <li><a href="#" class="link-under">Cuentas Empresa</a></li>
-                        <li><a href="#" class="link-under">Divisas y monedas</a></li>
-                    </ul>
-                </div>
-                <!-- legales -->
-                <div class="col-md-4">
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="link-under">Aviso legal</a></li>
-                        <li><a href="#" class="link-under">Cookies</a></li>
-                        <li><a href="#" class="link-under">Política de privacidad</a></li>
-                    </ul>
-                </div>
-                <!-- RRSS -->
-                <div class="col-md-4">
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="link-under">Twitter</a></li>
-                        <li><a href="#" class="link-under">Facebook</a></li>
-                        <li><a href="#" class="link-under">Linkedin</a></li>
-                    </ul>
+            <div class="container">
+                <div class="row text-center">
+                    <!-- navegación -->
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="link-under">Cuentas Particulares</a></li>
+                            <li><a href="#" class="link-under">Cuentas Empresa</a></li>
+                            <li><a href="#" class="link-under">Divisas y monedas</a></li>
+                        </ul>
+                    </div>
+                    <!-- legales -->
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="link-under">Aviso legal</a></li>
+                            <li><a href="#" class="link-under">Cookies</a></li>
+                            <li><a href="#" class="link-under">Política de privacidad</a></li>
+                        </ul>
+                    </div>
+                    <!-- RRSS -->
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="link-under">Twitter</a></li>
+                            <li><a href="#" class="link-under">Facebook</a></li>
+                            <li><a href="#" class="link-under">Linkedin</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </footer>

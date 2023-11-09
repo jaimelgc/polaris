@@ -1,0 +1,91 @@
+/*
+● Gris: #a6a6a6
+● Gris claro: #d9d9d9
+● Cyan: #0097b2
+● Azul fuerte: #004aad
+● Blanco: #ffffff
+● Rojo mate: #c4391d
+*/
+
+.bg-drk-gray {
+    background-color: #a6a6a6;
+}
+
+.bg-cyan {
+    background-color: #0097b2;
+}
+
+.bg-stg-blue {
+    background-color: #004aad;
+}
+
+.bg-lgt-gray {
+    background-color: #d9d9d9;
+}
+
+.link-nos-white {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.4vw;
+}
+
+.link-nos-white:hover {
+    background-color: #0097b2;
+    color: white;
+}
+
+.link-nos {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-nos:hover {
+    color: inherit;
+    opacity: .7;
+}
+
+.link-under {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-under:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+/* estilos menú desplegable */
+.hamburger1 {
+    height: 45px;
+    margin: 10px;
+    display: -ms-grid;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    z-index: 120;
+  }
+  
+.hamburger1 div {
+    background-color: rgb(61, 61, 61);
+    position: relative;
+    width: 40px;
+    height: 5px;
+    margin-top: 7px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+/* oculta ventanas sticky */
+.close{
+    display: none;
+}
+
+/* estilos para controlar tamaño de la imagen del logo */
+#logo {
+    width: 240px;
+}

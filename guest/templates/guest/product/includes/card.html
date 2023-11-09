@@ -1,0 +1,16 @@
+<div class="card col-5 my-2 p-0">
+    {% if product.image %}
+        <img class="card-img-top m-0" src="{{ product.image }}" alt="Card image cap">
+    {% else %}
+        No hay imagen asociada a este producto
+    {% endif %}
+    <div class="card-body">
+        <h3 class="card-title">{{ product.title }}</h3>
+        <p class="card-text">{{ product.subtitle }}</p>
+        <p class="card-text">{{ product.body }}
+        </p>
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="btn btn-primary" href="#" role="button">más información</a>
+        </div>
+    </div>
+</div>
