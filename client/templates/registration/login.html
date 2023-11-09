@@ -2,30 +2,49 @@
 
 {% block title %}Log-in{% endblock %}
 
+{% block header %}
+<!-- Header -->
+<header class="bg-stg-blue w-100">
+  <div class="container bg-stg-blue pt-2 px-5">
+    <div class="row d-md-flex d-none justify-content-end mb-2">
+        <div class="w-auto text-center bg-lgt-gray border-end border-dark">
+          <a href="#" class="link-under">ES</a>
+        </div>
+        <div class="w-auto text-center bg-lgt-gray">
+            <a href="#" class="link-under">EN</a>
+        </div>
+    </div>
+    <!-- Logo -->
+    <div id="logo" class="row">
+      <div class="col-md-6"><img src="../img/polaris_logo_white.svg" alt="polaris_logo"/></div>
+      <!-- Información de contacto -->
+      <div class="col-md-6 d-md-flex justify-content-end align-items-end text-center fst-italic">
+          <p id="phone-contact">Teléfono de ayuda: 922-155-155</p>
+      </div>
+</header>
+{% endblock %}
 {% block content %}
-  <h1>Log-in</h1>
-  {% if form.errors %}
-    <p>
-      Your username and password didn't match.
-      Please try again.
-    </p>
-  {% else %}
-    <p>
-      Please, use the following form to log-in.
-      If you don't have an account <a href="#">register here</a>.
-    </p>
-  {% endif %}
-  <div class="login-form">
-    <form action="{% url 'login' %}" method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <p><input type="submit" value="Log-in"></p>
+  <!-- Formulario de inicio de sesión -->
+  <div class="container">
+    <div class="container d-flex align-items-center justify-content-center h-100">
+    <form action="{% url 'login' %}" method="post" class="col-12 col-md-6">
+      <div class="col-12">
+        <h5>Log-in</h5><hr>
+        {% if form.errors %}
+          <p>
+            Your username and password didn't match.
+            Please try again.
+          </p>
+        {% endif %}
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <p><input type="submit" value="Log-in"></p>
     </form>
-    <p>
-      <a href="#">
-        Forgotten your password?
-      </a>
-    </p>
+      <p>If you don't have an account <a href="#" class="d-block">register here.</a></p>
+      <p><a href="#">Forgotten your password?</a></p>
+      </div>
+    </div>
   </div>
 {% endblock %}
+
