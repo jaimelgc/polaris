@@ -2,16 +2,9 @@ body{
   padding: 0;
   margin: 0;
 }
-.row {
-  margin-top: 10px;
-}
-
-#logo {
-  min-height: 100px;
-}
 
 #logo img {
-  width: 340px;
+  width: 240px;
 }
 
 #phone-contact, #language-selector {
@@ -45,9 +38,4 @@ form {
 
 .bg-lgt-gray {
   background-color: #d9d9d9;
-}
-
-.vertical-align-bottom {
-  align-items: flex-end;
-  justify-content: flex-end;
 }

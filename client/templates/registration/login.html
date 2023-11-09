@@ -6,8 +6,8 @@
 
 {% load static%}
 <!-- Header -->
-<header class="bg-stg-blue w-100">
-  <div class="container bg-stg-blue pt-2 px-5">
+<header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
+  <div class="container">
     <div class="row d-md-flex d-none justify-content-end mb-2">
         <div class="w-auto text-center bg-lgt-gray border-end border-dark">
           <a href="#" class="link-under">ES</a>
@@ -21,8 +21,9 @@
       <div class="col-md-6"><img src="{% static "img/polaris_logo_white.svg" %}" alt="polaris_logo"/></div>
       <!-- Información de contacto -->
       <div class="col-md-6 d-md-flex justify-content-end align-items-end text-center fst-italic">
-          <p id="phone-contact">Teléfono de ayuda: 922-155-155</p>
+          <p id="phone-contact" class="p-0 m-0">Teléfono de ayuda: 922-155-155</p>
       </div>
+    </div>
 </header>
 {% endblock %}
 {% block content %}
@@ -43,7 +44,7 @@
         <input type="hidden" name="next" value="{{ next }}" />
         <p><input type="submit" value="Log-in"></p>
     </form>
-      <p>If you don't have an account <a href="#" class="d-block">register here.</a></p>
+      <p>If you don't have an account <a href={% url "register" %}>register here.</a></p>
       <p><a href="#">Forgotten your password?</a></p>
       </div>
     </div>

@@ -7,14 +7,11 @@
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'css/login.css' %}" rel="stylesheet">
     </head>
     <body>
         <div id="header">
             {% block header %}
-                {% block logo %}
-                {% endblock %}
-                <img src="{% static "img/polaris_logo_white.svg" %}}" alt="polaris_logo"/>
             {% endblock %}
         </div>                  
         <div id="content">
