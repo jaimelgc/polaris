@@ -1,3 +1,53 @@
-body {
-  background-color: aqua;
+body{
+  padding: 0;
+  margin: 0;
+}
+.row {
+  margin-top: 10px;
+}
+
+#logo {
+  min-height: 100px;
+}
+
+#logo img {
+  width: 340px;
+}
+
+#phone-contact, #language-selector {
+  font-size: large;
+  font-weight: bolder;
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 400px;
+  margin-top: 8%;    
+}
+
+.bg-drk-gray {
+  background-color: #a6a6a6;
+}
+
+.bg-stg-blue {
+  background-color: #004aad;
+}
+
+.bg-lgt-gray {
+  background-color: #d9d9d9;
+}
+
+.vertical-align-bottom {
+  align-items: flex-end;
+  justify-content: flex-end;
 }

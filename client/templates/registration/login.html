@@ -3,6 +3,8 @@
 {% block title %}Log-in{% endblock %}
 
 {% block header %}
+
+{% load static%}
 <!-- Header -->
 <header class="bg-stg-blue w-100">
   <div class="container bg-stg-blue pt-2 px-5">
@@ -16,7 +18,7 @@
     </div>
     <!-- Logo -->
     <div id="logo" class="row">
-      <div class="col-md-6"><img src="../img/polaris_logo_white.svg" alt="polaris_logo"/></div>
+      <div class="col-md-6"><img src="{% static "img/polaris_logo_white.svg" %}" alt="polaris_logo"/></div>
       <!-- Información de contacto -->
       <div class="col-md-6 d-md-flex justify-content-end align-items-end text-center fst-italic">
           <p id="phone-contact">Teléfono de ayuda: 922-155-155</p>
