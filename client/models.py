@@ -23,8 +23,8 @@ class Account(models.Model):
         TERMINATED = "TE", "Terminated"
 
     alias = models.CharField(max_length=120)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=2, choices=States.choices)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    status = models.CharField(max_length=2, choices=States.choices, default='AC')
     user = models.ForeignKey(
         Client,
         related_name='accounts',

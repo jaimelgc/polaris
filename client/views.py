@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .forms import ClientRegistrationForm, LoginForm
+from .forms import AccountRegistrationForm, ClientRegistrationForm, LoginForm
 from .models import Client
 
 
@@ -22,6 +22,22 @@ def register(request):
     else:
         user_form = ClientRegistrationForm()
     return render(request, 'client/register.html', {'user_form': user_form})
+
+
+@login_required
+def create_account(request):
+    if request.method == 'POST':
+        form = AccountRegistrationForm(request.POST)
+        if form.is_valid():
+            new_account = form.save(commit=False)
+            new_account.user = Client.objects.get(id=request.user.id)
+            new_account.save()
+            return HttpResponse('Account created succesfully')
+        else:
+            return HttpResponse('Unable to create account')
+    else:
+        form = AccountRegistrationForm()
+    return render(request, 'client/account/create_account.html', {'form': form})
 
 
 def user_login(request):
@@ -45,4 +61,4 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'client/dashboard.html/')
+    return render(request, 'client/dashboard.html')
