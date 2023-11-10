@@ -3,8 +3,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .forms import AccountRegistrationForm, ClientRegistrationForm, LoginForm
-from .models import Client
+from .forms import (
+    AccountRegistrationForm,
+    CardCreationForm,
+    ClientRegistrationForm,
+    LoginForm,
+)
+from .models import Account, Client
+from .utils import random_alphanum
 
 
 def register(request):
@@ -38,6 +44,24 @@ def create_account(request):
     else:
         form = AccountRegistrationForm()
     return render(request, 'client/account/create_account.html', {'form': form})
+
+
+@login_required
+def create_card(request):
+    if request.method == 'POST':
+        form = CardCreationForm(request.POST)
+        if form.is_valid():
+            new_card = form.save(commit=False)
+            new_card.user = Client.objects.get(id=request.user.id)
+            new_card.account = request.selected_account
+            new_card.pin = random_alphanum(3)
+            new_card.save()
+            return HttpResponse('Card created succesfully')
+        else:
+            return HttpResponse('Unable to create card')
+    else:
+        form = AccountRegistrationForm()
+    return render(request, 'client/account/create_card.html', {'form': form})
 
 
 def user_login(request):
