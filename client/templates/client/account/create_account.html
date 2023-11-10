@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Create a bank account{% endblock %}
+
+{% block content %}
+    <h1>Create a bank account</h1>
+    <p>Please, introduce an alias for your account:</p>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create bank account"></p>
+    </form>
+{% endblock %}

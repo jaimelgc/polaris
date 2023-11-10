@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Client
+from .models import Account
 
 
 class ClientRegistrationForm(forms.ModelForm):
@@ -29,3 +29,9 @@ class ClientRegistrationForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class AccountRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ['alias']
