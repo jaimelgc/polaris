@@ -38,6 +38,10 @@ class AccountRegistrationForm(forms.ModelForm):
 
 
 class CardCreationForm(forms.ModelForm):
+    account = (
+        forms.ModelChoiceField(empty_label=None, queryset=Account.objects.filter(user=user)),
+    )
+
     class Meta:
         model = Card
         fields = ['alias']
