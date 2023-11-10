@@ -50,6 +50,7 @@ class Card(models.Model):
     pin = models.CharField(max_length=3)
     user = models.ForeignKey(Client, related_name='cards', on_delete=models.CASCADE)
     account = models.ForeignKey(Account, related_name='cards', on_delete=models.CASCADE)
+    #avatar = models.ImageField(upload_to='card/%Y/%m/%d/')
 
     def __str__(self):
         return self.alias
