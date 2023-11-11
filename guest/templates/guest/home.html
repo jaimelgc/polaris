@@ -4,21 +4,29 @@
     Polaris Bank
 {% endblock %}
 
+{% block header %}
+    {% include "guest/header.html" %}
+{% endblock %}
+
 {% block content %}
     <!-- banner nivel de riesgo -->
-        {% include "guest/product/includes/risk_banner.html" %}
+        {% include "guest/product/risk_banner.html" %}
         <div id="content" class="container">
             <!-- lista de productos en formato card -->
             <div class="card-deck row justify-content-evenly d-md-flex d-none my-2">
                 {% for product in products %}
-                    {% include "guest/product/includes/card.html" %}
+                    {% include "guest/product/card.html" %}
                 {% endfor %}
             </div>
             <!-- list of products in split-banner format -->
             <div class="container my-4">
                 {% for product in products %}
-                    {% include "guest/product/includes/split_banner.html" %}
+                    {% include "guest/product/split_banner.html" %}
                 {% endfor %}
             </div>
         </div>
+{% endblock %}
+
+{% block footer %}
+        {% include "guest/footer.html"%}
 {% endblock %}
