@@ -1,0 +1,100 @@
+header {
+    background-color: #004aad;
+    font-weight: bold;
+}
+
+#logo {
+    width: 500px;
+}
+
+#s-logo {
+    width: 250px;
+}
+
+#user-img {
+    width: 50px;
+}
+
+#menu {
+    font-weight: bold;
+}
+
+.link-row-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-self: end;
+}
+
+.link-header {
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.link-header:hover {
+    background-color: #0097b2;
+}
+
+.link-row-low {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-self: end;
+}
+
+.link-low {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.link-low:hover {
+    background-color: #0097b2;
+}
+
+.line {
+    background-color: white;
+    height: 30px;
+    width: 3px;
+}
+
+.line-low {
+    background-color: white;
+    height: 30px;
+    width: 3px;
+}
+
+
+#left-menu {
+    background-color: rgb(197, 195, 195);
+    height: 1000px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+main {
+    width: 100%;
+}
+
+.cnt {
+    border-color: #004aad;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.rw {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.blue {
+    background-color: #004aad;
+    color: white
+}

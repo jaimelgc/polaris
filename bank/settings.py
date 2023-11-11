@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'client.apps.ClientConfig',
     'transactions.apps.TransactionsConfig',
     'bootstrap5',
-    
 ]
 
 MIDDLEWARE = [

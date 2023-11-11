@@ -1,22 +1,19 @@
 {% load static %}
 {% load bootstrap5 %}
-
 <!DOCTYPE html>
 <html>
     <head>
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'css/login.css' %}" rel="stylesheet">
+        <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="header">
-            {% block header %}
-            {% endblock %}
-        </div>                  
-        <div id="content">
-            {% block content %}
-            {% endblock %}
-        </div>
+<!-- bloque para cabecera -->
+{% block header %}{% endblock %}
+<!-- bloque de contenidos -->
+{% block content %}{% endblock %}
+<!-- bloque para footer -->
+ {% block footer %}{% endblock %}
     </body>
 </html>

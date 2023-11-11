@@ -1,10 +1,200 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Dashboard{% endblock %}
 
+{% block header %}
+<header>
+  <div class="row d-none d-sm-flex">
+    <!--Logo-->
+    <div class="col-lg-1"></div>
+    <div class="logo-header col-lg-2 col-md-6 col-12 order-xs-1 d-flex">
+        <img id="logo" src="{% static 'img/polaris_logo_white.svg' %}">
+    </div>
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-md-6">
+        <!--Links alineados-->
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="link-row-header col-5 d-none d-lg-flex">
+                <a class="link-header" href="#">NOMBRE USUARIO</a>
+                <div class="line"></div>
+                <a class="link-header" href="#">BUZÓN</a>
+                <div class="line"></div>
+                <a class="link-header" href="#">AYUDA</a>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="link-row-header col-5 d-none d-lg-flex">
+                <a class="link-header" href="#">CAMBIAR USUARIO</a>
+                <div class="line"></div>
+                <a class="link-header" href="#">CERRAR SESIÓN</a>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!--Header XS-->
+
+  <div class="row d-flex d-sm-none">
+    <!--Icono del usuario-->
+    <div class="col-2">
+        <img id="user-img" src="../img/user-icon-1.png" alt="user-icon">
+    </div>
+    <!--Logo-->
+    <div class="col-4">
+        <img id="s-logo" src="../img/polaris_logo_white.svg" alt="logo">
+    </div>
+    <div class="col-3"></div>
+    <!--Menú desplegable-->
+    <div class="col-2">
+        <div class="btn-group">
+            <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown"
+                data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                Menú
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                <li><a class="dropdown-item d-md-none" href="#">Usuario</a></li>
+                <li><a class="dropdown-item" href="#">Buzón</a></li>
+                <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                <li><a class="dropdown-item" href="#">Cambiar usuario</a></li>
+                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
 {% block content %}
-  <h1>Dashboard</h1>
-  <p>
-    Welcome to your dashboard. You can <a href="#">edit your profile</a> or <a href="#">change your password</a>.
-  </p>
+<div class="row">
+  <!--Menú Lateral-->
+  <div id="left-menu" class="col-lg-2 d-md-block d-none">
+      <div class="row">
+          <div class="col-12">CUENTAS</div>
+          <div class="row">
+              <div class="col-2"></div>
+              <div class="col-10">
+                  <div class="row">CUENTA 1</div>
+                  <div class="row">CUENTA 2</div>
+              </div>
+          </div>
+          <div class="row">-</div>
+          <div class="col-12">TARJETAS</div>
+          <div class="row">
+              <div class="col-2"></div>
+              <div class="col-10">
+                  <div class="row">TARJETA 1</div>
+                  <div class="row">TARJETA 2</div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--Contenedor central-->
+
+  <div class="col-lg-10 d-sm-flex d-none">
+      <div class="container cnt">
+          <div class="row rw blue">
+              <div class="col-9" style="font-size: 35px;">Cuenta 1</div>
+              <div class="col-3">Saldo: 9.999 €</div>
+          </div>
+          <div class="row rw">
+              <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
+              <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
+          </div>
+          <div class="row blue">
+              <div class="col-2"></div>
+              <div class="link-row-low col-8 d-none d-lg-flex">
+                  <a class="link-low" href="#">BUSCAR MOVIMIENTOS</a>
+                  <div class="line-low"></div>
+                  <a class="link-low" href="#">TRANSFERENCIAS</a>
+                  <div class="line-low"></div>
+                  <a class="link-low" href="#">TARJETAS</a>
+                  <div class="line-low"></div>
+                  <a class="link-low" href="#">VER MÁS</a>
+              </div>
+          </div>
+          <div class="row rw">
+              <div class="col-12">MOVIMIENTOS ÚLTIMO MES</div>
+              <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-11">
+                      <div class="row">
+                          <div class="col-5">Transferencia: 876.59 €</div>
+                          <div class="col-5">Reforma piso Santa Úrsula</div>
+                          <div class="col-2">
+                              <a href="#">Ver detalles</a>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-5">Transferencia: -486.59 €</div>
+                          <div class="col-5">Academia hijo</div>
+                          <div class="col-2">
+                              <a href="#">Ver detalles</a>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-5">Transferencia: 650.59 €</div>
+                          <div class="col-5">Alquiler piso Santa Úrsula</div>
+                          <div class="col-2">
+                              <a href="#">Ver detalles</a>
+                          </div>
+                      </div>
+                      <div class="row"></div>
+                      <div class="row"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--Main XS-->
+
+  <div class="col-12 d-sm-none d-flex">
+      <div class="container cnt">
+          <div class="row rw blue">
+              <div class="col-12" style="font-size: 35px;">Cuentas</div>
+          </div>
+          <div class="row rw">
+              <div class="col-5">Cuenta 1</div>
+              <div class="col-3">9.000 €</div>
+              <div class="col-4">
+                  <a href="#">Detalles</a>
+              </div>
+          </div>
+          <div class="row rw">
+              <div class="col-5">Cuenta 2</div>
+              <div class="col-3">6.000 €</div>
+              <div class="col-4">
+                  <a href="#">Detalles</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-12 d-sm-none d-flex">
+      <div class="container cnt">
+          <div class="row rw blue">
+              <div class="col-12" style="font-size: 35px;">Tarjetas</div>
+          </div>
+          <div class="row rw">
+              <div class="col-12">Tarjeta 1</div>
+          </div>
+          <div class="row rw">
+              <div class="col-2"></div>
+              <div class="col-10">
+                  <img src="../img/card1.png" alt="card-1" style="height: 100px;">
+              </div>
+          </div>
+          <div class="row rw">
+              <div class="col-12">Tarjeta 2</div>
+          </div>
+          <div class="row rw">
+              <div class="col-2"></div>
+              <div class="col-10">
+                  <img src="../img/card2.png" alt="card-2" style="height: 120px;">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 {% endblock %}
