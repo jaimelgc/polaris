@@ -25,6 +25,7 @@ class Account(models.Model):
     alias = models.CharField(max_length=120)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     status = models.CharField(max_length=2, choices=States.choices, default='AC')
+    expenses = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     user = models.ForeignKey(
         Client,
         related_name='accounts',
@@ -50,6 +51,7 @@ class Card(models.Model):
     pin = models.CharField(max_length=3)
     user = models.ForeignKey(Client, related_name='cards', on_delete=models.CASCADE)
     account = models.ForeignKey(Account, related_name='cards', on_delete=models.CASCADE)
+    income = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.alias
