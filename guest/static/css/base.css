@@ -111,12 +111,12 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form {
+#log-in-form, #email-form, #password-reset-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
     max-width: 400px;
- 
+
 }
 
 #log-in-form label {
@@ -125,3 +125,4 @@ body{
     text-align: left;
     margin-right: 10px;
 }
+
