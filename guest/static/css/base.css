@@ -111,7 +111,7 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form, #password-reset-form {
+#log-in-form, #email-form, #password-reset-form, #register-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
@@ -119,10 +119,13 @@ body{
 
 }
 
-#log-in-form label {
+#log-in-form label, #register-form label {
     display: inline-block;
     width: 150px;
     text-align: left;
     margin-right: 10px;
 }
 
+.helptext {
+    display:none;
+}

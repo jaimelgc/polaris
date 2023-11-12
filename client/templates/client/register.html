@@ -1,13 +1,20 @@
-{% extends "base.html" %}
+{% extends "base_login.html" %}
 
 {% block title %}Create a client account{% endblock %}
 
 {% block content %}
-    <h1>Create a client account</h1>
-    <p>Please, sign up using the following form:</p>
-    <form method="post">
-        {{ user_form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Create my account"></p>
+  <!-- Formulario de registro -->
+  <div class="container">
+    <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
+    <form action="{% url 'register' %}" method="post" class="col-12 col-md-6" id="register-form">
+        <div class="col-12">
+        <h4>Create a client account</h4><hr>
+        <p>Please, sign up using the following form:</p>
+            {{ user_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Create my account"></p>
     </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -2,7 +2,7 @@
 justfile
 *.pyc
 *.sqlite3
-media
+media/
 .mypy_cache
 __pycache__
 .env
