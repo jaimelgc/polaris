@@ -38,11 +38,11 @@
   <div class="row d-flex d-sm-none">
     <!--Icono del usuario-->
     <div class="col-2">
-        <img id="user-img" src="../img/user-icon-1.png" alt="user-icon">
+        <img id="user-img" src="{% static 'img/user-icon-1.png' %}" alt="user-icon">
     </div>
     <!--Logo-->
     <div class="col-4">
-        <img id="s-logo" src="../img/polaris_logo_white.svg" alt="logo">
+        <img id="s-logo" src="{% static 'img/polaris_logo_white.svg' %}" alt="logo">
     </div>
     <div class="col-3"></div>
     <!--Menú desplegable-->
@@ -68,14 +68,17 @@
 {% block content %}
 <div class="row">
   <!--Menú Lateral-->
-  <div id="left-menu" class="col-lg-2 d-md-block d-none">
+  <div id="left-menu" class="col-lg-2 d-lg-block d-none">
       <div class="row">
           <div class="col-12">CUENTAS</div>
           <div class="row">
               <div class="col-2"></div>
               <div class="col-10">
-                  <div class="row">CUENTA 1</div>
-                  <div class="row">CUENTA 2</div>
+                {% for account in accounts %}
+                    {% if account.user.id == 1 %}
+                        <div class="row">{{ account.alias }}</div>
+                    {% endif %}
+                {% endfor %}
               </div>
           </div>
           <div class="row">-</div>
@@ -83,8 +86,11 @@
           <div class="row">
               <div class="col-2"></div>
               <div class="col-10">
-                  <div class="row">TARJETA 1</div>
-                  <div class="row">TARJETA 2</div>
+                {% for card in cards %}
+                    {% if card.user.id == 1 %}
+                        <div class="row">{{ card.alias }}</div>
+                    {% endif %}
+                {% endfor %}
               </div>
           </div>
       </div>
@@ -101,8 +107,8 @@
                     <div class="col-3">Saldo: {{ account.balance }} €</div>
                 </div>
                 <div class="row rw">
-                    <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
-                    <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
+                    <div class="col-6">INGRESOS ÚLTIMO MES: {{ account.income }} €</div>
+                    <div class="col-6">GASTOS ÚLTIMO MES: {{ account.expenses }} €</div>
                 </div>
             {% endif %}
           {% endfor %}
@@ -163,8 +169,8 @@
             {% for account in accounts %}
                 {% if account.id == 1 %}
                     <div class="row rw">
-                        <div class="col-5">{{ account.alias }}</div>
-                        <div class="col-3">{{ account.balance }} €</div>
+                        <div class="col-12">{{ account.alias }}</div>
+                        <div class="col-12">Balance: {{ account.balance }} €</div>
                         <div class="col-4">
                             <a href="#">Detalles</a>
                         </div>
@@ -180,13 +186,14 @@
           </div>
           <!--Placeholder tarjeta XS-->
           {% for card in cards %}
-            {% if account == 1 %}
+            {% if card.account.id == 1 %}
                 <div class="row rw">
                     <div class="col-12">{{ card.alias }}</div>
                 </div>
                 <div class="row rw">
                     <div class="col-2"></div>
-                    <div class="col-10">             
+                    <div class="col-10">
+                        <img src="{% static 'img/polaris_logo_white.svg' %}" alt="logo">
                     </div>
                 </div>
             {% endif %}
