@@ -7,13 +7,28 @@
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'css/login.css' %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="header">
-            {% block header %}
-            {% endblock %}
-        </div>                  
+    <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
+        <div class="container">
+        <div class="row d-md-flex d-none justify-content-end mb-2">
+            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
+                <a href="#" class="link-under">ES</a>
+            </div>
+            <div class="w-auto text-center bg-lgt-gray">
+                <a href="#" class="link-under">EN</a>
+            </div>
+        </div>
+        <!-- Logo -->
+        <div class="row">
+            <div class="col-md-6"><img src="{% static "img/polaris_logo_white.svg" %}" id="logo" alt="polaris_logo"/></div>
+            <!-- Información de contacto -->
+            <div class="col-md-6 d-md-flex justify-content-end align-items-end text-center fst-italic">
+                <p id="phone-contact" class="p-0 m-0">Teléfono de ayuda: 922-155-155</p>
+            </div>
+        </div>
+    </header>                
         <div id="content">
             {% block content %}
             {% endblock %}
