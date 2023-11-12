@@ -10,7 +10,7 @@ from .forms import (
     ClientRegistrationForm,
     LoginForm,
 )
-from .models import Client
+from .models import Account, Card, Client
 from .utils import random_alphanum
 
 
@@ -87,4 +87,5 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'client/dashboard.html')
+    accounts = Account.objects.all()
+    return render(request, 'client/dashboard.html', {'accounts': accounts})
