@@ -40,4 +40,4 @@ class AccountRegistrationForm(forms.ModelForm):
 class CardCreationForm(forms.ModelForm):
     class Meta:
         model = Card
-        fields = ['alias']
+        fields = ['alias', 'account']

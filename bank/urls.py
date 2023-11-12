@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('client/', include('client.urls')),
     path('', include('guest.urls')),
+    path('payment/', include('transactions.urls')),
 ]
 
 if settings.DEBUG:

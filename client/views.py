@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -9,7 +10,7 @@ from .forms import (
     ClientRegistrationForm,
     LoginForm,
 )
-from .models import Account, Client
+from .models import Client
 from .utils import random_alphanum
 
 
@@ -52,16 +53,17 @@ def create_card(request):
         form = CardCreationForm(request.POST)
         if form.is_valid():
             new_card = form.save(commit=False)
-            new_card.user = Client.objects.get(id=request.user.id)
-            new_card.account = request.selected_account
             new_card.pin = random_alphanum(3)
+            new_card.user = Client.objects.get(id=request.user.id)
             new_card.save()
             return HttpResponse('Card created succesfully')
         else:
             return HttpResponse('Unable to create card')
     else:
-        form = AccountRegistrationForm()
-    return render(request, 'client/account/create_card.html', {'form': form})
+        form = CardCreationForm()
+        user = Client.objects.get(id=request.user.id)
+        form.fields['account'] = forms.ModelChoiceField(queryset=user.accounts.all())
+    return render(request, 'client/card/create_card.html', {'form': form})
 
 
 def user_login(request):
