@@ -94,14 +94,18 @@
 
   <div class="col-lg-10 d-sm-flex d-none">
       <div class="container cnt">
-          <div class="row rw blue">
-              <div class="col-9" style="font-size: 35px;">Cuenta 1</div>
-              <div class="col-3">Saldo: 9.999 €</div>
-          </div>
-          <div class="row rw">
-              <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
-              <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
-          </div>
+        {% for account in accounts %}
+            {% if account.id == 1 %}
+            <div class="row rw blue">
+                <div class="col-9" style="font-size: 35px;">{{ account.alias }}</div>
+                <div class="col-3">Saldo: {{ account.balance }} €</div>
+            </div>
+            <div class="row rw">
+                <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
+                <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
+            </div>
+            {% endif %}
+          {% endfor %}
           <div class="row blue">
               <div class="col-2"></div>
               <div class="link-row-low col-8 d-none d-lg-flex">
@@ -155,20 +159,18 @@
           <div class="row rw blue">
               <div class="col-12" style="font-size: 35px;">Cuentas</div>
           </div>
-          <div class="row rw">
-              <div class="col-5">Cuenta 1</div>
-              <div class="col-3">9.000 €</div>
-              <div class="col-4">
-                  <a href="#">Detalles</a>
-              </div>
-          </div>
-          <div class="row rw">
-              <div class="col-5">Cuenta 2</div>
-              <div class="col-3">6.000 €</div>
-              <div class="col-4">
-                  <a href="#">Detalles</a>
-              </div>
-          </div>
+          <!--Placeholder cuenta XS-->
+            {% for account in accounts %}
+                {% if account.id == 1 %}
+                    <div class="row rw">
+                        <div class="col-5">{{ account.alias }}</div>
+                        <div class="col-3">{{ account.balance }} €</div>
+                        <div class="col-4">
+                            <a href="#">Detalles</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
       </div>
   </div>
   <div class="col-12 d-sm-none d-flex">
@@ -176,27 +178,19 @@
           <div class="row rw blue">
               <div class="col-12" style="font-size: 35px;">Tarjetas</div>
           </div>
-          <!--Placeholder tarjeta-->
-          <div class="row rw">
-              <div class="col-12">Tarjeta 1</div>
-          </div>
-          <div class="row rw">
-              <div class="col-2"></div>
-              <div class="col-10">
-                  
-                  <img src="{% static 'img/card1.png' %}" alt="card-1" style="height: 100px;">
-              </div>
-          </div>
-          <!--Placeholder tarjeta-->
-          <div class="row rw">
-              <div class="col-12">Tarjeta 2</div>
-          </div>
-          <div class="row rw">
-              <div class="col-2"></div>
-              <div class="col-10">
-                  <img src="{% static 'img/card2.png' %}" alt="card-2" style="height: 120px;">
-              </div>
-          </div>
+          <!--Placeholder tarjeta XS-->
+          {% for card in cards %}
+            {% if account == 1 %}
+                <div class="row rw">
+                    <div class="col-12">{{ card.alias }}</div>
+                </div>
+                <div class="row rw">
+                    <div class="col-2"></div>
+                    <div class="col-10">             
+                    </div>
+                </div>
+            {% endif %}
+          {% endfor %}
       </div>
   </div>
 </div>

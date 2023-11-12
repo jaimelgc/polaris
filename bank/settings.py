@@ -136,7 +136,7 @@ LOGOUT_URL = 'logout'
 
 # Email server configuration
 
-EEMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=config.boolean)
