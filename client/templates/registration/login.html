@@ -1,42 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Log-in{% endblock %}
+{% block title %}Iniciar sesión{% endblock %}
 
-{% block header %}
-
-{% load static%}
-<!-- Header -->
-<header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
-  <div class="container">
-    <div class="row d-md-flex d-none justify-content-end mb-2">
-        <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-          <a href="#" class="link-under">ES</a>
-        </div>
-        <div class="w-auto text-center bg-lgt-gray">
-            <a href="#" class="link-under">EN</a>
-        </div>
-    </div>
-    <!-- Logo -->
-    <div id="logo" class="row">
-      <div class="col-md-6"><img src="{% static "img/polaris_logo_white.svg" %}" alt="polaris_logo"/></div>
-      <!-- Información de contacto -->
-      <div class="col-md-6 d-md-flex justify-content-end align-items-end text-center fst-italic">
-          <p id="phone-contact" class="p-0 m-0">Teléfono de ayuda: 922-155-155</p>
-      </div>
-    </div>
-</header>
-{% endblock %}
 {% block content %}
   <!-- Formulario de inicio de sesión -->
   <div class="container">
-    <div class="container d-flex align-items-center justify-content-center h-100">
-    <form action="{% url 'login' %}" method="post" class="col-12 col-md-6">
+    <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
+    <form action="{% url 'login' %}" method="post" class="col-12 col-md-6" id="log-in-form">
       <div class="col-12">
-        <h5>Log-in</h5><hr>
+        <h5>Iniciar sesión</h5><hr>
         {% if form.errors %}
           <p>
-            Your username and password didn't match.
-            Please try again.
+            El nombre de usuario y contraseña no coinciden.
+            Por favor, inténtalo de nuevo.
           </p>
         {% endif %}
         {{ form.as_p }}
@@ -44,8 +20,8 @@
         <input type="hidden" name="next" value="{{ next }}" />
         <p><input type="submit" value="Log-in"></p>
     </form>
-      <p>If you don't have an account <a href={% url "register" %}>register here.</a></p>
-      <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+      <p>Si no tienes una cuenta, <a href={% url "register" %}>registrate aquí.</a></p>
+      <p><a href="{% url 'password_reset' %}">¿Has olvidado tu contraseña?</a></p>
       </div>
     </div>
   </div>
