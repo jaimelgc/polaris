@@ -96,14 +96,14 @@
       <div class="container cnt">
         {% for account in accounts %}
             {% if account.id == 1 %}
-            <div class="row rw blue">
-                <div class="col-9" style="font-size: 35px;">{{ account.alias }}</div>
-                <div class="col-3">Saldo: {{ account.balance }} €</div>
-            </div>
-            <div class="row rw">
-                <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
-                <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
-            </div>
+                <div class="row rw blue">
+                    <div class="col-9" style="font-size: 35px;">{{ account.alias }}</div>
+                    <div class="col-3">Saldo: {{ account.balance }} €</div>
+                </div>
+                <div class="row rw">
+                    <div class="col-6">INGRESOS ÚLTIMO MES: 2999.99 €</div>
+                    <div class="col-6">GASTOS ÚLTIMO MES: 876.59 €</div>
+                </div>
             {% endif %}
           {% endfor %}
           <div class="row blue">
