@@ -68,29 +68,23 @@
 {% block content %}
 <div class="row">
   <!--Menú Lateral-->
-  <div id="left-menu" class="col-lg-2 d-lg-block d-none">
+  <div id="left-menu" class="col-lg-2 d-lg-block d-none vh-100">
       <div class="row">
           <div class="col-12">CUENTAS</div>
-          <div class="col-12">{{ request.user.username }}</div>
           <div class="row">
               <div class="col-2"></div>
               <div class="col-10">
                 {% for account in accounts %}
-                    {% if account.user.id == request.user.id %}
-                        <div class="row">{{ account.alias }}</div>
-                    {% endif %}
+                    <div class="row">{{ account.alias }}</div>
                 {% endfor %}
               </div>
           </div>
-          <div class="row">-</div>
-          <div class="col-12">TARJETAS</div>
+          <div class="col-12 pt-3">TARJETAS</div>
           <div class="row">
               <div class="col-2"></div>
               <div class="col-10">
                 {% for card in cards %}
-                    {% if card.user.id == request.user.id %}
-                        <div class="row">{{ card.alias }}</div>
-                    {% endif %}
+                    <div class="row">{{ card.alias }}</div>
                 {% endfor %}
               </div>
           </div>
@@ -102,7 +96,6 @@
   <div class="col-lg-10 d-sm-flex d-none">
       <div class="container cnt">
         {% for account in accounts %}
-            {% if account.user.id == request.user.id %}
                 <div class="row rw blue">
                     <div class="col-9" style="font-size: 35px;">{{ account.alias }}</div>
                     <div class="col-3">Saldo: {{ account.balance }} €</div>
@@ -155,7 +148,6 @@
                   </div>
               </div>
           </div>
-          {% endif %}
         {% endfor %}
       </div>
   </div>
@@ -169,7 +161,6 @@
           </div>
           <!--Placeholder cuenta XS-->
             {% for account in accounts %}
-                {% if account.user.id == request.user.id %}
                     <div class="row rw">
                         <div class="col-12">{{ account.alias }}</div>
                         <div class="col-12">Balance: {{ account.balance }} €</div>
@@ -177,7 +168,6 @@
                             <a href="#">Detalles</a>
                         </div>
                     </div>
-                {% endif %}
             {% endfor %}
       </div>
   </div>
@@ -188,17 +178,19 @@
           </div>
           <!--Placeholder tarjeta XS-->
           {% for card in cards %}
-            {% if card.usery.id == request.user.id %}
                 <div class="row rw">
                     <div class="col-12">{{ card.alias }}</div>
                 </div>
                 <div class="row rw">
                     <div class="col-2"></div>
                     <div class="col-10">
-                        <img src="{% static 'img/polaris_logo_white.svg' %}" alt="logo">
+                        {% if card.image %}
+                            <img class="col-12 vh-20" src="{{ card.image.url }}" alt="card">
+                        {% else %}
+                            <p> Sin imagen disponible </p>
+                        {% endif %}
                     </div>
                 </div>
-            {% endif %}
           {% endfor %}
       </div>
   </div>

@@ -16,5 +16,5 @@ class AccountAdmin(admin.ModelAdmin):
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
-    list_display = ['alias', 'status', 'user', 'account']
+    list_display = ['alias', 'status', 'user', 'account', 'image']
     raw_id_fields = ['user', 'account']

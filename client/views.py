@@ -37,7 +37,7 @@ def create_account(request):
         form = AccountRegistrationForm(request.POST)
         if form.is_valid():
             new_account = form.save(commit=False)
-            new_account.user = Client.objects.get(id=request.user.id)
+            new_account.user = Client.objects.get(user=request.user)
             new_account.save()
             return HttpResponse('Account created succesfully')
         else:
@@ -54,14 +54,14 @@ def create_card(request):
         if form.is_valid():
             new_card = form.save(commit=False)
             new_card.pin = random_alphanum(3)
-            new_card.user = Client.objects.get(id=request.user.id)
+            new_card.user = Client.objects.get(user=request.user)
             new_card.save()
             return HttpResponse('Card created succesfully')
         else:
             return HttpResponse('Unable to create card')
     else:
         form = CardCreationForm()
-        user = Client.objects.get(id=request.user.id)
+        user = Client.objects.get(user=request.user)
         form.fields['account'] = forms.ModelChoiceField(queryset=user.accounts.all())
     return render(request, 'client/card/create_card.html', {'form': form})
 
@@ -87,6 +87,7 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    accounts = Account.objects.all()
-    cards = Card.objects.all()
+    client = Client.objects.get(user=request.user)
+    accounts = client.accounts.all()
+    cards = client.cards.all()
     return render(request, 'client/dashboard.html', {'accounts': accounts, 'cards': cards})
