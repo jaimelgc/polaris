@@ -71,11 +71,12 @@
   <div id="left-menu" class="col-lg-2 d-lg-block d-none">
       <div class="row">
           <div class="col-12">CUENTAS</div>
+          <div class="col-12">{{ request.user.username }}</div>
           <div class="row">
               <div class="col-2"></div>
               <div class="col-10">
                 {% for account in accounts %}
-                    {% if account.user.id == 1 %}
+                    {% if account.user.id == request.user.id %}
                         <div class="row">{{ account.alias }}</div>
                     {% endif %}
                 {% endfor %}
@@ -87,7 +88,7 @@
               <div class="col-2"></div>
               <div class="col-10">
                 {% for card in cards %}
-                    {% if card.user.id == 1 %}
+                    {% if card.user.id == request.user.id %}
                         <div class="row">{{ card.alias }}</div>
                     {% endif %}
                 {% endfor %}
@@ -101,7 +102,7 @@
   <div class="col-lg-10 d-sm-flex d-none">
       <div class="container cnt">
         {% for account in accounts %}
-            {% if account.id == 1 %}
+            {% if account.user.id == request.user.id %}
                 <div class="row rw blue">
                     <div class="col-9" style="font-size: 35px;">{{ account.alias }}</div>
                     <div class="col-3">Saldo: {{ account.balance }} €</div>
@@ -110,8 +111,7 @@
                     <div class="col-6">INGRESOS ÚLTIMO MES: {{ account.income }} €</div>
                     <div class="col-6">GASTOS ÚLTIMO MES: {{ account.expenses }} €</div>
                 </div>
-            {% endif %}
-          {% endfor %}
+
           <div class="row blue">
               <div class="col-2"></div>
               <div class="link-row-low col-8 d-none d-lg-flex">
@@ -155,6 +155,8 @@
                   </div>
               </div>
           </div>
+          {% endif %}
+        {% endfor %}
       </div>
   </div>
 
@@ -167,7 +169,7 @@
           </div>
           <!--Placeholder cuenta XS-->
             {% for account in accounts %}
-                {% if account.id == 1 %}
+                {% if account.id == request.user.id %}
                     <div class="row rw">
                         <div class="col-12">{{ account.alias }}</div>
                         <div class="col-12">Balance: {{ account.balance }} €</div>
@@ -186,7 +188,7 @@
           </div>
           <!--Placeholder tarjeta XS-->
           {% for card in cards %}
-            {% if card.account.id == 1 %}
+            {% if card.account.id == request.user.id %}
                 <div class="row rw">
                     <div class="col-12">{{ card.alias }}</div>
                 </div>
