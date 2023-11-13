@@ -1,12 +1,16 @@
 import json
 from decimal import Decimal
 
+import requests
+from django import forms
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from client.models import Account, Card
+from client.models import Account, Card, Client
 
+from .forms import TransactionForm
 from .models import Transaction
 
 
@@ -63,7 +67,7 @@ def transfer_inc(request):
             account.balance = account.balance + amount
             new_transaction = Transaction(
                 agent=data['sender'],
-                amount=data['amount'],
+                amount=amount,
                 concept=data['concept'],
                 account=account,
                 kind='INC',
@@ -73,3 +77,39 @@ def transfer_inc(request):
         return HttpResponse()
     else:
         return HttpResponseBadRequest('Los datos de la operación son incorrectos')
+
+
+@csrf_exempt
+@login_required
+def transfer_out(request):
+    if request.method == 'POST':
+        form = TransactionForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            account_id = cd['agent']
+            account = Account.objects.get(id=account_id)
+            amount = cd['amount']
+            data = {
+                'sender': account.alias,
+                'cac': cd['account'],
+                'concept': cd['concept'],
+                'amount': str(amount),
+            }
+            response = requests.post('http://127.0.0.1:8000/transfer/incoming/', json=data)
+            if response.status_code == 200:
+                account.balance = account.balance - amount
+                new_transaction = Transaction(
+                    agent=data['sender'],
+                    amount=amount,
+                    concept=data['concept'],
+                    account=account,
+                    kind='OUT',
+                )
+                account.save()
+                new_transaction.save()
+        return render(request, 'guest/home.html', {'form': form})
+    else:
+        form = TransactionForm()
+        user = Client.objects.get(user=request.user)
+        form.fields['agent'] = forms.ModelChoiceField(queryset=user.accounts.all())
+    return render(request, 'transactions/transaction/create.html', {'form': form})

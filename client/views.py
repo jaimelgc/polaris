@@ -61,8 +61,6 @@ def create_card(request):
             return HttpResponse('Unable to create card')
     else:
         form = CardCreationForm()
-        user = Client.objects.get(id=request.user.id)
-        form.fields['account'] = forms.ModelChoiceField(queryset=user.accounts.all())
     return render(request, 'client/card/create_card.html', {'form': form})
 
 

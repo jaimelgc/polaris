@@ -1,0 +1,12 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Transaction{% endblock %}
+
+{% block content %}
+    <h1>Your transaction:</h1>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Send"></p>
+    </form>
+{% endblock %}
