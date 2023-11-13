@@ -1,6 +1,6 @@
 <div class="card col-5 my-2 p-0">
     {% if product.image %}
-        <img class="card-img-top m-0" src="{{ product.image }}" alt="Card image cap">
+        <img class="card-img-top m-0" src="{{ product.image.url }}" alt="Card image cap">
     {% else %}
         No hay imagen asociada a este producto
     {% endif %}

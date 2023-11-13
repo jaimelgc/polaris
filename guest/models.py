@@ -15,3 +15,9 @@ class Product(models.Model):
 
     def __str__(self):
         return f'Prodct: {self.title}'
+
+    # @property
+    # def avatar(self):
+    #     if self.image:
+    #         return self.image
+    #     return 'No hay imagen asociada a este producto'
