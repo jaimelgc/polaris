@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-6 col-12 order-md-2 order-1">
         {% if product.image %}
-            <img src="{{ product.image }}" class="img-fluid"> alt="Split banner image cap">
+            <img src="{{ product.image.url }}" class="img-fluid" alt="Split banner image cap">
         {% else %}
             No hay imagen asociada a este producto
         {% endif %}
