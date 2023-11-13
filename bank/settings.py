@@ -33,16 +33,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'guest.apps.GuestConfig',
+    'client.apps.ClientConfig',
+    'transactions.apps.TransactionsConfig',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'guest.apps.GuestConfig',
-    'client.apps.ClientConfig',
-    'transactions.apps.TransactionsConfig',
-    'bootstrap5',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -141,3 +143,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=config.boolean)
 EMAIL_PORT = config('EMAIL_HOST_PORT', default=587, cast=int)
+
+# Media Files configuration
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
