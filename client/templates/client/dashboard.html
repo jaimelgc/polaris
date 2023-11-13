@@ -169,7 +169,7 @@
           </div>
           <!--Placeholder cuenta XS-->
             {% for account in accounts %}
-                {% if account.id == request.user.id %}
+                {% if account.user.id == request.user.id %}
                     <div class="row rw">
                         <div class="col-12">{{ account.alias }}</div>
                         <div class="col-12">Balance: {{ account.balance }} €</div>
@@ -188,7 +188,7 @@
           </div>
           <!--Placeholder tarjeta XS-->
           {% for card in cards %}
-            {% if card.account.id == request.user.id %}
+            {% if card.usery.id == request.user.id %}
                 <div class="row rw">
                     <div class="col-12">{{ card.alias }}</div>
                 </div>

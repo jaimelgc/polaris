@@ -69,6 +69,8 @@ header {
 
 
 #left-menu {
+    border-width: 2px;
+    border-color: black;
     background-color: rgb(197, 195, 195);
     height: 1000px;
     font-weight: bold;
