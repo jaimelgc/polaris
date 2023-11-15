@@ -13,12 +13,14 @@
         <div class="row">
             <div class="col-2 bg-lgt-gray d-flex flex-column pt-3">
                 <ul class="list-group list-group-flush bg-lgt-gray">Cuentas
-                <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">Cuenta1</a>
-                    {% comment %} <li>bucle para mostrar cuentas</li> {% endcomment %}
+                    {% for account in accounts %}
+                    <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
+                    {% endfor %}
                 </ul><hr>
                 <ul class="list-group list-group-flush bg-lgt-gray pb-3">Tarjetas
-                    <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">Tarjeta1</a>
-                    {% comment %} <li>bucle para mostrar tarjetas</li> {% endcomment %}
+                    {% for card in cards %}
+                    <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ card.alias }}</a>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-10 p-5">
