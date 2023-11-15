@@ -121,28 +121,40 @@
               <div class="col-12">MOVIMIENTOS ÚLTIMO MES</div>
               <div class="row">
                   <div class="col-1"></div>
-                  <div class="col-11">
-                      <div class="row">
-                          <div class="col-5">Transferencia: 876.59 €</div>
-                          <div class="col-5">Reforma piso Santa Úrsula</div>
-                          <div class="col-2">
-                              <a href="#">Ver detalles</a>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-5">Transferencia: -486.59 €</div>
-                          <div class="col-5">Academia hijo</div>
-                          <div class="col-2">
-                              <a href="#">Ver detalles</a>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-5">Transferencia: 650.59 €</div>
-                          <div class="col-5">Alquiler piso Santa Úrsula</div>
-                          <div class="col-2">
-                              <a href="#">Ver detalles</a>
-                          </div>
-                      </div>
+                  <div class="col-11">Placehlder
+                    <!-- {% for account in accounts %}
+                        <div class="row rw">
+                            <div class="col-12">{{ account.alias }}</div>
+                            <div class="col-12">Balance: {{ account.balance }} €</div>
+                            <div class="col-4">
+                                <a href="#">Detalles</a>
+                            </div>
+                        </div>
+                    {% endfor %} -->
+                      <div class="row"></div>
+                      <div class="row"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="row rw">
+              <div class="col-12">TARJETAS</div>
+              <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-5">
+                    {% for card in cards %}
+                        <div class="row rw">
+                            <div class="col-12">{{ card.alias }}</div>
+                        </div>
+                        <div class="row rw">
+                            <div class="col-12">
+                                {% if card.image %}
+                                    <img class="col-8 vh-10" src="{{ card.image.url }}" alt="card">
+                                {% else %}
+                                    <p> Sin imagen disponible </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
                       <div class="row"></div>
                       <div class="row"></div>
                   </div>
