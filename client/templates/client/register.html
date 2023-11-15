@@ -1,6 +1,10 @@
-{% extends "base_login.html" %}
+{% extends "guest/base.html" %}
 
 {% block title %}Create a client account{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock header %}
+
 
 {% block content %}
   <!-- Formulario de registro -->
