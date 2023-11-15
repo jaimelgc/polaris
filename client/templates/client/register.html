@@ -20,7 +20,6 @@
             <form method="post" class="col-12" id="register-form">
                 <div class="col-12">
                     <h5>5 minutos hasta tener tu cuenta con nosotros</h5><hr> 
-
                     {% for field in user_form %}
                         <div>                            
                             {{ field.label_tag }} <br>
@@ -31,7 +30,7 @@
                     {% csrf_token %}
                     <br>
                     <a href="">Tratamiento de datos personales</a>
-                    <label for="privacy"> <input type="checkbox" name="privacy" id="privacy"><span>He leído, comprendo y acepto el tratamiento de datos personales.</span></label><br><br>
+                    <label for="privacy"><input type="checkbox" name="privacy" id="privacy"><span> He leído, comprendo y acepto el tratamiento de datos personales.</span></label><br><br>
                     <input type="submit" value="Registrarse" ><br><br>
                     <a href="#">más información</a>
                 </div>
