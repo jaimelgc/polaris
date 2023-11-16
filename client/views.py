@@ -92,8 +92,14 @@ def dashboard(request, account_slug=None):
     else:
         acc_detail = accounts.get(slug=accounts[0].slug)
     cards = client.cards.filter(account=acc_detail).all()
+    transactions = acc_detail.transactions.all()
     return render(
         request,
         'client/dashboard.html',
-        {'accounts': accounts, 'cards': cards, 'acc_detail': acc_detail},
+        {
+            'accounts': accounts,
+            'cards': cards,
+            'acc_detail': acc_detail,
+            'transactions': transactions,
+        },
     )
