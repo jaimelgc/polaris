@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+{% if account %}
     <div class="container">
         <div class="row pt-2">
             <div class="col-2 bg-lgt-gray d-flex flex-column p-3" id="left-menu">
@@ -62,7 +63,15 @@
             </div>
         </div> 
     </div>
+{% else %}
+    <div class="row">
+        <div class="col-12 p-4">
+            <h1>No accounts brodel</h1>
+        </div>
+    </div>
+{% endif %}
 {% endblock %}
+
 {% block footer %}
     {% include "guest/footer.html" %}
 {% endblock %}
