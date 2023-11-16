@@ -3,93 +3,68 @@
 
 {% block title %}Dashboard{% endblock %}
 
+{% load static %}
+
 {% block header %}
-<header>
-  <div class="row d-none d-sm-flex">
-    <!--Logo-->
-    <div class="col-lg-1"></div>
-    <div class="logo-header col-lg-2 col-md-6 col-12 order-xs-1 d-flex">
-        <img id="logo" src="{% static 'img/polaris_logo_white.svg' %}">
-    </div>
-    <div class="col-lg-3 col-md-2"></div>
-    <div class="col-md-6">
-        <!--Links alineados-->
-        <div class="row">
-            <div class="col-lg-1"></div>
-            <div class="link-row-header col-5 d-none d-lg-flex">
-                <a class="link-header" href="#">NOMBRE USUARIO</a>
-                <div class="line"></div>
-                <a class="link-header" href="#">BUZÓN</a>
-                <div class="line"></div>
-                <a class="link-header" href="#">AYUDA</a>
-            </div>
-            <div class="col-lg-1"></div>
-            <div class="link-row-header col-5 d-none d-lg-flex">
-                <a class="link-header" href="#">CAMBIAR USUARIO</a>
-                <div class="line"></div>
-                <a class="link-header" href="#">CERRAR SESIÓN</a>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!--Header XS-->
-
-  <div class="row d-flex d-sm-none">
-    <!--Icono del usuario-->
-    <div class="col-2">
-        <img id="user-img" src="{% static 'img/user-icon-1.png' %}" alt="user-icon">
-    </div>
-    <!--Logo-->
-    <div class="col-4">
-        <img id="s-logo" src="{% static 'img/polaris_logo_white.svg' %}" alt="logo">
-    </div>
-    <div class="col-3"></div>
-    <!--Menú desplegable-->
-    <div class="col-2">
-        <div class="btn-group">
-            <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown"
-                data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                Menú
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                <li><a class="dropdown-item d-md-none" href="#">Usuario</a></li>
-                <li><a class="dropdown-item" href="#">Buzón</a></li>
-                <li><a class="dropdown-item" href="#">Ayuda</a></li>
-                <li><a class="dropdown-item" href="#">Cambiar usuario</a></li>
-                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-            </ul>
-        </div>
-    </div>
-  </div>
-</header>
+    {% include 'header_dashboard.html' %}
 {% endblock %}
 
 {% block content %}
-<div class="row">
-  <!--Menú Lateral-->
-  <div id="left-menu" class="col-lg-2 d-lg-block d-none vh-100">
-      <div class="row">
-          <div class="col-12">CUENTAS</div>
-          <div class="row">
-              <div class="col-2"></div>
-              <div class="col-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-lgt-gray d-flex flex-column pt-3">
+                <ul class="list-group list-group-flush bg-lgt-gray">Cuentas
                 {% for account in accounts %}
-                    <div class="row">{{ account.alias }}</div>
+                <a href="http://127.0.0.1:8000/client/{{ account.slug }}/" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
                 {% endfor %}
-              </div>
-          </div>
-          <div class="col-12 pt-3">TARJETAS</div>
-          <div class="row">
-              <div class="col-2"></div>
-              <div class="col-10">
+                </ul><hr> 
+                <ul class="list-group list-group-flush bg-lgt-gray pb-3">Tarjetas
                 {% for card in cards %}
-                    <div class="row">{{ card.alias }}</div>
+                    <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ card.alias }}</a>
                 {% endfor %}
-              </div>
-          </div>
-      </div>
-  </div>
+                </ul>
+            </div>
+            <div class="col-10 p-5">
+                <div class="col-12">
+                    <div class="row bg-stg-blue text-white">
+                        <div class="col-6 d-flex p-4">
+                            <h2 class="m-0">{{ acc_detail.alias }}</h2>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+                            <p class="m-0">Saldo: {{ acc_detail.balance }}€</p>
+                        </div>
+                    </div>
+                    <div class="row bg-white">
+                        <div class="col-6 d-flex p-4">
+                            <p class="m-0">Ingresos último mes: {{ acc_detail.income }}€</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+                            <p class="m-0">Gastos último mes: {{ acc_detail.expenses }}€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row bg-stg-blue">
+                    <div class="col-12 d-flex justify-content-center align-items-center p-3">
+                        <a href="#" class="link-nos-white">Buscar Movimientos</a>
+                        <a href="#" class="link-nos-white">Transferencias/Traspasos</a>
+                        <a href="#" class="link-nos-white">Tarjetas</a>
+                        <a href="#" class="link-nos-white">Ver más</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row p-4">
+                        <h4>Título de lo que sea</h4>
+                    </div>
+                    <div class="row p-4">
+                        <ul>
+                            {% comment %} <li>bucle para lo que sea</li> {% endcomment %}
+                        </ul>
+                    </div>
+                </div>          
+            </div>
+        </div> 
+    </div>
+{% endblock %}
 
   <!--Contenedor central-->
 

@@ -86,8 +86,24 @@ def user_login(request):
 
 
 @login_required
-def dashboard(request):
+def dashboard(request, account_slug=None):
     client = Client.objects.get(user=request.user)
     accounts = client.accounts.all()
     cards = client.cards.all()
-    return render(request, 'client/dashboard.html', {'accounts': accounts, 'cards': cards})
+    if account_slug:
+        acc_detail = accounts.get(slug=account_slug)
+    else:
+        acc_detail = accounts.get(slug=accounts[0].slug)
+    return render(
+        request,
+        'client/dashboard.html',
+        {'accounts': accounts, 'cards': cards, 'acc_detail': acc_detail},
+    )
+
+
+# @login_required
+# def account_detail(request):
+#     client = Client.objects.get(user=request.user)
+#     account_detail = client.accounts.get(user=client)
+#     cards = client.cards.get(account=account_detail)
+#     return render(request, 'client/dashboard.html', {'account': account, 'cards': cards})

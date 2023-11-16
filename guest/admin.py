@@ -1,8 +1,7 @@
 from django.contrib import admin
-
-from .models import Product
+from guest.models import Product
 
 
 @admin.register(Product)
-class ClientAdmin(admin.ModelAdmin):
-    list_display = ['title']
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['title', 'subtitle', 'slug', 'body', 'image', 'type']
