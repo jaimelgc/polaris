@@ -111,6 +111,7 @@ def transfer_out(request):
                 )
                 account.save()
                 new_transaction.save()
+                return render(request, 'transactions/transaction/done.html', {'form': form})
         return render(request, 'guest/home.html', {'form': form})
     else:
         form = TransactionForm()
@@ -140,3 +141,4 @@ class TransactionListView(LoginRequiredMixin, ListView):
     paginate_by = 2
     context_object_name = 'transactions'
     template_name = 'transactions/movements.html'
+
