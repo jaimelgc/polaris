@@ -17,22 +17,22 @@
             </div>
             <!-- menú extendido para pantallas grandes-->
             <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
-                <a href="#" class="link-nos-white">Operaciones</a>
-                <a href="#" class="link-nos-white">Buzón</a>
-                <a href="#" class="link-nos-white">Ayuda</a>
-                <a href="#" class="link-nos-white">Contacto</a>
+                <a href="#" class="link-nos-white">Transactions</a>
+                <a href="#" class="link-nos-white">Mailbox</a>
+                <a href="#" class="link-nos-white">Help</a>
+                <a href="#" class="link-nos-white">Contact</a>
             </div>
             <!-- login, registro, idiomas, menú desplegable -->
             <div class="col-md-2 col-12 order-3 d-lg-none d-flex justify-content-center align-items-center">
                 <div class="btn-group">
                     <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                        Menú
+                        Menu
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item" href="#">Operaciones</a></li>
-                        <li><a class="dropdown-item" href="#">Buzón</a></li>
-                        <li><a class="dropdown-item" href="#">Ayuda</a></li>
-                        <li><a class="dropdown-item" href="#">Contacto</a></li>
+                        <li><a class="dropdown-item" href="#">Transactions</a></li>
+                        <li><a class="dropdown-item" href="#">Mailbox</a></li>
+                        <li><a class="dropdown-item" href="#">Help</a></li>
+                        <li><a class="dropdown-item" href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,10 +40,10 @@
                 <div class="row">
                     <div class="col-md-5 text-white p-2 w-auto d-md-block">
                         {% if request.user.is_authenticated %}
-                        Hola {{ user.first_name }},
-                        <a href="{% url "logout" %}" class="text-decoration-underline text-white">Cerrar sesión</a>
+                        Hi {{ user.first_name }},
+                        <a href="{% url "logout" %}" class="text-decoration-underline text-white">Log out</a>
                         {% else %}
-                        <a href="{% url "login" %}">Iniciar sesión</a>
+                        <a href="{% url "login" %}">Log in</a>
                         {% endif %}
                     </div>
                 </div>

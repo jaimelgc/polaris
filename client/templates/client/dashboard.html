@@ -2,46 +2,43 @@
 
 {% block title %}Dashboard{% endblock %}
 
-{% load static %}
-
 {% block header %}
     {% include 'header_dashboard.html' %}
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-2 bg-lgt-gray d-flex flex-column pt-3">
+    <div class="container overflow-hidden">
+        <div class="row pt-2">
+            <div class="col-2 bg-lgt-gray d-flex flex-column p-3" id="left-menu">
                 <ul class="list-group list-group-flush bg-lgt-gray">Cuentas
                     {% for account in accounts %}
                     <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
                     {% endfor %}
                 </ul><hr>
-                <ul class="list-group list-group-flush bg-lgt-gray pb-3">Tarjetas
+                <ul class="list-group list-group-flush bg-lgt-gray">Tarjetas
                     {% for card in cards %}
                     <a href="#" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ card.alias }}</a>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-10 p-5">
-                <div class="col-12">
-                    <div class="row bg-stg-blue text-white">
-                        <div class="col-6 d-flex p-4">
+            <div class="col-9 ms-2 rounded-4 border" id="main-data">
+                    <div class="row bg-stg-blue text-white" id="account-info">
+                        <div class="col-6 d-flex p-3">
                             <h2 class="m-0">Cuenta1</h2>
                         </div>
                         <div class="col-6 d-flex justify-content-end align-items-end p-4">
                             <p class="m-0">Saldo: 1000€</p>
                         </div>
                     </div>
-                    <div class="row bg-white">
-                        <div class="col-6 d-flex p-4">
+                    <div class="row bg-white" >
+                        <div class="col-6 d-flex p-3">
                             <p class="m-0">Ingresos último mes: 2000€</p>
                         </div>
-                        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+                        <div class="col-6 d-flex justify-content-end align-items-end p-3">
                             <p class="m-0">Gastos último mes: 1000€</p>
                         </div>
                     </div>
-                </div>
+
                 <div class="row bg-stg-blue">
                     <div class="col-12 d-flex justify-content-center align-items-center p-3">
                         <a href="#" class="link-nos-white">Buscar Movimientos</a>

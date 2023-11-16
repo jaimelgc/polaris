@@ -1,6 +1,6 @@
 {% extends "base_login.html" %}
 
-{% block title %}Iniciar sesión{% endblock %}
+{% block title %}Log in{% endblock %}
 
 {% block header %}
   {% include "header.html" %}
@@ -12,20 +12,16 @@
     <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
     <form action="{% url 'login' %}" method="post" class="col-12 col-md-6" id="log-in-form">
       <div class="col-12">
-        <h4>Iniciar sesión</h4><hr>
+        <h4>Log in</h4><hr>
         {% if form.errors %}
-          <p>
-            El nombre de usuario y contraseña no coinciden.
-            Por favor, inténtalo de nuevo.
-          </p>
         {% endif %}
         {{ form.as_p }}
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}" />
         <p><input type="submit" value="Log-in"></p>
     </form>
-      <p>Si no tienes una cuenta, <a href={% url "register" %}>registrate aquí.</a></p>
-      <p><a href="{% url 'password_reset' %}">¿Has olvidado tu contraseña?</a></p>
+      <p>If you don't have an account, <a href={% url "register" %}>register here.</a></p>
+      <p><a href="{% url 'password_reset' %}">Forgotten password?</a></p>
       </div>
     </div>
   </div>
