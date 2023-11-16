@@ -56,7 +56,7 @@ def transfer(request):
 def transfer_inc(request):
     data = json.loads(request.body)
     # En data tendremos un diccionario con los datos enviados
-    if ['sender', 'cac', 'concept', 'amount'] == [key for key in data.keys()]:
+    if set(['sender', 'cac', 'concept', 'amount']) == set(data.keys()):
         bank_id = data['cac'][:2]
         account_id = int(data['cac'][3:])
         amount = Decimal(data['amount'])
