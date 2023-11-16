@@ -87,4 +87,7 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'client/dashboard.html')
+    client = Client.objects.get(user=request.user)
+    accounts = client.accounts.all()
+    cards = client.cards.all()
+    return render(request, 'client/dashboard.html', {'accounts': accounts, 'cards': cards})
