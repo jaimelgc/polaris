@@ -120,12 +120,19 @@ def transfer_out(request):
 
 
 class TransactionListView(LoginRequiredMixin, ListView):
-    def get_queryset(self) -> QuerySet[Any]:
+    def get_queryset(self):
         client = get_object_or_404(Client, user=self.request.user)
-        accounts = client.accounts.all()
-        return Transaction.objects.filter(account__in=accounts)
+        if 'account_id' in self.request.GET.keys():
+            account = get_object_or_404(
+                Account, id=self.request.GET.get('account_id'), user=client.id
+            )
+            queryset = account.transactions.all()
+        else:
+            accounts = client.accounts.all()
+            queryset = Transaction.objects.filter(account__in=accounts)
+        return queryset
 
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+    def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
         context['client'] = get_object_or_404(Client, user=self.request.user)
         return context
