@@ -37,14 +37,14 @@
                     </div>
                 <div class="row bg-stg-blue" id="info-nav">
                     <div class="col-12 rounded d-flex justify-content-center align-items-center p-3">
-                        <a href="#" class="link-nos-white">Cards</a>
+                        <a href="javascript:void(0);" onclick="showCards()" class="link-nos-white" id="show-cards">Cards</a>
                         <a href="#" class="link-nos-white">Search Movements</a>
-                        <a href="#" class="link-nos-white">See Transactions</a>
+                        <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
                         <a href="#" class="link-nos-white">See more</a>
                     </div>
                 </div>
                 {% if cards %}
-                <div class="row">
+                <div class="row d-block" id="cards-container">
                     <div class="row p-4">
                         {% for card in cards %}
                         <div class="col-6 d-flex p-2 justify-content-center">
@@ -71,13 +71,40 @@
                         </ul>
                     </div>
                 </div>
+                {% else %}
+                    No hay tarjetas registradas en esta cuenta.
                 {% endif %}
-                {% comment %} Movements {% endcomment %}   
-                {% include "transactions/movements.html" %}
+                {% if transactions %}
+                <div class="d-none" id="movements-container"></div>
+                    {% include "transactions/movements.html" %}
+                {% else %}
+                    No hay movimientos registrados en esta cuenta.
+                </div>
+                {% endif %}     
             </div>
         </div> 
     </div>
 {% endblock %}
+
+{% block domready %}
+    <script>
+        function showCards() {
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
+            movements.classList.remove('d-block');
+            movements.classList.add('d-none');
+            cards.classList.add('d-block');
+        }
+        function showMovements() {
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
+            cards.classList.remove('d-block');
+            cards.classList.add('d-none');
+            movements.classList.add('d-block');
+        }
+    </script>
+{% endblock %}
+
 {% block footer %}
     {% include "guest/footer.html" %}
 {% endblock %}
