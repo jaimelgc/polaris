@@ -1,4 +1,5 @@
 {% extends "guest/base.html" %}
+{% load static %}
 
 {% block title %}Create a client account{% endblock %}
 {% block header %}
@@ -18,21 +19,23 @@
     <!-- Registro -->
         <div class="container d-flex align-items-center justify-content-center">
             <form method="post" class="col-12" id="register-form">
-                <div class="col-12">
-                    <h5>5 minutos hasta tener tu cuenta con nosotros</h5><hr> 
-                    {% for field in user_form %}
-                        <div>                            
-                            {{ field.label_tag }} <br>
-                            {{ field }}
-                            {{ field.errors }} 
-                        </div>
-                    {% endfor %}
-                    {% csrf_token %}
-                    <br>
-                    <label for="privacy"><input type="checkbox" name="privacy" id="privacy"><span> He leído, comprendo y acepto el tratamiento de datos personales.</span></label><br><br>
-                    <input type="submit" value="Registrarse" ><br><br>
-                    <a href="#">más información</a>
-                </div>
-            </form>
+                <div class="row">
+                    <div class="col-2 d-flex justify-content-center align-items-center p-0">
+                        <img src="{% static "img/clock.png" %}" alt="clock" id="clock-img">
+                    </div>
+                    <div class="col-10 d-flex justify-content-center align-items-center p-0">
+                        <h5 class="mb-0">Un minuto hasta tener tu cuenta con nosotros.</h5>
+                    </div><hr>
+                    <div class="col-12">  
+                            {{ user_form.as_p}}                     
+                            {% csrf_token %}
+                        <br>
+                        <a href="">Tratamiento de datos personales</a><br>
+                        <input type="checkbox" name="privacy" id="privacy"><span> He leído, comprendo y acepto el tratamiento de datos personales.</span><br><br>
+                        <input type="submit" value="Registrarse" ><br><br>
+                    </form>
+                        <a href="#">Más información</a>
+                    </div>
+                </div>       
         </div> 
 {% endblock %}
