@@ -23,6 +23,7 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', views.dashboard, name='dashboard'),
+    path('<slug:account_slug>/', views.dashboard, name="dashboard_acc_detail"),
     path('account/create', views.create_account, name='create_account'),
     path('card/create', views.create_card, name='create_card'),
 ]

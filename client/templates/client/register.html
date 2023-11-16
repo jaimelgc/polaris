@@ -1,20 +1,41 @@
-{% extends "base_login.html" %}
+{% extends "guest/base.html" %}
+{% load static %}
 
 {% block title %}Create a client account{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock header %}
 
 {% block content %}
-  <!-- Formulario de registro -->
-  <div class="container">
-    <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
-    <form action="{% url 'register' %}" method="post" class="col-12 col-md-6" id="register-form">
-        <div class="col-12">
-        <h4>Create a client account</h4><hr>
-        <p>Please, sign up using the following form:</p>
-            {{ user_form.as_p }}
-            {% csrf_token %}
-            <p><input type="submit" value="Create my account"></p>
-    </form>
+    <div class="container">
+        <!-- banner nivel de riesgo -->
+        <div class="row bg-lgt-gray border border-dark m-md-4 m-2">
+            <div class="col-12 text-center border-bottom border-dark fs-4 p-1">Nivel de riesgo</div>
+            <div class="col-2 d-flex justify-content-center fs-1 p-1">1/6</div>
+            <div class="col-md-5 col-10 p-1">Este número es indicativo del riesgo del producto, siendo 1 / 6 indicativo de menor riesgo y 6 / 6 de mayor riesgo.</div>
+            <div class="col-md-5 d-md-block d-none p-1">Polaris está adherido al Fondo de Garantía de Depósitos de Entidades de Crédito de PaísQueNoExiste. La cantidad máxima garantizada es de 100.000€ por la totalidad de depósitos constituidos en Polaris por persona.</div>
         </div>
     </div>
-</div>
+    <!-- Registro -->
+        <div class="container d-flex align-items-center justify-content-center">
+            <form method="post" class="col-12" id="register-form">
+                <div class="row">
+                    <div class="col-2 d-flex justify-content-center align-items-center p-0">
+                        <img src="{% static "img/clock.png" %}" alt="clock" id="clock-img">
+                    </div>
+                    <div class="col-10 d-flex justify-content-center align-items-center p-0">
+                        <h5 class="mb-0">Un minuto hasta tener tu cuenta con nosotros.</h5>
+                    </div><hr>
+                    <div class="col-12">  
+                            {{ user_form.as_p}}                     
+                            {% csrf_token %}
+                        <br>
+                        <a href="">Tratamiento de datos personales</a><br>
+                        <input type="checkbox" name="privacy" id="privacy"><span> He leído, comprendo y acepto el tratamiento de datos personales.</span><br><br>
+                        <input type="submit" value="Registrarse" ><br><br>
+                    </form>
+                        <a href="#">Más información</a>
+                    </div>
+                </div>       
+        </div> 
 {% endblock %}
