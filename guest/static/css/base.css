@@ -147,3 +147,29 @@ body{
 #clock-img {
     width: 55px;
 }
+
+/* .card-image {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.card-code {
+    position: absolute;
+    top: 75%;
+    left: 30%;
+    transform: translate(-50%, 50%);
+    color: white;
+    font-size:xx-small;
+
+}
+
+.card-alias {
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, 50%);
+    color: white;
+    font-size:xx-small;
+
+} */
