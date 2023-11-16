@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-{% if account %}
+{% if acc_detail %}
     <div class="container">
         <div class="row pt-2">
             <div class="col-2 bg-lgt-gray d-flex flex-column p-3" id="left-menu">
@@ -15,7 +15,11 @@
                     {% for account in accounts %}
                     <a href="http://127.0.0.1:8000/client/{{ account.slug }}/" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
                     {% endfor %}
-                </ul><hr>
+                </ul>
+                <ul class="list-group list-group-flush bg-lgt-gray d-flex p-top-5">
+                    <a href="#" class="newitem">Nueva cuenta</a>
+                    <a href="#" class="newitem">Nueva tarjeta</a>
+                </ul>
             </div>
             <div class="col-9 ms-2 rounded-4 border" id="main-data">
                     <div class="row bg-stg-blue text-white" id="account-info">
