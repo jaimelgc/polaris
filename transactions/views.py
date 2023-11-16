@@ -1,12 +1,16 @@
 import json
 from decimal import Decimal
+from typing import Any
 
 import requests
 from django import forms
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models.query import QuerySet
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic.list import ListView
 
 from client.models import Account, Card, Client
 
@@ -113,3 +117,19 @@ def transfer_out(request):
         user = Client.objects.get(user=request.user)
         form.fields['agent'] = forms.ModelChoiceField(queryset=user.accounts.all())
     return render(request, 'transactions/transaction/create.html', {'form': form})
+
+
+class TransactionListView(LoginRequiredMixin, ListView):
+    def get_queryset(self) -> QuerySet[Any]:
+        client = get_object_or_404(Client, user=self.request.user)
+        accounts = client.accounts.all()
+        return Transaction.objects.filter(account__in=accounts)
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['client'] = get_object_or_404(Client, user=self.request.user)
+        return context
+
+    paginate_by = 2
+    context_object_name = 'transactions'
+    template_name = 'transactions/movements.html'
