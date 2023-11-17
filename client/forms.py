@@ -36,6 +36,15 @@ class AccountRegistrationForm(forms.ModelForm):
         model = Account
         fields = ['alias']
 
+    # def clean_alias(self):
+    #     cd = self.cleaned_data
+    #     alias = cd['alias']
+    #     user = cd['user']
+    #     if Account.objects.filter(alias=alias, user=user).exists():
+    #         raise forms.ValidationError('Alias already in use.')
+    #     return alias
+    
+
 
 class CardCreationForm(forms.ModelForm):
     class Meta:

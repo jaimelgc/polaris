@@ -1,0 +1,13 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Create a bank card{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+{% block content %}
+<div class="container pt-4">
+    <h1>Card done!</h1>
+    <a href="{% url "dashboard" %}">Back to dashboard.</a>
+</div>
+{% endblock %}

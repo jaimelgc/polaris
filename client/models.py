@@ -23,7 +23,7 @@ class Account(models.Model):
         BLOQUED = "BL", "Bloqued"
         TERMINATED = "TE", "Terminated"
 
-    alias = models.CharField(max_length=120, unique=True)
+    alias = models.CharField(max_length=120)
     slug = models.SlugField(max_length=120, blank=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     expenses = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -41,7 +41,7 @@ class Account(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.alias)
-            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     @property
     def code(self):
