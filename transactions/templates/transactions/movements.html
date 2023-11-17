@@ -1,0 +1,31 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Movements{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Origin</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Concept</th>
+            <th scope="col">Kind</th>
+            <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <th scope="row">{{ transaction.agent }}</th>
+                    <td>{{ transaction.amount }}</td>
+                    <td>{{ transaction.concept }}</td>
+                    <td>{{ transaction.kind }}</td>
+                    <td>{{ transaction.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "pagination.html" with page=page_obj %}
+</div>
+{% endblock %}

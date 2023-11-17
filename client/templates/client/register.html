@@ -1,10 +1,15 @@
-{% extends "base.html" %}
+{% extends "guest/base.html" %}
+{% load static %}
 
 {% block title %}Create a client account{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock header %}
 
 {% load static%}
 
 {% block content %}
+<<<<<<< HEAD
     <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
         <div class="row d-md-flex d-none justify-content-end mb-2">
             <div class="w-auto text-center bg-lgt-gray border-end border-dark">
@@ -24,6 +29,8 @@
             <p id="phone-contact">Teléfono de ayuda: 922-155-155</p>
           </div>
     </header>
+=======
+>>>>>>> develop
     <div class="container">
         <!-- banner nivel de riesgo -->
         <div class="row bg-lgt-gray border border-dark m-md-4 m-2">
@@ -33,6 +40,7 @@
             <div class="col-md-5 d-md-block d-none p-1">Polaris está adherido al Fondo de Garantía de Depósitos de Entidades de Crédito de PaísQueNoExiste. La cantidad máxima garantizada es de 100.000€ por la totalidad de depósitos constituidos en Polaris por persona.</div>
         </div>
     </div>
+<<<<<<< HEAD
     
     <!-- Registro -->
         <div class="container d-flex align-items-center justify-content-center">
@@ -55,5 +63,28 @@
                     <a href="#">más información</a>
                 </div>
             </form>
+=======
+    <!-- Registro -->
+        <div class="container d-flex align-items-center justify-content-center">
+            <form method="post" class="col-12" id="register-form">
+                <div class="row">
+                    <div class="col-2 d-flex justify-content-center align-items-center p-0">
+                        <img src="{% static "img/clock.png" %}" alt="clock" id="clock-img">
+                    </div>
+                    <div class="col-10 d-flex justify-content-center align-items-center p-0">
+                        <h5 class="mb-0">Un minuto hasta tener tu cuenta con nosotros.</h5>
+                    </div><hr>
+                    <div class="col-12">  
+                            {{ user_form.as_p}}                     
+                            {% csrf_token %}
+                        <br>
+                        <a href="">Tratamiento de datos personales</a><br>
+                        <input type="checkbox" name="privacy" id="privacy"><span> He leído, comprendo y acepto el tratamiento de datos personales.</span><br><br>
+                        <input type="submit" value="Registrarse" ><br><br>
+                    </form>
+                        <a href="#">Más información</a>
+                    </div>
+                </div>       
+>>>>>>> develop
         </div> 
 {% endblock %}

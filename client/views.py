@@ -61,8 +61,6 @@ def create_card(request):
             return HttpResponse('Unable to create card')
     else:
         form = CardCreationForm()
-        user = Client.objects.get(id=request.user.id)
-        form.fields['account'] = forms.ModelChoiceField(queryset=user.accounts.all())
     return render(request, 'client/card/create_card.html', {'form': form})
 
 
@@ -86,5 +84,16 @@ def user_login(request):
 
 
 @login_required
-def dashboard(request):
-    return render(request, 'client/dashboard.html')
+def dashboard(request, account_slug=None):
+    client = Client.objects.get(user=request.user)
+    accounts = client.accounts.all()
+    if account_slug:
+        acc_detail = accounts.get(slug=account_slug)
+    else:
+        acc_detail = accounts.get(slug=accounts[0].slug)
+    cards = client.cards.filter(account=acc_detail).all()
+    return render(
+        request,
+        'client/dashboard.html',
+        {'accounts': accounts, 'cards': cards, 'acc_detail': acc_detail},
+    )

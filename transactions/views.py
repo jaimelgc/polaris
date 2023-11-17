@@ -1,12 +1,20 @@
 import json
 from decimal import Decimal
+from typing import Any
 
+import requests
+from django import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models.query import QuerySet
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic.list import ListView
 
-from client.models import Card
+from client.models import Account, Card, Client
 
+from .forms import TransactionForm
 from .models import Transaction
 
 
@@ -23,7 +31,7 @@ def transfer(request):
         # comprobar banco ...
         # comprobar tarjeta y pin, falta hashear todo
         try:
-            card = Card.objects.filter(id=card_id, pin=data['pin'])[0]
+            card = Card.objects.get(id=card_id, pin=data['pin'])
             target_account = card.account
         except Exception:
             return HttpResponseForbidden()
@@ -41,4 +49,96 @@ def transfer(request):
             new_transaction.save()
         return HttpResponse()
     else:
-        return HttpResponseBadRequest(data.keys())
+        return HttpResponseBadRequest()
+
+
+@csrf_exempt
+def transfer_inc(request):
+    data = json.loads(request.body)
+    # En data tendremos un diccionario con los datos enviados
+    if ['sender', 'cac', 'concept', 'amount'] == [key for key in data.keys()]:
+        bank_id = data['cac'][:2]
+        account_id = int(data['cac'][3:])
+        amount = Decimal(data['amount'])
+        try:
+            account = Account.objects.get(id=account_id)
+        except Exception:
+            return HttpResponseBadRequest('No ha sido posible realizar la operación')
+        # comprobar que haya dinero para realizar cobro
+        if amount < 0 and abs(amount) > account.balance:
+            return HttpResponseBadRequest('No es posible realizar la operación')
+        else:
+            account.balance = account.balance + amount
+            new_transaction = Transaction(
+                agent=data['sender'],
+                amount=amount,
+                concept=data['concept'],
+                account=account,
+                kind='INC',
+            )
+            account.save()
+            new_transaction.save()
+        return HttpResponse()
+    else:
+        return HttpResponseBadRequest('Los datos de la operación son incorrectos')
+
+
+@csrf_exempt
+@login_required
+def transfer_out(request):
+    if request.method == 'POST':
+        form = TransactionForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            account_id = cd['agent']
+            account = Account.objects.get(id=account_id)
+            amount = cd['amount']
+            data = {
+                'sender': account.alias,
+                'cac': cd['account'],
+                'concept': cd['concept'],
+                'amount': str(amount),
+            }
+            response = requests.post('http://127.0.0.1:8000/transfer/incoming/', json=data)
+            if response.status_code == 200:
+                account.balance = account.balance - amount
+                new_transaction = Transaction(
+                    agent=data['sender'],
+                    amount=amount,
+                    concept=data['concept'],
+                    account=account,
+                    kind='OUT',
+                )
+                account.save()
+                new_transaction.save()
+                return render(request, 'transactions/transaction/done.html', {'form': form})
+        return render(request, 'guest/home.html', {'form': form})
+    else:
+        form = TransactionForm()
+        user = Client.objects.get(user=request.user)
+        form.fields['agent'] = forms.ModelChoiceField(queryset=user.accounts.all())
+    return render(request, 'transactions/transaction/create.html', {'form': form})
+
+
+class TransactionListView(LoginRequiredMixin, ListView):
+    def get_queryset(self):
+        client = get_object_or_404(Client, user=self.request.user)
+        if 'account_id' in self.request.GET.keys():
+            account = get_object_or_404(
+                Account, id=self.request.GET.get('account_id'), user=client.id
+            )
+            queryset = account.transactions.all()
+        else:
+            accounts = client.accounts.all()
+            queryset = Transaction.objects.filter(account__in=accounts)
+        return queryset
+
+    def get_context_data(self, **kwargs: Any):
+        context = super().get_context_data(**kwargs)
+        context['client'] = get_object_or_404(Client, user=self.request.user)
+        return context
+
+    paginate_by = 2
+    context_object_name = 'transactions'
+    template_name = 'transactions/movements.html'
+
