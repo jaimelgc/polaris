@@ -54,7 +54,7 @@ def transfer(request):
 
 @csrf_exempt
 def transfer_inc(request):
-    data = json.loads(request.body)
+    data = json.loads(request.body)    
     # En data tendremos un diccionario con los datos enviados
     if ['sender', 'cac', 'concept', 'amount'] == [key for key in data.keys()]:
         bank_id = data['cac'][:2]
@@ -112,7 +112,7 @@ def transfer_out(request):
                 account.save()
                 new_transaction.save()
                 return render(request, 'transactions/transaction/done.html', {'form': form})
-        return render(request, 'guest/home.html', {'form': form})
+        return render(request, 'transactions/transaction/create.html', {'form': form})
     else:
         form = TransactionForm()
         user = Client.objects.get(user=request.user)

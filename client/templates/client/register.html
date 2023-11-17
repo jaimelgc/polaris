@@ -9,28 +9,6 @@
 {% load static%}
 
 {% block content %}
-<<<<<<< HEAD
-    <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
-        <div class="row d-md-flex d-none justify-content-end mb-2">
-            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-                <a href="#" class="link-under">ES</a>
-            </div>
-            <div class="w-auto text-center bg-lgt-gray">
-                <a href="#" class="link-under">EN</a>
-            </div>
-        </div>
-        <div class="row">
-            <!-- logo -->
-            <div id="logo" class="row">
-                <div class="col-md-6"><a href="{% url 'home' %}"><img src="{% static "img/polaris_logo_white.svg" %}" alt="polaris_logo"/></a></div     
-            
-        </div>
-        <div class="d-flex justify-content-end align-items-end text-center fst-italic">
-            <p id="phone-contact">Teléfono de ayuda: 922-155-155</p>
-          </div>
-    </header>
-=======
->>>>>>> develop
     <div class="container">
         <!-- banner nivel de riesgo -->
         <div class="row bg-lgt-gray border border-dark m-md-4 m-2">
@@ -40,30 +18,6 @@
             <div class="col-md-5 d-md-block d-none p-1">Polaris está adherido al Fondo de Garantía de Depósitos de Entidades de Crédito de PaísQueNoExiste. La cantidad máxima garantizada es de 100.000€ por la totalidad de depósitos constituidos en Polaris por persona.</div>
         </div>
     </div>
-<<<<<<< HEAD
-    
-    <!-- Registro -->
-        <div class="container d-flex align-items-center justify-content-center">
-            <form method="post" class="col-12">
-                <div class="col-12">
-                    <h5>5 minutos hasta tener tu cuenta con nosotros</h5><hr> 
-
-                    {% for field in user_form %}
-                        <div>                            
-                            {{ field.label_tag }} <br>
-                            {{ field }}
-                            {{ field.errors }} 
-                        </div>
-                    {% endfor %}
-                    {% csrf_token %}
-                    <br>
-                    <a href="">Tratamiento de datos personales</a>
-                    <label for="privacy"> <input type="checkbox" name="privacy" id="privacy"><span>He leído, comprendo y acepto el tratamiento de datos personales.</span></label><br><br>
-                    <input type="submit" value="Registrarse" ><br><br>
-                    <a href="#">más información</a>
-                </div>
-            </form>
-=======
     <!-- Registro -->
         <div class="container d-flex align-items-center justify-content-center">
             <form method="post" class="col-12" id="register-form">
@@ -85,6 +39,5 @@
                         <a href="#">Más información</a>
                     </div>
                 </div>       
->>>>>>> develop
         </div> 
 {% endblock %}
