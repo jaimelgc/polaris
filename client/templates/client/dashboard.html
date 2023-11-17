@@ -37,9 +37,9 @@
                     </div>
                 <div class="row bg-stg-blue" id="info-nav">
                     <div class="col-12 rounded d-flex justify-content-center align-items-center p-3">
-                        <a href="javascript:void(0);" onclick="showCards()" class="link-nos-white" id="show-cards">Cards</a><span class="text-white">|</span>
+                        <button onclick="showCards()" class="link-nos-white" id="show-cards">Cards</button><span class="text-white">|</span>
                         <a href="#" class="link-nos-white">Search Movements</a><span class="text-white">|</span>
-                        <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
+                        <button onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</button>
                     </div>
                 </div>
                 <div class="row d-block" id="cards-container">
@@ -50,14 +50,14 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        No hay tarjetas registradas en esta cuenta.
+                        <p>No hay tarjetas registradas en esta cuenta.</p>
                     {% endif %}
                 </div>
                 <div class="row d-none" id="movements-container">
                     {% if transactions %}
                         {% include "transactions/movements.html" %}
                     {% else %}
-                        No hay movimientos registrados en esta cuenta.
+                        <p>No hay movimientos registrados en esta cuenta.</p>
                     {% endif %}
                 </div>     
             </div>
@@ -70,16 +70,16 @@
         function showCards() {
             let cards = document.getElementById('cards-container');
             let movements = document.getElementById('movements-container');
-            movements.classList.remove('d-block');
-            movements.classList.add('d-none');
-            cards.classList.add('d-block');
+            movements.classList.remove("d-block");
+            movements.classList.add("d-none");
+            cards.classList.add("d-block");
         }
         function showMovements() {
             let cards = document.getElementById('cards-container');
             let movements = document.getElementById('movements-container');
-            cards.classList.remove('d-block');
-            cards.classList.add('d-none');
-            movements.classList.add('d-block');
+            cards.classList.remove("d-block");
+            cards.classList.add("d-none");
+            movements.classList.add("d-block");
         }
     </script>
 {% endblock %}
