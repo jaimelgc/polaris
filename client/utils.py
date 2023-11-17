@@ -1,3 +1,4 @@
+from decimal import Decimal
 import random
 import string
 
@@ -14,3 +15,7 @@ def get_banks_data():
     return response.json()
 
 
+def calc_comission(amount, kind, reference):
+    for k, v in reference:
+        if amount < k:
+            return amount * Decimal(v[kind]) / 100

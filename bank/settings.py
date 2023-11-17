@@ -151,11 +151,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Bank comunication protocol
 BANK_DOMAINS_URL = 'https://raw.githubusercontent.com/sdelquin/dsw/main/ut3/te1/files/banks.json'
 BANK_DATA = get_banks_data()
+PAYMENT = 'PAY'
 
 # Comissions
 
-COMISSION_TABLE = {
-    50: {'OUT': '2.00', 'INC': '1.00', 'PAY': '3.00'},
-    500: {'OUT': '4.00', 'INC': '2.00', 'PAY': '5.00'},
-    float("inf"): {'OUT': '6.00', 'INC': '3.00', 'PAY': '7.00'},
-}
+COMISSION_TABLE = [
+    (50, {'OUT': '2.00', 'INC': '1.00', 'PAY': '3.00'}),
+    (500, {'OUT': '4.00', 'INC': '2.00', 'PAY': '5.00'}),
+    (float("inf"), {'OUT': '6.00', 'INC': '3.00', 'PAY': '7.00'}),
+]

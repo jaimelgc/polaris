@@ -28,15 +28,15 @@ class Transaction(models.Model):
         indexes = [models.Index(fields=['-timestamp'])]
         ordering = ['-timestamp']
 
-    class Comission(models.Model):
-        class Type(models.TextChoices):
-            INCOMING = "INC", "Incomming Transaction"
-            OUTGOING = "OUT", "Outgoing Transaction"
-            PAYMENT = "PAY", "Payment"
-        kind = models.CharField(max_length=3, choices=Type.choices)
-        transfer = models.ForeignKey(
-            Transaction, related_name='comissions', on_delete=models.CASCADE
-        )
-        amount = models.DecimalField(MinValueValidator(Decimal('0.01')), decimal_places=2)
 
-        
+class Comission(models.Model):
+    class Type(models.TextChoices):
+        INCOMING = "INC", "Incomming Transaction"
+        OUTGOING = "OUT", "Outgoing Transaction"
+        PAYMENT = "PAY", "Payment"
+
+    kind = models.CharField(max_length=3, choices=Type.choices)
+    transfer = models.ForeignKey(Transaction, related_name='comissions', on_delete=models.CASCADE)
+    amount = models.DecimalField(
+        MinValueValidator(Decimal('0.01')), decimal_places=2, max_digits=10
+    )
