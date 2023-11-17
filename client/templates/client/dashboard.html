@@ -68,16 +68,16 @@
 {% block domready %}
     <script>
         function showCards() {
-            var cards = document.getElementById('cards-container');
-            var movements = document.getElementById('movements-container');
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
             movements.classList.remove("d-block");
             movements.classList.add("d-none");
             cards.classList.remove("d-none");
             cards.classList.add("d-block");
         }
         function showMovements() {
-            var cards = document.getElementById('cards-container');
-            var movements = document.getElementById('movements-container');
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
             cards.classList.remove("d-block");
             cards.classList.add("d-none");
             movements.classList.remove("d-none");
