@@ -41,7 +41,7 @@ class Account(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.alias)
-            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     @property
     def code(self):
