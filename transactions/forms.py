@@ -13,9 +13,7 @@ class TransactionForm(forms.ModelForm):
             Comprobamos que haya dinero suficiente en la cuenta elegida para realizar la operación
         '''
         data = self.cleaned_data['amount']
-        balance = self.cleaned_data['agent']
-        if data > balance.balance:
-            raise ValidationError('You don’t have enough money in this account')
+        print(self.cleaned_data['agent'])
 
     class Meta:
         model = Transaction
