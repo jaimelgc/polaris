@@ -89,8 +89,10 @@ def dashboard(request, account_slug=None):
     accounts = client.accounts.all()
     if account_slug:
         acc_detail = accounts.get(slug=account_slug)
-    else:
+    elif accounts:
         acc_detail = accounts.get(slug=accounts[0].slug)
+    else:
+        acc_detail = None
     cards = client.cards.filter(account=acc_detail).all()
     transactions = acc_detail.transactions.all()
     return render(

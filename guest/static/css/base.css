@@ -148,29 +148,6 @@ body{
     width: 55px;
 }
 
-.image-container {
-    position: relative;
-}
-
-.image-container img {
-    width: 100%; /* Hacer la imagen responsive */
-    height: auto;
-}
-
-.overlay-code {
-    position: absolute;
-    top: 70%;
-    left: 10%;
-    color: white;
-    text-align: center;
-    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
-}
-
-.overlay-alias {
-    position: absolute;
-    top: 80%;
-    left: 10%;
-    color: white;
-    text-align: center;
-    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
+.newitem {
+    font-size: 15px;
 }
