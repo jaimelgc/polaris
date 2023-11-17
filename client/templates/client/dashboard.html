@@ -42,24 +42,24 @@
                         <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
                     </div>
                 </div>
-                {% if cards %}
                 <div class="row d-block" id="cards-container">
-                    <div class="row p-4">
-                        {% for card in cards %}
-                            {% include "client/card/card_detail.html" %}
-                        {% endfor %}
-                    </div>
+                    {% if cards %}
+                        <div class="row p-4">
+                            {% for card in cards %}
+                                {% include "client/card/card_detail.html" %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        No hay tarjetas registradas en esta cuenta.
+                    {% endif %}
                 </div>
-                {% else %}
-                    No hay tarjetas registradas en esta cuenta.
-                {% endif %}
-                {% if transactions %}
-                <div class="d-none" id="movements-container"></div>
-                    {% include "transactions/movements.html" %}
-                {% else %}
-                    No hay movimientos registrados en esta cuenta.
-                </div>
-                {% endif %}     
+                <div class="row d-none" id="movements-container">
+                    {% if transactions %}
+                        {% include "transactions/movements.html" %}
+                    {% else %}
+                        No hay movimientos registrados en esta cuenta.
+                    {% endif %}
+                </div>     
             </div>
         </div> 
     </div>
