@@ -111,7 +111,7 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form, #password-reset-form {
+#log-in-form, #email-form, #password-reset-form, #new-card-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
@@ -128,8 +128,12 @@ body{
 #log-in-form label, #register-form label {
     display: inline-block;
     width: 250px;
-    text-align: left;
-    margin-right: 10px;
+    text-align: center;
+}
+
+#new-card-form label {
+    display: inline-block;
+    text-align: left;;
 }
 
 #left-menu, #account-info, #info-nav{
@@ -148,12 +152,14 @@ body{
     width: 55px;
 }
 
+/* Dinamic card representation on dashboard */
+
 .image-container {
     position: relative;
 }
 
 .image-container img {
-    width: 100%; /* Hacer la imagen responsive */
+    width: 100%;
     height: auto;
 }
 
@@ -163,7 +169,7 @@ body{
     left: 10%;
     color: white;
     text-align: center;
-    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
+    font-size: 100%;
 }
 
 .overlay-alias {
@@ -172,5 +178,5 @@ body{
     left: 10%;
     color: white;
     text-align: center;
-    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
+    font-size: 100%;
 }

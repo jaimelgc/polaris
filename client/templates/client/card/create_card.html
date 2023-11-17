@@ -1,13 +1,27 @@
-{% extends "base.html" %}
+{% extends "guest/base.html" %}
 
 {% block title %}Create a bank card{% endblock %}
 
-{% block content %}
-    <h1>Create a bank card</h1>
-    <p>Please, introduce an alias for your card:</p>
-    <form method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Create bank card"></p>
-    </form>
+{% block header %}
+    {% include "header_dashboard.html" %}
 {% endblock %}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <h2>Create a bank card</h2>
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <p>Please, introduce an alias for your card:</p>
+    </div>
+<div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <form method="post" id="new-card-form">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Create new card"></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
