@@ -148,28 +148,29 @@ body{
     width: 55px;
 }
 
-/* .card-image {
+.image-container {
     position: relative;
-    display: inline-block;
+}
+
+.image-container img {
+    width: 100%; /* Hacer la imagen responsive */
+    height: auto;
+}
+
+.overlay-code {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    color: white;
     text-align: center;
+    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
 }
 
-.card-code {
+.overlay-alias {
     position: absolute;
-    top: 75%;
-    left: 30%;
-    transform: translate(-50%, 50%);
+    top: 80%;
+    left: 10%;
     color: white;
-    font-size:xx-small;
-
+    text-align: center;
+    font-size: 100%; /* Tamaño del texto relativo al ancho de la ventana */
 }
-
-.card-alias {
-    position: absolute;
-    top: 65%;
-    left: 30%;
-    transform: translate(-50%, 50%);
-    color: white;
-    font-size:xx-small;
-
-} */
