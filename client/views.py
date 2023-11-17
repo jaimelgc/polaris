@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from .forms import (
+    AccountModificationForm,
     AccountRegistrationForm,
     CardCreationForm,
     ClientRegistrationForm,
@@ -93,6 +94,9 @@ def dashboard(request, account_slug=None):
         acc_detail = accounts.get(slug=accounts[0].slug)
     else:
         acc_detail = None
+    form = AccountModificationForm(request.POST)
+    if accounts and form.is_valid():
+        acc_detail.alias = form['alias'].value()
     cards = client.cards.filter(account=acc_detail).all()
     transactions = acc_detail.transactions.all()
     return render(
@@ -103,5 +107,6 @@ def dashboard(request, account_slug=None):
             'cards': cards,
             'acc_detail': acc_detail,
             'transactions': transactions,
+            'form': form,
         },
     )

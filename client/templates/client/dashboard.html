@@ -25,9 +25,23 @@
             </div>
             <div class="col-md-9 col-12 ms-2 rounded-4 border" id="main-data">
                     <div class="row bg-stg-blue text-white" id="account-info">
-                        <div class="col-6 d-flex p-3">
+
+
+                        <div class="col-6 p-3 d-flex" id="alias">
                             <h2 class="m-0 text-capitalize">{{ acc_detail.alias }}</h2>
+                            <a href="javascript:void(0);" onclick="changeAlias()" class="link-nos-white" id="change-alias">Change Name</a>
                         </div>
+
+
+                        <div class="col-6 p-3 d-none" id="alias-form">
+                            <form method="post">
+                                {{ form.as_p }}
+                                {% csrf_token %}
+                                <h><input type="submit" value="Apply"></h>
+                            </form>
+                        </div>
+
+
                         <div class="col-6 d-flex justify-content-end align-items-end p-4">
                             <p class="m-0">Balance: {{ acc_detail.balance }}€</p>
                         </div>
@@ -96,6 +110,24 @@
             cards.classList.add("d-none");
             movements.classList.remove("d-none");
             movements.classList.add("d-block");
+        }
+        function changeAlias() {
+            let alias = document.getElementById('alias');
+            let aliasForm = document.getElementById('alias-form');
+            alias.classList.remove("d-flex");
+            alias.classList.add("d-none");
+            aliasForm.classList.remove("d-none");
+            aliasForm.classList.add("d-flex");
+            
+        }
+        function changeAliasDone() {
+            let alias = document.getElementById('alias');
+            let aliasForm = document.getElementById('alias-form');
+            alias.classList.remove("d-none");
+            alias.classList.add("d-flex");
+            aliasForm.classList.remove("d-flex");
+            aliasForm.classList.add("d-none");
+            
         }
     </script>
 {% endblock %}
