@@ -2,71 +2,82 @@
 
 {% block title %}Dashboard{% endblock %}
 
-
 {% block header %}
-{% load static %}
-
-<header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
-    <div class="container">
-        <div class="row d-md-flex d-none justify-content-end mb-2">
-            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-                <a href="#" class="link-under">ES</a>
-            </div>
-            <div class="w-auto text-center bg-lgt-gray">
-                <a href="#" class="link-under">EN</a>
-            </div>
-        </div>
-        <div class="row">
-            <!-- logo -->
-            <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
-                <a href="{% url 'home' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
-            </div>
-            <!-- menú extendido para pantallas grandes-->
-            <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
-                <a href="#" class="link-nos-white">Particulares</a>
-                <a href="#" class="link-nos-white">Empresas</a>
-                <a href="#" class="link-nos-white">Oficinas</a>
-                <a href="#" class="link-nos-white">Contacto</a>
-            </div>
-            <!-- login, registro, idiomas, menú desplegable -->
-            <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-center align-items-center">
-                <div class="btn-group">
-                    <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                        Menú
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item d-md-none" href="{% url 'register' %}">Hazte cliente</a></li>
-                        <li><a class="dropdown-item" href="#">Oficinas</a></li>
-                        <li><a class="dropdown-item" href="#">Particulares</a></li>
-                        <li><a class="dropdown-item" href="#">Empresas</a></li>
-                        <li><a class="dropdown-item" href="#">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-center align-items-center">
-                <div class="row">
-                    <div class="col-md-5 text-white p-2 w-auto d-none d-md-block">
-                      {% if request.user.is_authenticated %}
-                      Hola {{ request.user.first_name|default:request.user.username }},
-                      <a href="{% url "logout" %}" class="text-decoration-underline text-white">Cerrar sesión</a>
-                      {% else %}
-                      <a href="{% url "login" %}">Iniciar sesión</a>
-                      {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>    
+    {% include 'header_dashboard.html' %}
 {% endblock %}
 
 {% block content %}
-  <h1>Dashboard</h1>
-  <p>
-    Welcome to your dashboard. You can <a href="#">edit your profile</a> or <a href="#">change your password</a>.
-  </p>
+    <div class="container">
+        <div class="row pt-2">
+            <div class="col-2 bg-lgt-gray d-flex flex-column p-3" id="left-menu">
+                <ul class="list-group list-group-flush bg-lgt-gray">Cuentas
+                    {% for account in accounts %}
+                    <a href="http://127.0.0.1:8000/client/{{ account.slug }}/" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
+                    {% endfor %}
+                </ul><hr>
+            </div>
+            <div class="col-9 ms-2 rounded-4 border" id="main-data">
+                    <div class="row bg-stg-blue text-white" id="account-info">
+                        <div class="col-6 d-flex p-3">
+                            <h2 class="m-0">{{ acc_detail.alias }}</h2>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+                            <p class="m-0">Balance: {{ acc_detail.balance }}€</p>
+                        </div>
+                    </div>
+                    <div class="row bg-white" >
+                        <div class="col-6 d-flex p-3">
+                            <p class="m-0">Ingresos último mes: {{ acc_detail.income }}€</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end align-items-end p-3">
+                            <p class="m-0">Gastos último mes: {{ acc_detail.expenses }}€</p>
+                        </div>
+                    </div>
+                <div class="row bg-stg-blue" id="info-nav">
+                    <div class="col-12 rounded d-flex justify-content-center align-items-center p-3">
+                        <a href="#" class="link-nos-white">Cards</a>
+                        <a href="#" class="link-nos-white">Search Movements</a>
+                        <a href="#" class="link-nos-white">See Transactions</a>
+                        <a href="#" class="link-nos-white">See more</a>
+                    </div>
+                </div>
+                {% if cards %}
+                <div class="row">
+                    <div class="row p-4">
+                        {% for card in cards %}
+                        <div class="col-6 d-flex p-2">
+                            <div class="col-6">
+                                <h2 class="m-0">{{ card.alias }}</h2>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row p-4">
+                        <ul>
+                            {% comment %} <li>bucle para lo que sea</li> {% endcomment %}
+                        </ul>
+                    </div>
+                </div>  
+                {% endif %}        
+            </div>
+        </div> 
+    </div>
 {% endblock %}
-
 {% block footer %}
     {% include "guest/footer.html" %}
 {% endblock %}
+
+
+{% comment %} <div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+    </div>
+    </div> {% endcomment %}

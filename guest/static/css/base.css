@@ -111,7 +111,7 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form, #password-reset-form, #register-form {
+#log-in-form, #email-form, #password-reset-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
@@ -119,13 +119,31 @@ body{
 
 }
 
+#register-form {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 500px;
+}
 #log-in-form label, #register-form label {
     display: inline-block;
-    width: 150px;
+    width: 250px;
     text-align: left;
     margin-right: 10px;
 }
 
+#left-menu, #account-info, #info-nav{
+    border-radius: 23px;
+}
+
+#main-data {
+    box-sizing: border-box;
+    border-radius: 23px;
+}
 .helptext {
     display:none;
+}
+
+#clock-img {
+    width: 55px;
 }

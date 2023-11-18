@@ -1,0 +1,54 @@
+{% load static %}
+
+<header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
+    <div class="container">
+        <div class="row d-md-flex d-none justify-content-end mb-2">
+            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
+                <a href="#" class="link-under">ES</a>
+            </div>
+            <div class="w-auto text-center bg-lgt-gray">
+                <a href="#" class="link-under">EN</a>
+            </div>
+        </div>
+        <div class="row">
+            <!-- logo -->
+            <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
+                <a href="{% url 'home' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
+            </div>
+            <!-- menú extendido para pantallas grandes-->
+            <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
+                <a href="#" class="link-nos-white">Transactions</a>
+                <a href="#" class="link-nos-white">Mailbox</a>
+                <a href="#" class="link-nos-white">Help</a>
+                <a href="#" class="link-nos-white">Contact</a>
+            </div>
+            <!-- login, registro, idiomas, menú desplegable -->
+            <div class="col-md-2 col-12 order-3 d-lg-none d-flex justify-content-center align-items-center">
+                <div class="btn-group">
+                    <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                        Menu
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                        <li><a class="dropdown-item" href="#">Transactions</a></li>
+                        <li><a class="dropdown-item" href="#">Mailbox</a></li>
+                        <li><a class="dropdown-item" href="#">Help</a></li>
+                        <li><a class="dropdown-item" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5 col-12 order-md-2 order-2 d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-md-5 text-white p-2 w-auto d-md-block">
+                        {% if request.user.is_authenticated %}
+                        Hi {{ user.first_name }},
+                        <a href="{% url "logout" %}" class="text-decoration-underline text-white">Log out</a>
+                        {% else %}
+                        <a href="{% url "login" %}">Log in</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>   
+
