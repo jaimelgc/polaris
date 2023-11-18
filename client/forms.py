@@ -43,7 +43,6 @@ class AccountRegistrationForm(forms.ModelForm):
     #     if Account.objects.filter(alias=alias, user=user).exists():
     #         raise forms.ValidationError('Alias already in use.')
     #     return alias
-    
 
 
 class CardCreationForm(forms.ModelForm):

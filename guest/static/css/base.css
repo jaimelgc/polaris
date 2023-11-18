@@ -133,7 +133,8 @@ body{
 
 #new-card-form label {
     display: inline-block;
-    text-align: left;;
+    text-align: left;
+    margin-right: 10px;
 }
 
 #left-menu, #account-info, #info-nav{

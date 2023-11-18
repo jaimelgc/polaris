@@ -52,21 +52,23 @@ def create_account(request):
 
 @login_required
 def create_card(request):
+    user = Client.objects.get(user=request.user)
     if request.method == 'POST':
         form = CardCreationForm(request.POST)
         if form.is_valid():
-            user = Client.objects.get(user=request.user)
             if not user.cards.filter(alias=form.cleaned_data['alias']).exists():
                 new_card = form.save(commit=False)
                 new_card.pin = random_alphanum(3)
-                new_card.user = Client.objects.get(user=request.user)
+                new_card.user = user
                 new_card.save()
                 return render(request, 'client/card/card_done.html', {'form': form})
             else:
                 return HttpResponse('Unable to create card')
+        else:
+            print(form.errors.as_data)
     else:
         form = CardCreationForm()
-        form.fields['user'] = Client.objects.get(user=request.user)
+        form.fields['account'].queryset = Account.objects.filter(user=user)
     return render(request, 'client/card/create_card.html', {'form': form})
 
 

@@ -17,10 +17,14 @@
 <div class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form method="post" id="new-card-form">
-            <label>Alias: </label> {{ form.alias }}
+            <label for="alias">Alias: </label> 
+            {{ form.alias }}
             <br><br>
+            <label for="account">Account: </label> 
+            {{ form.account }}
             {% csrf_token %}
-            <p class="text-center"><input type="submit" value="Create new card" action="{% url "card_done" %}"></p>
+            <br><br>
+            <p><input type="submit" value="Create new card" action="{% url "card_done" %}"></p>
         </form>
     </div>
 </div>
