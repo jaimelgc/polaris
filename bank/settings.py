@@ -14,6 +14,8 @@ from pathlib import Path
 
 from prettyconf import config
 
+from client.utils import get_banks_data
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -148,3 +150,16 @@ EMAIL_PORT = config('EMAIL_HOST_PORT', default=587, cast=int)
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Bank comunication protocol
+BANK_DOMAINS_URL = 'https://raw.githubusercontent.com/sdelquin/dsw/main/ut3/te1/files/banks.json'
+BANK_DATA = get_banks_data()
+PAYMENT = 'PAY'
+
+# Comissions
+
+COMISSION_TABLE = [
+    (50, {'OUT': '2.00', 'INC': '1.00', 'PAY': '3.00'}),
+    (500, {'OUT': '4.00', 'INC': '2.00', 'PAY': '5.00'}),
+    (float("inf"), {'OUT': '6.00', 'INC': '3.00', 'PAY': '7.00'}),
+]
