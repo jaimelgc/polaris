@@ -51,24 +51,24 @@
                         <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
                     </div>
                 </div>
-                {% if cards %}
                 <div class="row d-block" id="cards-container">
-                    <div class="row p-4">
-                        {% for card in cards %}
-                            {% include "client/card/card_detail.html" %}
-                        {% endfor %}
-                    </div>
+                    {% if cards %}
+                        <div class="row p-4">
+                            {% for card in cards %}
+                                {% include "client/card/card_detail.html" %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No hay tarjetas registradas en esta cuenta.</p>
+                    {% endif %}
                 </div>
-                {% else %}
-                    No hay tarjetas registradas en esta cuenta.
-                {% endif %}
-                {% if transactions %}
-                <div class="d-none" id="movements-container"></div>
-                    {% include "transactions/movements.html" %}
-                {% else %}
-                    No hay movimientos registrados en esta cuenta.
-                </div>
-                {% endif %}     
+                <div class="row d-none" id="movements-container">
+                    {% if transactions %}
+                        {% include "transactions/movements.html" %}
+                    {% else %}
+                        <p>No hay movimientos registrados en esta cuenta.</p>
+                    {% endif %}
+                </div>     
             </div>
         </div> 
     </div>
@@ -88,16 +88,18 @@
         function showCards() {
             let cards = document.getElementById('cards-container');
             let movements = document.getElementById('movements-container');
-            movements.classList.remove('d-block');
-            movements.classList.add('d-none');
-            cards.classList.add('d-block');
+            movements.classList.remove("d-block");
+            movements.classList.add("d-none");
+            cards.classList.remove("d-none");
+            cards.classList.add("d-block");
         }
         function showMovements() {
             let cards = document.getElementById('cards-container');
             let movements = document.getElementById('movements-container');
-            cards.classList.remove('d-block');
-            cards.classList.add('d-none');
-            movements.classList.add('d-block');
+            cards.classList.remove("d-block");
+            cards.classList.add("d-none");
+            movements.classList.remove("d-none");
+            movements.classList.add("d-block");
         }
     </script>
 {% endblock %}
