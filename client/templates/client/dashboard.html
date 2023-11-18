@@ -55,7 +55,7 @@
                 </div>
                 <div class="row d-none" id="movements-container">
                     {% if transactions %}
-                        <p>No hay movimientos registrados en esta cuenta.</p>
+                        {% include "transactions/movements.html" %}
                     {% else %}
                         <p>No hay movimientos registrados en esta cuenta.</p>
                     {% endif %}
