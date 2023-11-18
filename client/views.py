@@ -95,16 +95,14 @@ def user_login(request):
 def dashboard(request, account_slug=None):
     client = Client.objects.get(user=request.user)
     accounts = client.accounts.all()
-    if accounts:
-        if account_slug:
-            acc_detail = accounts.get(slug=account_slug)
+    if account_slug:
+        acc_detail = accounts.get(slug=account_slug)
+    elif accounts:
         acc_detail = accounts.get(slug=accounts[0].slug)
-        transactions = acc_detail.transactions.all()
     else:
         acc_detail = None
-        transactions = None
     cards = client.cards.filter(account=acc_detail).all()
-
+    transactions = acc_detail.transactions.all()
     return render(
         request,
         'client/dashboard.html',

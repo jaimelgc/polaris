@@ -28,6 +28,10 @@ body{
     background-color: #d9d9d9;
 }
 
+.bg-whitesmoke {
+    background-color: whitesmoke;
+}
+
 .link-nos-white {
     text-decoration: none;
     color: white;
@@ -139,6 +143,7 @@ body{
 
 #left-menu, #account-info, #info-nav{
     border-radius: 23px;
+    border: 10px;
 }
 
 #main-data {
