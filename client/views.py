@@ -10,7 +10,7 @@ from .forms import (
     ClientRegistrationForm,
     LoginForm,
 )
-from .models import Client
+from .models import Account, Client
 from .utils import random_alphanum
 
 
@@ -36,31 +36,39 @@ def create_account(request):
     if request.method == 'POST':
         form = AccountRegistrationForm(request.POST)
         if form.is_valid():
-            new_account = form.save(commit=False)
-            new_account.user = Client.objects.get(id=request.user.id)
-            new_account.save()
-            return HttpResponse('Account created succesfully')
-        else:
-            return HttpResponse('Unable to create account')
+            user = Client.objects.get(user=request.user)
+            if not user.accounts.filter(alias=form.cleaned_data['alias']).exists():
+                new_account = form.save(commit=False)
+                new_account.user = Client.objects.get(user=request.user)
+                new_account.save()
+                return render(request, 'client/account/account_done.html', {'form': form})
+            else:
+                return HttpResponse('Alias already in use.')
     else:
         form = AccountRegistrationForm()
+        form.fields['user'] = Client.objects.get(user=request.user)
     return render(request, 'client/account/create_account.html', {'form': form})
 
 
 @login_required
 def create_card(request):
+    user = Client.objects.get(user=request.user)
     if request.method == 'POST':
         form = CardCreationForm(request.POST)
         if form.is_valid():
-            new_card = form.save(commit=False)
-            new_card.pin = random_alphanum(3)
-            new_card.user = Client.objects.get(id=request.user.id)
-            new_card.save()
-            return HttpResponse('Card created succesfully')
+            if not user.cards.filter(alias=form.cleaned_data['alias']).exists():
+                new_card = form.save(commit=False)
+                new_card.pin = random_alphanum(3)
+                new_card.user = user
+                new_card.save()
+                return render(request, 'client/card/card_done.html', {'form': form})
+            else:
+                return HttpResponse('Unable to create card')
         else:
-            return HttpResponse('Unable to create card')
+            print(form.errors.as_data)
     else:
         form = CardCreationForm()
+        form.fields['account'].queryset = Account.objects.filter(user=user)
     return render(request, 'client/card/create_card.html', {'form': form})
 
 
@@ -89,11 +97,19 @@ def dashboard(request, account_slug=None):
     accounts = client.accounts.all()
     if account_slug:
         acc_detail = accounts.get(slug=account_slug)
-    else:
+    elif accounts:
         acc_detail = accounts.get(slug=accounts[0].slug)
+    else:
+        acc_detail = None
     cards = client.cards.filter(account=acc_detail).all()
+    transactions = acc_detail.transactions.all()
     return render(
         request,
         'client/dashboard.html',
-        {'accounts': accounts, 'cards': cards, 'acc_detail': acc_detail},
+        {
+            'accounts': accounts,
+            'cards': cards,
+            'acc_detail': acc_detail,
+            'transactions': transactions,
+        },
     )

@@ -6,20 +6,31 @@
     {% include 'header_dashboard.html' %}
 {% endblock %}
 
+{% load static %}
+
 {% block content %}
+{% if acc_detail %}
     <div class="container">
         <div class="row pt-2">
-            <div class="col-2 bg-lgt-gray d-flex flex-column p-3" id="left-menu">
-                <ul class="list-group list-group-flush bg-lgt-gray">Cuentas
-                    {% for account in accounts %}
-                    <a href="http://127.0.0.1:8000/client/{{ account.slug }}/" class="list-group-item list-group-item-action rounded bg-lgt-gray">{{ account.alias }}</a>
-                    {% endfor %}
-                </ul><hr>
+            <div class="col-md-2 d-flex flex-column p-3 pt-2 mb-2 mb-md-0" id="left-menu">
+                <div class="row border" id="left-menu"><p class="text-center d-none d-md-block bg-whitesmoke p-3" id="left-menu"><b><u>Accounts:</u></b></p>
+                    <ul class="list-group list-group-flush p-3 pt-0">
+                        {% for account in accounts %}
+                        <a href="http://127.0.0.1:8000/client/{{ account.slug }}/" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">{{ account.alias }}</a>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="row mt-5 border" id="left-menu"><p class="text-center d-none d-md-block bg-whitesmoke p-3" id="left-menu"><b><u>Operations:</u></b></p>
+                    <ul class="list-group list-group-flush p-3 pt-0">
+                        <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">Add New Account</a>
+                        <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">Add New Card</a>
+                    </ul>
+                </div>
             </div>
-            <div class="col-9 ms-2 rounded-4 border" id="main-data">
+            <div class="col-md-9 col-12 ms-2 rounded-4 border" id="main-data">
                     <div class="row bg-stg-blue text-white" id="account-info">
                         <div class="col-6 d-flex p-3">
-                            <h2 class="m-0">{{ acc_detail.alias }}</h2>
+                            <h2 class="m-0 text-capitalize">{{ acc_detail.alias }}</h2>
                         </div>
                         <div class="col-6 d-flex justify-content-end align-items-end p-4">
                             <p class="m-0">Balance: {{ acc_detail.balance }}€</p>
@@ -35,49 +46,62 @@
                     </div>
                 <div class="row bg-stg-blue" id="info-nav">
                     <div class="col-12 rounded d-flex justify-content-center align-items-center p-3">
-                        <a href="#" class="link-nos-white">Cards</a>
-                        <a href="#" class="link-nos-white">Search Movements</a>
-                        <a href="#" class="link-nos-white">See Transactions</a>
-                        <a href="#" class="link-nos-white">See more</a>
+                        <a href="javascript:void(0);" onclick="showCards()" class="link-nos-white" id="show-cards">Cards</a><span class="text-white">|</span>
+                        <a href="#" class="link-nos-white">Search Movements</a><span class="text-white">|</span>
+                        <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
                     </div>
                 </div>
                 {% if cards %}
-                <div class="row">
+                <div class="row d-block" id="cards-container">
                     <div class="row p-4">
                         {% for card in cards %}
-                        <div class="col-6 d-flex p-2">
-                            <div class="col-6">
-                                <h2 class="m-0">{{ card.alias }}</h2>
-                            </div>
-                        </div>
+                            {% include "client/card/card_detail.html" %}
                         {% endfor %}
                     </div>
-                    <div class="row p-4">
-                        <ul>
-                            {% comment %} <li>bucle para lo que sea</li> {% endcomment %}
-                        </ul>
-                    </div>
-                </div>  
-                {% endif %}        
+                </div>
+                {% else %}
+                    No hay tarjetas registradas en esta cuenta.
+                {% endif %}
+                {% if transactions %}
+                <div class="d-none" id="movements-container"></div>
+                    {% include "transactions/movements.html" %}
+                {% else %}
+                    No hay movimientos registrados en esta cuenta.
+                </div>
+                {% endif %}     
             </div>
         </div> 
     </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12 p-5"></div>
+        <div class="col-12 d-flex justify-content-center align-items-end p-5">
+            <h3>It seems like you don't have any accounts with us yet, please <a href="{% url "create_account" %}">create an account.</a></h3>
+        </div>
+        <div class="col-12 p-5"></div>
+    </div>
+{% endif %}
 {% endblock %}
+
+{% block domready %}
+    <script>
+        function showCards() {
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
+            movements.classList.remove('d-block');
+            movements.classList.add('d-none');
+            cards.classList.add('d-block');
+        }
+        function showMovements() {
+            let cards = document.getElementById('cards-container');
+            let movements = document.getElementById('movements-container');
+            cards.classList.remove('d-block');
+            cards.classList.add('d-none');
+            movements.classList.add('d-block');
+        }
+    </script>
+{% endblock %}
+
 {% block footer %}
     {% include "guest/footer.html" %}
 {% endblock %}
-
-
-{% comment %} <div class="d-flex align-items-start">
-    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
-        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
-        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
-    </div>
-    <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-    </div>
-    </div> {% endcomment %}

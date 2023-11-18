@@ -1,13 +1,31 @@
-{% extends "base_login.html" %}
+{% extends "guest/base.html" %}
 
 {% block title %}Create a bank account{% endblock %}
 
-{% block content %}
-    <h1>Create a bank account</h1>
-    <p>Please, introduce an alias for your account:</p>
-    <form method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Create bank account"></p>
-    </form>
+{% block header %}
+    {% include "header_dashboard.html" %}
 {% endblock %}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <h2>Create a bank account</h2>
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <p>Please, introduce an alias for your account:</p>
+    </div>
+<div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <form method="post" id="new-account-form">
+            <label>Alias: </label> {{ form.alias }}
+            <br><br>
+            {% csrf_token %}
+            <p><input type="submit" value="Create new account" action="{% url "account_done" %}"></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

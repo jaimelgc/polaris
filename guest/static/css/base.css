@@ -28,6 +28,10 @@ body{
     background-color: #d9d9d9;
 }
 
+.bg-whitesmoke {
+    background-color: whitesmoke;
+}
+
 .link-nos-white {
     text-decoration: none;
     color: white;
@@ -111,12 +115,11 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form, #password-reset-form {
+#log-in-form, #email-form, #password-reset-form, #new-card-form, #new-account-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
     max-width: 400px;
-
 }
 
 #register-form {
@@ -132,8 +135,15 @@ body{
     margin-right: 10px;
 }
 
+#new-card-form label {
+    display: inline-block;
+    text-align: left;
+    margin-right: 10px;
+}
+
 #left-menu, #account-info, #info-nav{
     border-radius: 23px;
+    border: 10px;
 }
 
 #main-data {
@@ -146,4 +156,33 @@ body{
 
 #clock-img {
     width: 55px;
+}
+
+/* Dinamic card representation on dashboard */
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay-code {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    color: white;
+    text-align: center;
+    font-size: 100%;
+}
+
+.overlay-alias {
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    color: white;
+    text-align: center;
+    font-size: 100%;
 }
