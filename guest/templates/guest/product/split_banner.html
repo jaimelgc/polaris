@@ -2,16 +2,19 @@
 <div class="row text-center mb-2">
     <div class="col-md-6 col-12 order-md-1 order-2 d-flex flex-column align-items-center justify-content-center py-md-0 py-2">
         <h3>{{ product.title }}</h3>
-        <h5>{{ product.body }}</h5>
+        <p>{{ product.body }}</p>
         <div class="d-flex justify-content-center align-items-center my-2">
-            <a class="btn btn-primary" href="#" role="button">más información</a>
+            <a class="btn btn-primary" href="#" role="button">Learn more</a>
         </div>
     </div>
     <div class="col-md-6 col-12 order-md-2 order-1">
         {% if product.image %}
-            <img src="{{ product.image.url }}" class="img-fluid" alt="Split banner image cap">
+            {% load thumbnail %}
+            <a href="{{ product.image.url }}">
+                <img src="{% thumbnail product.image 470x235 crop %}" class="img-fluid" alt="Split banner image cap">
+            </a>
         {% else %}
-            No hay imagen asociada a este producto
+            THERE IS NO IMAGE FOR THIS PRODUCT
         {% endif %}
     </div>
 </div>

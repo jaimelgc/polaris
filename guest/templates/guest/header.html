@@ -15,38 +15,38 @@
             <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
                 <a href="{% url 'home' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
             </div>
-            <!-- menú extendido para pantallas grandes-->
+            <!-- menu big screen-->
             <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
-                <a href="#" class="link-nos-white">Particulares</a>
-                <a href="#" class="link-nos-white">Empresas</a>
-                <a href="#" class="link-nos-white">Oficinas</a>
-                <a href="#" class="link-nos-white">Contacto</a>
+                <a href="#" class="link-nos-white">People</a>
+                <a href="#" class="link-nos-white">Businesses</a>
+                <a href="#" class="link-nos-white">ATMs</a>
+                <a href="#" class="link-nos-white">Contact</a>
             </div>
-            <!-- login, registro, idiomas, menú desplegable -->
+            <!-- login, register, language, menu -->
             <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-center align-items-center">
                 <div class="btn-group">
                     <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                        Menú
+                        Menu
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item d-md-none" href="{% url 'register' %}">Hazte cliente</a></li>
-                        <li><a class="dropdown-item" href="#">Oficinas</a></li>
-                        <li><a class="dropdown-item" href="#">Particulares</a></li>
-                        <li><a class="dropdown-item" href="#">Empresas</a></li>
-                        <li><a class="dropdown-item" href="#">Contacto</a></li>
+                        <li><a class="dropdown-item d-md-none" href="{% url 'register' %}">Become a customer</a></li>
+                        <li><a class="dropdown-item" href="#">ATMs</a></li>
+                        <li><a class="dropdown-item" href="#">People</a></li>
+                        <li><a class="dropdown-item" href="#">Businesses</a></li>
+                        <li><a class="dropdown-item" href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-md-5 bg-lgt-gray p-2 w-auto d-none d-md-block">
-                        <a href="{% url 'login' %}" class="fw-bold text-center link-nos">Acceso clientes</a>
+                        <a href="{% url 'login' %}" class="fw-bold text-center link-nos">Access</a>
                     </div>
                     <div class="col-5 p-2 w-auto d-md-none">
-                        <a href="{% url 'login' %}" class="link-nos fw-bold text-white text-center">Acceso clientes</a>
+                        <a href="{% url 'login' %}" class="link-nos fw-bold text-white text-center">Access</a>
                     </div>
                     <div class="col-md-5 bg-cyan p-2 w-auto d-md-block d-none ms-2">
-                        <a href="{% url 'register' %}" class="link-nos fw-bold text-white text-center">Hazte cliente</a>
+                        <a href="{% url 'register' %}" class="link-nos fw-bold text-white text-center">Become a customer</a>
                     </div>
                 </div>
             </div>

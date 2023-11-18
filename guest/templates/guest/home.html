@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <!-- banner nivel de riesgo -->
+    <!-- banner risk level -->
         {% include "guest/product/risk_banner.html" %}
         <div id="content" class="container">
             <!-- lista de productos en formato card -->
@@ -21,6 +21,7 @@
             <!-- list of products in split-banner format -->
             <div class="container my-4">
                 {% for product in products %}
+                    <hr/>
                     {% include "guest/product/split_banner.html" %}
                 {% endfor %}
             </div>

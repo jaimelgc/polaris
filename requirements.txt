@@ -3,3 +3,4 @@ pillow
 django-bootstrap-v5
 prettyconf
 requests
+easy-thumbnails
