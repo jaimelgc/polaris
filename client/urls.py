@@ -4,6 +4,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
+    path('login/', views.user_login, name='user_login'),
     path('', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
     path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
