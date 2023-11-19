@@ -27,17 +27,11 @@ from .utils import calc_comission
 
 @csrf_exempt
 def transfer(request):
-    # request.body contiene el json con los datos
     data = json.loads(request.body)
-    # En data tendremos un diccionario con los datos enviados
-
     if {'business', 'ccc', 'pin', 'amount'} == set(data.keys()):
-        # se podría comprobar que es el banco correcto, evitando así atacar la DB
         if data['ccc'][:2] != 'C6':
             HttpResponseBadRequest('Unrecognized card')
         card_id = int(data['ccc'][3:])
-        # comprobar banco ...
-        # comprobar tarjeta y pin, falta hashear todo
         try:
             card = Card.objects.get(id=card_id, pin=data['pin'])
             account = card.account
@@ -45,7 +39,6 @@ def transfer(request):
             return HttpResponseForbidden()
         amount = Decimal(data['amount'])
         comission_amount = calc_comission(amount, Comission.Type.PAYMENT, settings.COMISSION_TABLE)
-        # comprobar que haya dinero para realizar cobro
         if amount + comission_amount <= account.balance:
             account.balance -= amount + comission_amount
             new_transaction = Transaction(
