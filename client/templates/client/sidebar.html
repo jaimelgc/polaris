@@ -1,0 +1,15 @@
+<div class="col-md-2 d-flex flex-column p-3 pt-2 mb-2 mb-md-0" id="left-menu">
+    <div class="row border" id="left-menu"><p class="text-center d-none d-md-block bg-whitesmoke p-3" id="left-menu"><b><u>Accounts:</u></b></p>
+        <ul class="list-group list-group-flush p-3 pt-0">
+            {% for account in accounts %}
+            <a href="{{ account.get_absolute_url }}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">{{ account.alias }}</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row mt-5 border" id="left-menu"><p class="text-center d-none d-md-block bg-whitesmoke p-3" id="left-menu"><b><u>Operations:</u></b></p>
+        <ul class="list-group list-group-flush p-3 pt-0">
+            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">Add New Account</a>
+            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">Add New Card</a>
+        </ul>
+    </div>
+</div>

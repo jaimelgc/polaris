@@ -1,8 +1,9 @@
-from django import forms
+from datetime import datetime, timedelta
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .forms import (
     AccountRegistrationForm,
@@ -93,23 +94,25 @@ def user_login(request):
 
 @login_required
 def dashboard(request, account_slug=None):
-    client = Client.objects.get(user=request.user)
-    accounts = client.accounts.all()
-    if account_slug:
-        acc_detail = accounts.get(slug=account_slug)
-    elif accounts:
-        acc_detail = accounts.get(slug=accounts[0].slug)
+    client = get_object_or_404(Client, user=request.user)
+    if accounts := client.accounts.all():
+        if account_slug:
+            acc_detail = get_object_or_404(accounts, slug=account_slug)
+        else:
+            acc_detail = get_object_or_404(accounts, slug=accounts[0].slug)
+        datetime_reference = datetime.now() - timedelta(days=30)
+        period_movements = acc_detail.transactions.filter(timestamp__gte=datetime_reference)
+        income = sum(movement.amount for movement in period_movements.filter(kind='INC'))
+        expenses = sum(movement.amount for movement in period_movements.filter(kind='OUT'))
     else:
         acc_detail = None
-    cards = client.cards.filter(account=acc_detail).all()
-    transactions = acc_detail.transactions.all()
     return render(
         request,
         'client/dashboard.html',
         {
             'accounts': accounts,
-            'cards': cards,
             'acc_detail': acc_detail,
-            'transactions': transactions,
+            'income': income,
+            'expenses': expenses,
         },
     )

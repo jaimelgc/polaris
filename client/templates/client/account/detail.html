@@ -1,0 +1,45 @@
+{% block content %}
+    <div class="row bg-stg-blue text-white" id="account-info">
+        <div class="col-6 d-flex p-3">
+            <h2 class="m-0 text-capitalize">{{ acc_detail.alias }}</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+            <p class="m-0">Balance: {{ acc_detail.balance }}€</p>
+        </div>
+    </div>
+    <div class="row bg-white" >
+        <div class="col-6 d-flex p-3">
+            <p class="m-0">Income: {{ income }}€</p>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-end p-3">
+            <p class="m-0">Expenses: {{ expenses }}€</p>
+        </div>
+    </div>
+    <div class="row bg-stg-blue" id="info-nav">
+        <div class="col-12 rounded d-flex justify-content-center align-items-center p-3">
+            <a href="javascript:void(0);" onclick="showCards()" class="link-nos-white" id="show-cards">Cards</a><span class="text-white">|</span>
+            <a href="javascript:void(0);" class="link-nos-white">Search Movements</a><span class="text-white">|</span>
+            <a href="javascript:void(0);" onclick="showMovements()" class="link-nos-white" id="show-movements">See Transactions</a>
+        </div>
+    </div>
+    <div class="row d-block" id="cards-container">
+        {% if acc_detail.cards.all %}
+            <div class="row p-4">
+                {% for card in acc_detail.cards.all %}
+                    {% include "client/card/card_detail.html" %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>There are no cards registered for this account.</p>
+        {% endif %}
+    </div>
+    <div class="row d-none" id="movements-container">
+        {% if acc_detail.transactions.all %}
+            {% with acc_detail.transactions.all as transactions %}
+                {% include "transactions/movements.html" %}
+            {% endwith %}
+        {% else %}
+            There are no movements registered for this account. 
+        {% endif %}
+    </div>     
+{% endblock %}
