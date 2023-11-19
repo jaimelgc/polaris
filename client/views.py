@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 
+from transactions.models import Comission
+
 from .forms import (
     AccountRegistrationForm,
     CardCreationForm,
@@ -102,8 +104,11 @@ def dashboard(request, account_slug=None):
             acc_detail = get_object_or_404(accounts, slug=accounts[0].slug)
         datetime_reference = datetime.now() - timedelta(days=30)
         period_movements = acc_detail.transactions.filter(timestamp__gte=datetime_reference)
+        period_comissions = Comission.objects.filter(transfer__in=period_movements)
         income = sum(movement.amount for movement in period_movements.filter(kind='INC'))
-        expenses = sum(movement.amount for movement in period_movements.filter(kind='OUT'))
+        expenses = sum(movement.amount for movement in period_movements.filter(kind='OUT')) + sum(
+            comission.amount for comission in period_comissions
+        )
     else:
         acc_detail = income = expenses = None
     return render(
