@@ -105,7 +105,7 @@ def dashboard(request, account_slug=None):
         income = sum(movement.amount for movement in period_movements.filter(kind='INC'))
         expenses = sum(movement.amount for movement in period_movements.filter(kind='OUT'))
     else:
-        acc_detail = None
+        acc_detail = income = expenses = None
     return render(
         request,
         'client/dashboard.html',
