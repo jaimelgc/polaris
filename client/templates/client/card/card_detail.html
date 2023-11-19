@@ -1,6 +1,9 @@
+{% load static %}
 <div class="col-6 d-flex flex-column align-items-center">
     <div class="row">
-        <h2 class="col-12 text-center text-capitalize">{{ card.alias }}</h2>
+        <h2 class="col-12 text-center text-capitalize">{{ card.alias }}
+            <a href="http://127.0.0.1:8000/client/card/{{ card.id }}/modify"><img src="{% static 'img/gear_8.png' %}" style="height: 20px;"></a>
+        </h2>
     </div>
     <div class="row image-container">
         <img src="{{ card.image.url }}" style="width: 500px;" alt="Card"/>

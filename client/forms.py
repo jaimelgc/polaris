@@ -45,7 +45,19 @@ class AccountRegistrationForm(forms.ModelForm):
     #     return alias
 
 
+class AccountModificationForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ['alias', 'status']
+
+
 class CardCreationForm(forms.ModelForm):
     class Meta:
         model = Card
         fields = ['alias', 'account']
+
+
+class CardModificationForm(forms.ModelForm):
+    class Meta:
+        model = Card
+        fields = ['alias', 'status']

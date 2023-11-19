@@ -187,7 +187,11 @@ body{
     font-size: 100%;
 }
 
-/* messages */
+#gear {
+    height: 10px;
+  }
+
+  /* messages */
 ul.messages {
     margin:10px 100px;
     padding:0;
