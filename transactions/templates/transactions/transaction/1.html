@@ -1,53 +1,3 @@
-{% extends 'guest/base.html' %}
-{% block header %}
-    {% include "header_dashboard.html" %}
-{% endblock %}
-{% comment %} {% block content %}
-<div class="container">
-    <table class="table table-bordered table-hover text-center mt-3"> 
-        <thead>
-            <div class="row">
-                <tr class="">
-                    <th colspan="5"><h1>Transaction Details</h1></th>
-                </tr>
-            </div>
-            <div class="row">
-                <tr>
-                    <th scope="col">Origin</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Concept</th>
-                    <th scope="col">Kind</th>
-                    <th scope="col">Date</th>
-                </tr>
-            </div>
-        </thead>
-        <tbody>
-                <tr>
-                    <td scope="row">{{ transaction.agent }}</td>
-                    <td>{{ transaction.amount }}</td>
-                    <td>{{ transaction.concept }}</td>
-                    <td>{{ transaction.kind }}</td>
-                    <td>{{ transaction.timestamp }}</td>
-                </tr>                
-        </tbody>
-    </table>
-    <table class="table table-bordered table-hover text-center">
-        <thead>
-            <th scope="col">Comission</th>
-            <th scope="col">Amount</th>
-        </thead>   
-        <tbody>             
-            {% for comission in transaction.comissions.all %}
-                <tr>
-                    <td>{{ comission.kind }}</td>
-                    <td>{{ comission.amount }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endblock %} {% endcomment %}
-
 {% block content %}
 <div class="container">
     <table class="table table-bordered table-hover text-center mt-3"> 
@@ -65,13 +15,13 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row">{{ transaction.agent }}</td>
-                <td>{{ transaction.amount }}</td>
-                <td>{{ transaction.concept }}</td>
-                <td>{{ transaction.kind }}</td>
-                <td>{{ transaction.timestamp }}</td>
+                <td class="d-block d-sm-table-cell">{{ transaction.agent }}</td>
+                <td class="d-block d-sm-table-cell">{{ transaction.amount }}</td>
+                <td class="d-block d-sm-table-cell">{{ transaction.concept }}</td>
+                <td class="d-block d-sm-table-cell">{{ transaction.kind }}</td>
+                <td class="d-block d-sm-table-cell">{{ transaction.timestamp }}</td>
             </tr>                
-    </tbody>
+        </tbody>
     </table>
     <div class="table-responsive d-block d-sm-none">
         <table class="table table-bordered table-hover text-center mt-3">
