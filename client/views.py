@@ -1,8 +1,8 @@
-from django import forms
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
 
 from .forms import (
     AccountRegistrationForm,
@@ -93,23 +93,19 @@ def user_login(request):
 
 @login_required
 def dashboard(request, account_slug=None):
-    client = Client.objects.get(user=request.user)
-    accounts = client.accounts.all()
-    if account_slug:
-        acc_detail = accounts.get(slug=account_slug)
-    elif accounts:
-        acc_detail = accounts.get(slug=accounts[0].slug)
+    client = get_object_or_404(Client, user=request.user)
+    if accounts := client.accounts.all():
+        if account_slug:
+            acc_detail = get_object_or_404(accounts, slug=account_slug)
+        else:
+            acc_detail = get_object_or_404(accounts, slug=accounts[0].slug)
     else:
         acc_detail = None
-    cards = client.cards.filter(account=acc_detail).all()
-    transactions = acc_detail.transactions.all()
     return render(
         request,
         'client/dashboard.html',
         {
             'accounts': accounts,
-            'cards': cards,
             'acc_detail': acc_detail,
-            'transactions': transactions,
         },
     )

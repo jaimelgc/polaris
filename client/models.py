@@ -27,8 +27,6 @@ class Account(models.Model):
     alias = models.CharField(max_length=120)
     slug = models.SlugField(max_length=120, blank=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    expenses = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    income = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     status = models.CharField(max_length=2, choices=States.choices, default='AC')
     user = models.ForeignKey(
         Client,
