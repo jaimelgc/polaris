@@ -98,15 +98,18 @@ def user_login(request):
 def edit(request):
     if request.method == 'POST':
         user_form = UserEditForm(instance=request.user, data=request.POST)
-        profile_form = ClientEditForm(
-            instance=request.user.profile, data=request.POST, files=request.FILES
-        )
-    if user_form.is_valid() and profile_form.is_valid():
-        user_form.save()
-        profile_form.save()
+        profile_form = ClientEditForm(instance=request.user, data=request.POST, files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return render(
+                request,
+                'client/edit_done.html',
+                {'user_form': user_form, 'profile_form': profile_form},
+            )
     else:
         user_form = UserEditForm(instance=request.user)
-        profile_form = ClientEditForm(instance=request.user.profile)
+        profile_form = ClientEditForm(instance=request.user)
     return render(
         request, 'client/edit.html', {'user_form': user_form, 'profile_form': profile_form}
     )
