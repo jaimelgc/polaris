@@ -2,6 +2,7 @@ from decimal import Decimal
 
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.urls import reverse
 
 from client.models import Account
 
@@ -27,6 +28,9 @@ class Transaction(models.Model):
     class Meta:
         indexes = [models.Index(fields=['-timestamp'])]
         ordering = ['-timestamp']
+
+    def get_absolute_url(self):
+        return reverse('transfer_detail', args=[self.id])
 
 
 class Comission(models.Model):

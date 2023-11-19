@@ -1,4 +1,7 @@
+{% extends 'base_login.html' %}
+{% block content %}
 <div class="container">
+    <h1>Detalle transaccion</h1>
     <table class="table">
         <thead>
             <tr>
@@ -10,17 +13,24 @@
             </tr>
         </thead>
         <tbody>
-            {% for transaction in transactions %}
                 <tr>
                     <th scope="row">{{ transaction.agent }}</th>
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
                     <td>{{ transaction.timestamp }}</td>
-                    <td><a href="{{ transaction.get_absolute_url }}">Details</a></td>
                 </tr>
-            {% endfor %}
+                <thead>
+                    <th scope="col">Comission</th>
+                    <th scope="col">Amount</th>
+                </thead>                
+                {% for comission in transaction.comissions.all %}
+                    <tr>
+                        <td>{{ comission.kind }}</td>
+                        <td>{{ comission.amount }}</td>
+                    </tr>
+                {% endfor %}
         </tbody>
     </table>
-    <!-- {% include "pagination.html" with page=page_obj %} -->
 </div>
+{% endblock %}

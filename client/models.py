@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 
 
@@ -46,6 +47,9 @@ class Account(models.Model):
     @property
     def code(self):
         return f'A6-{str(self.id).zfill(4)}'
+
+    def get_absolute_url(self):
+        return reverse('dashboard_acc_detail', args=[self.slug])
 
 
 class Card(models.Model):

@@ -166,3 +166,9 @@ class TransactionListView(LoginRequiredMixin, ListView):
     paginate_by = 2
     context_object_name = 'transactions'
     template_name = 'transactions/movements.html'
+
+
+@login_required
+def transfer_detail(request, id):
+    transaction = get_object_or_404(Transaction, id=id)
+    return render(request, 'transactions/transaction/detail.html', {'transaction': transaction})

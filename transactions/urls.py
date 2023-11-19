@@ -10,4 +10,5 @@ urlpatterns = [
         'movements/<int:account_id>/', views.TransactionListView.as_view(), name='account_movements'
     ),
     path('movements/', views.TransactionListView.as_view(), name='movements'),
+    path('<int:id>/', views.transfer_detail, name='transfer_detail'),
 ]
