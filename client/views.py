@@ -3,15 +3,17 @@ from datetime import datetime, timedelta
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import (
+    AccountModificationForm,
     AccountRegistrationForm,
     CardCreationForm,
+    CardModificationForm,
     ClientRegistrationForm,
     LoginForm,
 )
-from .models import Account, Client
+from .models import Account, Card, Client
 from .utils import random_alphanum
 
 
@@ -52,6 +54,24 @@ def create_account(request):
 
 
 @login_required
+def modify_account(request, account_slug):
+    form = AccountModificationForm(request.POST)
+    if request.method == 'POST':
+        user = Client.objects.get(user=request.user)
+        accounts = user.accounts.all()
+        account = Account.objects.get(user=user, slug=account_slug)
+        if not account_slug:
+            account = Account.objects.get(user=user, slug=accounts[0].slug)
+        if form.is_valid():
+            # if not user.accounts.filter(alias=form.cleaned_data['alias'], slug=account.id).exists(
+            account.alias = form.cleaned_data['alias']
+            account.status = form.cleaned_data['status']
+            account.save()
+            return redirect('dashboard')
+    return render(request, 'client/account/modify_account.html', {'form': form})
+
+
+@login_required
 def create_card(request):
     user = Client.objects.get(user=request.user)
     if request.method == 'POST':
@@ -71,6 +91,20 @@ def create_card(request):
         form = CardCreationForm()
         form.fields['account'].queryset = Account.objects.filter(user=user)
     return render(request, 'client/card/create_card.html', {'form': form})
+
+
+@login_required
+def modify_card(request, card_id):
+    form = CardModificationForm(request.POST)
+    if request.method == 'POST':
+        user = Client.objects.get(user=request.user)
+        card = Card.objects.get(user=user, id=card_id)
+        if form.is_valid():
+            card.alias = form.cleaned_data['alias']
+            card.status = form.cleaned_data['status']
+            card.save()
+            return redirect('dashboard')
+    return render(request, 'client/card/modify_card.html', {'form': form})
 
 
 def user_login(request):

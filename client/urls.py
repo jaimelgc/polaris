@@ -25,7 +25,9 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('<slug:account_slug>/', views.dashboard, name="dashboard_acc_detail"),
     path('account/create', views.create_account, name='create_account'),
+    path('account/<slug:account_slug>/modify', views.modify_account, name='modify_account'),
     path('card/create', views.create_card, name='create_card'),
+    path('card/<slug:card_id>/modify', views.modify_card, name='modify_card'),
     path('card/done', views.create_card, name='card_done'),
     path('account/done', views.create_account, name='account_done'),
 ]

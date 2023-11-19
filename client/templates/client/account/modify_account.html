@@ -1,0 +1,27 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Modify account{% endblock %}
+
+{% block header %}
+    {% include "header_dashboard.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <h2>Account Modification</h2>
+    </div>
+<div class="row">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <form method="post" id="new-account-form">
+            <label>Name: </label> {{ form.alias }}
+            <br><br>
+            {% csrf_token %}
+            <label>Status: </label> {{ form.status }}
+            <br><br>
+            {% csrf_token %}
+            <p><input type="submit" value="Save changes"></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
