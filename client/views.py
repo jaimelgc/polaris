@@ -82,7 +82,8 @@ def user_login(request):
             cd = form.cleaned_data
             user = authenticate(request, username=cd['username'], password=cd['password'])
         if user is not None:
-            if user.is_active:
+            client = get_object_or_404(Client, user=user)
+            if client.status == Client.States.ACTIVE and user.is_active:
                 login(request, user)
                 return HttpResponse('Authenticated successfully')
             else:

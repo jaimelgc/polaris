@@ -19,10 +19,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
 
 from client.models import Account, Card, Client
-from client.utils import calc_comission
 
 from .forms import TransactionForm
 from .models import Comission, Transaction
+from .utils import calc_comission
 
 
 @csrf_exempt
