@@ -1,8 +1,9 @@
+from datetime import datetime, timedelta
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
-from django.utils import timezone
 
 from .forms import (
     AccountRegistrationForm,
@@ -99,6 +100,10 @@ def dashboard(request, account_slug=None):
             acc_detail = get_object_or_404(accounts, slug=account_slug)
         else:
             acc_detail = get_object_or_404(accounts, slug=accounts[0].slug)
+        datetime_reference = datetime.now() - timedelta(days=30)
+        period_movements = acc_detail.transactions.filter(timestamp__gte=datetime_reference)
+        income = sum(movement.amount for movement in period_movements.filter(kind='INC'))
+        expenses = sum(movement.amount for movement in period_movements.filter(kind='OUT'))
     else:
         acc_detail = None
     return render(
@@ -107,5 +112,7 @@ def dashboard(request, account_slug=None):
         {
             'accounts': accounts,
             'acc_detail': acc_detail,
+            'income': income,
+            'expenses': expenses,
         },
     )
