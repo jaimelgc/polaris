@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Account, Card
+from .models import Account, Card, Client
 
 
 class ClientRegistrationForm(forms.ModelForm):
@@ -49,3 +49,15 @@ class CardCreationForm(forms.ModelForm):
     class Meta:
         model = Card
         fields = ['alias', 'account']
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+
+class ClientEditForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ['avatar']

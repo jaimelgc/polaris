@@ -7,8 +7,10 @@ from django.shortcuts import render
 from .forms import (
     AccountRegistrationForm,
     CardCreationForm,
+    ClientEditForm,
     ClientRegistrationForm,
     LoginForm,
+    UserEditForm,
 )
 from .models import Account, Client
 from .utils import random_alphanum
@@ -89,6 +91,24 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'client/login.html', {'form': form})
+
+
+@login_required
+def edit(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ClientEditForm(
+            instance=request.user.profile, data=request.POST, files=request.FILES
+        )
+    if user_form.is_valid() and profile_form.is_valid():
+        user_form.save()
+        profile_form.save()
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ClientEditForm(instance=request.user.profile)
+    return render(
+        request, 'client/edit.html', {'user_form': user_form, 'profile_form': profile_form}
+    )
 
 
 @login_required
