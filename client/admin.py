@@ -10,7 +10,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
-    list_display = ['alias', 'balance', 'status', 'user']
+    list_display = ['alias', 'balance', 'status', 'user', 'id']
     raw_id_fields = ['user']
 
 

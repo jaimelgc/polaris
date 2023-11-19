@@ -102,7 +102,7 @@ def transfer_out(request):
 
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
                 # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
-                bank_url = 'http://127.0.0.1:8000/transfer/outgoing/'
+                bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
                 raise HttpResponseBadRequest('No puedes pasar')
             account_id = cd['agent']
