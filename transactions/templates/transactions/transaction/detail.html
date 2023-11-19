@@ -1,15 +1,21 @@
-{% extends 'base_login.html' %}
+{% extends 'guest/base.html' %}
+{% block header %}
+    {% include "header_dashboard.html" %}
+{% endblock %}
 {% block content %}
-<div class="container">
-    <h1>Detalle transaccion</h1>
-    <table class="table">
+<div class="container d-none d-md-block">
+    <table class="table table-bordered text-center mt-5">
+        
         <thead>
             <tr>
-            <th scope="col">Origin</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Concept</th>
-            <th scope="col">Kind</th>
-            <th scope="col">Date</th>
+                <th colspan="5"><h1>Transaction Details</h1></th>
+            </tr>
+            <tr>
+                <th scope="col">Origin</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Concept</th>
+                <th scope="col">Kind</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
@@ -19,18 +25,29 @@
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
                     <td>{{ transaction.timestamp }}</td>
-                </tr>
-                <thead>
-                    <th scope="col">Comission</th>
-                    <th scope="col">Amount</th>
-                </thead>                
-                {% for comission in transaction.comissions.all %}
-                    <tr>
-                        <td>{{ comission.kind }}</td>
-                        <td>{{ comission.amount }}</td>
-                    </tr>
-                {% endfor %}
+                </tr>                
         </tbody>
     </table>
+    <table class="table table-bordered text-center">
+        <thead>
+            <th scope="col">Comission</th>
+            <th scope="col">Amount</th>
+        </thead>   
+        <tbody>             
+            {% for comission in transaction.comissions.all %}
+                <tr>
+                    <td>{{ comission.kind }}</td>
+                    <td>{{ comission.amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+<div class="container-fluid">
+    <ul>
+        <li></li>
+    </ul>
+
 </div>
 {% endblock %}
