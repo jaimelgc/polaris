@@ -5,9 +5,15 @@ from typing import Any
 import requests
 from django import forms
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
+from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseRedirect,
+)
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
@@ -139,9 +145,13 @@ def transfer_out(request):
                 return render(request, 'transactions/transaction/done.html', {'form': form})
         return render(request, 'transactions/transaction/create.html', {'form': form})
     else:
-        form = TransactionForm()
         user = Client.objects.get(user=request.user)
-        form.fields['agent'] = forms.ModelChoiceField(queryset=user.accounts.all())
+        if accounts := user.accounts.all():
+            form = TransactionForm()
+            form.fields['agent'] = forms.ModelChoiceField(queryset=accounts)
+        else:
+            messages.error(request, 'You must have an account in order to make a transaction.')
+            return HttpResponseRedirect('/client/')
     return render(request, 'transactions/transaction/create.html', {'form': form})
 
 
