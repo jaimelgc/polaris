@@ -1,15 +1,7 @@
-{% extends "guest/base.html" %}
-{% load bootstrap5 %}
+{% extends "done_content.html" %}
 
-{% block content %}
-<div class="px-4 py-5 my-5 row" id="main_container">    
-    <h1 class="display-5 fw-bold text-body-emphasis text-center">Transaction Succesful</h1>
-  <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">.</p>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <a href="{% url 'transfer_out' %}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3" >New Transfer</button></a>
-        <a href="{% url 'dashboard' %}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Go to dashboard</button></a>
-    </div>
-  </div>
-</div>
-{% endblock %}
+{% block title %}Transfer Done{% endblock %}
+
+{% block heading %}Transaction Succesful{% endblock %}
+{% block secondary_text %}New Transfer{% endblock %}
+{% block previous_url %}{% url "transfer_out" %}{% endblock %}

@@ -96,8 +96,8 @@ def transfer_out(request):
             agent_type, bank_id = cd['account'][:2]
 
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
-                bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
-                # bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
+                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
+                bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
                 return HttpResponseBadRequest('Unregistered entity.')
             account_id = cd['agent']
