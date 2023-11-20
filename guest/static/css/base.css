@@ -44,6 +44,19 @@ body{
     color: white;
 }
 
+.link-nos-white-r {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.4vw;
+}
+
+.link-nos-white-r:hover {
+    background-color: #0097b2;
+    color: white;
+    border-radius: 10px;
+}
+
 .link-nos {
     text-decoration: none;
     color: inherit;
@@ -244,11 +257,8 @@ ul.messages li a.close {
     text-shadow:none;
 }
 
-.ml-hgt {
-    height: 15px;
-    margin-left: 7px;
-}
 
-.ml-hgt2 {
+/* Gear image */
+.ml-hgt {
     height: 15px;
 }

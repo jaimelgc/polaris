@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form method="post" id="new-account-form">
-            <label>Name: </label> {{ form.alias }}
+            <label>New Alias: </label> {{ form.alias }}
             <br><br>
             {% csrf_token %}
             <label>Status: </label> {{ form.status }}
