@@ -100,8 +100,8 @@ def create_card(request):
 
 @login_required
 def modify_card(request, card_id):
-    form = CardModificationForm(request.POST)
     if request.method == 'POST':
+        form = CardModificationForm(request.POST)
         user = Client.objects.get(user=request.user)
         card = Card.objects.get(user=user, id=card_id)
         if form.is_valid():
@@ -109,6 +109,8 @@ def modify_card(request, card_id):
             card.status = form.cleaned_data['status']
             card.save()
             return redirect('dashboard')
+    else:
+        form = CardModificationForm()
     return render(request, 'client/card/modify_card.html', {'form': form})
 
 
@@ -161,7 +163,7 @@ def dashboard(request, account_slug=None):
         if account_slug:
             acc_detail = get_object_or_404(accounts, slug=account_slug)
         else:
-            acc_detail = get_object_or_404(accounts, slug=accounts[0].slug)
+            acc_detail = accounts[0]
         datetime_reference = datetime.now() - timedelta(days=30)
         period_movements = acc_detail.transactions.filter(timestamp__gte=datetime_reference)
         period_comissions = Comission.objects.filter(transfer__in=period_movements)
