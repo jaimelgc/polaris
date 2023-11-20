@@ -115,7 +115,8 @@ body{
     justify-content: center;
 }
 
-#log-in-form, #email-form, #password-reset-form, #new-card-form, #new-account-form {
+#log-in-form, #email-form, #password-reset-form, #new-card-form, #new-account-form,
+#modify-account-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
@@ -135,7 +136,21 @@ body{
     margin-right: 10px;
 }
 
-#new-card-form label {
+#transaction-form {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 300px;
+}
+
+#transaction-form label {
+    display: inline-block;
+    width: 320px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+#new-card-form label, #modify-account-form label{
     display: inline-block;
     text-align: left;
     margin-right: 10px;
@@ -227,4 +242,13 @@ ul.messages li a.close {
     border:0;
     box-shadow:none;
     text-shadow:none;
+}
+
+.ml-hgt {
+    height: 15px;
+    margin-left: 7px;
+}
+
+.ml-hgt2 {
+    height: 15px;
 }
