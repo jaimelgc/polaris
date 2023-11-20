@@ -5,7 +5,8 @@ from .models import Account, Card, Client
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ['user', 'status']
+    list_display = ['user', 'status', 'avatar']
+    raw_id_fields = ['user']
 
 
 @admin.register(Account)

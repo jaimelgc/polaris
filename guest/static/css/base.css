@@ -116,7 +116,7 @@ body{
 }
 
 #log-in-form, #email-form, #password-reset-form, #new-card-form, #new-account-form,
-#modify-account-form {
+#modify-account-form, #profile-edit-form, #password-change-form {
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
