@@ -33,7 +33,7 @@ def register(request):
             Client.objects.create(user=new_user)
             # show the user an alternative url
             # pass the client instead of the user, evaluate implications
-            return render(request, 'client/register_done.html', {'new_user': new_user})
+            return redirect('login')
     else:
         user_form = ClientRegistrationForm()
     return render(request, 'client/register.html', {'user_form': user_form})
@@ -90,8 +90,6 @@ def create_card(request):
                 return render(request, 'client/card/card_done.html', {'form': form})
             else:
                 return HttpResponse('Unable to create card')
-        else:
-            print(form.errors.as_data)
     else:
         form = CardCreationForm()
         form.fields['account'].queryset = Account.objects.filter(user=user)

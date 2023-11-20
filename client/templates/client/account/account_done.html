@@ -1,13 +1,7 @@
-{% extends "guest/base.html" %}
+{% extends "done_content.html" %}
 
 {% block title %}Create a bank account{% endblock %}
 
-{% block header %}
-    {% include "header.html" %}
-{% endblock %}
-{% block content %}
-<div class="container pt-4">
-    <h1>Account done!</h1>
-    <a href="{% url "dashboard" %}">Back to dashboard.</a>
-</div>
-{% endblock %}
+{% block heading %}Account done!{% endblock %}
+{% block secondary_text %}Create New Account{% endblock %}
+{% block previous_url %}{% url "create_account" %}{% endblock %}
