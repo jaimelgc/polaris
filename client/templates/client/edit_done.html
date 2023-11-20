@@ -1,5 +1,18 @@
 {% extends "guest/base.html" %}
 
+
+{% block title %}Edit your profile{% endblock %}
+
+{% block header %}
+    {% include "header_dashboard.html" %}
+{% endblock %}
+{% block content %}
+{% include "done_content.html" with heading="Profile Edited Successfully" secondary_url="" ="Edit Profile" %}
+
+{% endblock %}
+
+<!-- {% extends "guest/base.html" %}
+
 {% block title %}Edit your profile{% endblock %}
 
 {% block header %}
@@ -10,4 +23,4 @@
     <h1>Profile succesfully updated!</h1>
     <a href="{% url "dashboard" %}">Back to dashboard.</a>
 </div>
-{% endblock %}
+{% endblock %} -->
