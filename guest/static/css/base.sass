@@ -1,0 +1,218 @@
+@import 'colors', 'burgerMenu'
+
+$forms1: #log-in-form, #email-form, #password-reset-form, #new-card-form, #new-account-form,
+#modify-account-form, #profile-edit-form, #password-change-form
+
+$
+
+@mixin formStyles($background_color: false, $border_radius: false, $padding: false, $max_width: false)
+    @if $background_color
+        background-color: $background_color
+    @if $border_radius
+        border-radius: $border_radius
+    @if $padding
+        padding: $padding
+    @if $max_width
+        max-width: $max_width
+
+body
+    padding: 0
+    margin: 0
+
+
+.link-nos-white 
+    text-decoration: none
+    color: white
+    font-weight: bold
+    padding: 0.4vw
+
+
+.link-nos-white:hover 
+    background-color: $cyan
+    color: white
+
+
+.link-nos-white-r 
+    @extend .link-nos-white
+
+
+.link-nos-white-r:hover 
+    @extend .link-nos-white:hover 
+    border-radius: 10px
+
+
+.link-nos 
+    text-decoration: none
+    color: inherit
+
+
+.link-nos:hover 
+    color: inherit
+    opacity: .7
+
+
+.link-under 
+    text-decoration: none
+    color: inherit
+
+
+.link-under:hover 
+    color: inherit
+    text-decoration: underline
+
+
+.w-40 
+    width: 40%
+
+
+/* estilos menú desplegable */
+
+
+
+/* oculta ventanas sticky */
+.close
+    display: none
+
+
+/* estilos para controlar tamaño de la imagen del logo */
+#logo 
+    width: 240px
+
+
+
+/*ESTILOS LOGIN*/  
+
+#phone-contact, #language-selector 
+    font-size: large
+    font-weight: bolder
+    color: white
+
+
+.form-container 
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+
+@each $forms
+    @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 400px)
+
+
+#register-form 
+    @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 500px)
+
+#transaction-form 
+    @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 300px)
+
+#log-in-form label, #register-form label 
+    display: inline-block
+    width: 250px
+    text-align: left
+    margin-right: 10px
+
+#transaction-form label 
+    display: inline-block
+    width: 320px
+    text-align: left
+    margin-right: 10px
+
+
+#new-card-form label, #modify-account-form label
+    display: inline-block
+    text-align: left
+    margin-right: 10px
+
+
+#left-menu, #account-info, #info-nav
+    border-radius: 23px
+    border: 10px
+
+
+#main-data 
+    box-sizing: border-box
+    border-radius: 23px
+
+.helptext 
+    display:none
+
+
+#clock-img 
+    width: 55px
+
+
+/* Dinamic card representation on dashboard */
+
+.image-container 
+    position: relative
+
+
+.image-container img 
+    width: 100%
+    height: auto
+
+
+.overlay-code 
+    position: absolute
+    top: 70%
+    left: 10%
+    color: white
+    text-align: center
+    font-size: 100%
+
+
+.overlay-alias 
+    position: absolute
+    top: 80%
+    left: 10%
+    color: white
+    text-align: center
+    font-size: 100%
+
+
+#gear 
+    height: 10px
+  
+
+  /* messages */
+ul.messages 
+    margin:10px 100px
+    padding:0
+    list-style-type:
+    none
+
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info 
+    margin:0
+    padding:14px 20px
+    list-style:none
+    color:#fff
+
+
+ul.messages li.success  background:#81ce81 
+ul.messages li.success a  color:#0ac33e 
+
+ul.messages li.error  background:#a30029 color:#e9828e 
+ul.messages li.error a  color:#e9828e 
+
+ul.messages li.info  background:#faffae color:#696b4e 
+ul.messages li.info a  color:#1586de 
+
+ul.messages li.warning  background:#de9404 
+ul.messages li.warning a  color:#f49000 
+
+ul.messages li a.close 
+    margin:0
+    float:right
+    opacity:1
+    border:0
+    box-shadow:none
+    text-shadow:none
+
+
+
+/* Gear image */
+.ml-hgt 
+    height: 15px
