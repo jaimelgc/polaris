@@ -153,7 +153,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Bank comunication protocol
 BANK_DOMAINS_URL = 'https://raw.githubusercontent.com/sdelquin/dsw/main/ut3/te1/files/banks.json'
-BANK_DATA = get_banks_data()
+BANK_DATA = 'ese'
+# BANK_DATA = get_banks_data()
 PAYMENT = 'PAY'
 
 # Comissions
