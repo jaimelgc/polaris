@@ -1,8 +1,9 @@
-@import 'colors', 'burgerMenu'
-
+$cyan: #0097b2
+$darkGray: #a6a6a6
+$lightGray: #d9d9d9
+$blue: #004aad
 $forms: '#log-in-form', '#email-form', '#password-reset-form', '#new-card-form', '#new-account-form', '#modify-account-form', '#profile-edit-form', '#password-change-form'
-$elements: left-menu, account-info, info-nav
-
+$elements: 'left-menu', 'account-info', 'info-nav'
 
 @mixin formStyles($background_color: false, $border_radius: false, $padding: false, $max_width: false)
     @if $background_color
@@ -121,7 +122,8 @@ body
 
 
 @each $form in $forms
-    @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 400px)
+    #{$form}
+        @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 400px)
 
 #register-form
     @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 500px)
@@ -130,16 +132,16 @@ body
     @include formStyles($background_color: whitesmoke, $border_radius: 20px, $padding: 20px, $max_width: 300px)
 
 #log-in-form label, #register-form label
-    @mixin form-labels($display: inline-block, $width: 250px, $text_align: left, $margin_right: 10px)
+    @include form-labels($display: inline-block, $width: 250px, $text_align: left, $margin_right: 10px)
 
 #transaction-form label
-    @mixin form-labels($display: inline-block, $width: 320px, $text_align: left, $margin_right: 10px)
+    @include form-labels($display: inline-block, $width: 320px, $text_align: left, $margin_right: 10px)
 
 #new-card-form label, #modify-account-form label
-    @mixin form-labels($display: inline-block, $text_align: left, $margin_right: 10px)
+    @include form-labels($display: inline-block, $text_align: left, $margin_right: 10px)
 
 @each $element in $elements
-    ##{$element}
+    #{$element}
         border-radius: 23px
         border: 10px
 
