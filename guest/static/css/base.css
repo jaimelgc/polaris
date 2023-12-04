@@ -63,14 +63,14 @@ body {
 
 .link-nos-white-r:hover {
   border-radius: 10px;
-  background-color: #0097b2;
 }
 
 .link-under {
   text-decoration: none;
   color: inherit;
 }
-.link-under :hover {
+.link-under:hover {
+  color: inherit;
   text-decoration: underline;
 }
 
