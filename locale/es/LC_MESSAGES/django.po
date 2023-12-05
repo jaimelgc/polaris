@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-05 16:03+0000\n"
+"POT-Creation-Date: 2023-12-05 16:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,14 @@ msgstr "Inglés"
 #: bank/settings.py:118
 msgid "Spanish"
 msgstr "Español"
+
+#: client/forms.py:9
+msgid "Password"
+msgstr ""
+
+#: client/forms.py:10
+msgid "Repeat password"
+msgstr ""
 
 #: client/models.py:10 client/models.py:24 client/models.py:57
 msgid "Active"
@@ -94,6 +102,10 @@ msgstr ""
 msgid "type"
 msgstr ""
 
+#: transactions/forms.py:8
+msgid "Recipient"
+msgstr ""
+
 #: transactions/models.py:13
 msgid "Incomming"
 msgstr ""
@@ -136,4 +148,8 @@ msgstr ""
 
 #: transactions/models.py:65
 msgid "transfer"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/create.html:3
+msgid "Transaction"
 msgstr ""

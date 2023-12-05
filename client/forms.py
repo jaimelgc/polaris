@@ -1,12 +1,13 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 from .models import Account, Card, Client
 
 
 class ClientRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Repeat password'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -35,14 +36,6 @@ class AccountRegistrationForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['alias']
-
-    # def clean_alias(self):
-    #     cd = self.cleaned_data
-    #     alias = cd['alias']
-    #     user = cd['user']
-    #     if Account.objects.filter(alias=alias, user=user).exists():
-    #         raise forms.ValidationError('Alias already in use.')
-    #     return alias
 
 
 class AccountModificationForm(forms.ModelForm):
