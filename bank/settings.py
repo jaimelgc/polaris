@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
 from prettyconf import config
 
 from transactions.utils import get_banks_data
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -112,7 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('en', _('English')),
+    ('es', _('Spanish')),
+]
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -164,4 +169,8 @@ COMISSION_TABLE = [
     (50, {'OUT': '2.00', 'INC': '1.00', 'PAY': '3.00'}),
     (500, {'OUT': '4.00', 'INC': '2.00', 'PAY': '5.00'}),
     (float("inf"), {'OUT': '6.00', 'INC': '3.00', 'PAY': '7.00'}),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
 ]

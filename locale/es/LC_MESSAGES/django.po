@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-05 16:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bank/settings.py:117
+msgid "English"
+msgstr "Inglés"
+
+#: bank/settings.py:118
+msgid "Spanish"
+msgstr "Español"
+
+#: client/models.py:10 client/models.py:24 client/models.py:57
+msgid "Active"
+msgstr ""
+
+#: client/models.py:11 client/models.py:25 client/models.py:58
+msgid "Bloqued"
+msgstr ""
+
+#: client/models.py:12 client/models.py:26 client/models.py:59
+msgid "Terminated"
+msgstr ""
+
+#: client/models.py:28 client/models.py:61
+msgid "alias"
+msgstr ""
+
+#: client/models.py:29 guest/models.py:12
+msgid "slug"
+msgstr ""
+
+#: client/models.py:30
+msgid "balance"
+msgstr ""
+
+#: client/models.py:31 client/models.py:63
+msgid "status"
+msgstr ""
+
+#: client/models.py:36 client/models.py:70
+msgid "user"
+msgstr ""
+
+#: client/models.py:65
+msgid "pin"
+msgstr ""
+
+#: client/models.py:76
+msgid "account"
+msgstr ""
+
+#: client/models.py:79 guest/models.py:14
+msgid "image"
+msgstr ""
+
+#: guest/models.py:7
+msgid "Account"
+msgstr ""
+
+#: guest/models.py:8
+msgid "Card"
+msgstr ""
+
+#: guest/models.py:10
+msgid "title"
+msgstr ""
+
+#: guest/models.py:11
+msgid "subtitle"
+msgstr ""
+
+#: guest/models.py:13
+msgid "body"
+msgstr ""
+
+#: guest/models.py:15
+msgid "type"
+msgstr ""
+
+#: transactions/models.py:13
+msgid "Incomming"
+msgstr ""
+
+#: transactions/models.py:14
+msgid "Outgoing"
+msgstr ""
+
+#: transactions/models.py:15 transactions/models.py:53
+msgid "Payment"
+msgstr ""
+
+#: transactions/models.py:17
+msgid "agent"
+msgstr ""
+
+#: transactions/models.py:19 transactions/models.py:72
+msgid "amount"
+msgstr ""
+
+#: transactions/models.py:24
+msgid "concept"
+msgstr ""
+
+#: transactions/models.py:25
+msgid "timestamp"
+msgstr ""
+
+#: transactions/models.py:33 transactions/models.py:58
+msgid "kind"
+msgstr ""
+
+#: transactions/models.py:51
+msgid "Incomming Transaction"
+msgstr ""
+
+#: transactions/models.py:52
+msgid "Outgoing Transaction"
+msgstr ""
+
+#: transactions/models.py:65
+msgid "transfer"
+msgstr ""
