@@ -11,4 +11,5 @@ urlpatterns = [
     ),
     path('movements/', views.TransactionListView.as_view(), name='movements'),
     path('<int:id>/', views.transfer_detail, name='transfer_detail'),
+    path('<int:transaction_id>/pdf/', views.transaction_pdf, name='transaction_pdf'),
 ]

@@ -32,6 +32,9 @@ class Transaction(models.Model):
     def get_absolute_url(self):
         return reverse('transfer_detail', args=[self.id])
 
+    def transaction_pdf(obj):
+        url = reverse('transactions:transaction_pdf', args=[obj.id])
+        return mark_safe(f'<a href="{url}">generate PDF</a>')
 
 class Comission(models.Model):
     class Type(models.TextChoices):
