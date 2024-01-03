@@ -1,9 +1,10 @@
 import json
+import os
 from decimal import Decimal
 from typing import Any
-import weasyprint
 
 import requests
+import weasyprint
 from django import forms
 from django.conf import settings
 from django.contrib import messages
@@ -11,9 +12,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
-from django.template.loader import render_to_string
 
 from client.models import Account, Card, Client
 
@@ -176,12 +179,13 @@ def transfer_detail(request, id):
     transaction = get_object_or_404(Transaction, id=id)
     return render(request, 'transactions/transaction/detail.html', {'transaction': transaction})
 
+
 @login_required
 def transaction_pdf(request, transaction_id):
     transaction = get_object_or_404(Transaction, id=transaction_id)
     html = render_to_string('transactions/transaction/pdf.html', {'transaction': transaction})
 
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] =  f'filename=transaction_{transaction_id}.pdf'
-    weasyprint.HTML(string=html).write_pdf(response, stylessheets=[weasyprint.CSS(settings.STATIC_ROOT / 'css/pdf.css')])
+    response['Content-Disposition'] = f'filename=transaction_{transaction_id}.pdf'
+    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(response)
     return response
