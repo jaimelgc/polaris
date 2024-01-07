@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from .models import Comission, Transaction
 
 
-def export_to_csv(modeladmin, request, queryset):
+def export_to_csv(modeladmin, queryset):
     opts = modeladmin.model._meta
     content_disposition = f'attachment; filename={opts.verbose_name}.csv'
     response = HttpResponse(content_type='text/csv')
@@ -16,9 +16,9 @@ def export_to_csv(modeladmin, request, queryset):
     fields = [
         field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many
     ]
-    # Write a first row with header information
+    # Header
     writer.writerow([field.verbose_name for field in fields])
-    # Write data rows
+    # Datos
     for obj in queryset:
         data_row = []
         for field in fields:

@@ -1,3 +1,5 @@
+import csv
+import datetime
 import json
 from decimal import Decimal
 from typing import Any
@@ -96,7 +98,7 @@ def transfer_out(request):
             agent_type, bank_id = cd['account'][:2]
 
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
-                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
+                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] +':8000/transfer/incoming/'
                 bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
                 return HttpResponseBadRequest('Unregistered entity.')
@@ -173,3 +175,27 @@ class TransactionListView(LoginRequiredMixin, ListView):
 def transfer_detail(request, id):
     transaction = get_object_or_404(Transaction, id=id)
     return render(request, 'transactions/transaction/detail.html', {'transaction': transaction})
+
+
+@login_required
+def export_to_csv(request, queryset):
+    opts = modeladmin.model._meta
+    content_disposition = f'attachment; filename={opts.verbose_name}.csv'
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = content_disposition
+    writer = csv.writer(response)
+    fields = [
+        field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many
+    ]
+    # Header
+    writer.writerow([field.verbose_name for field in fields])
+    # Datos
+    for obj in queryset:
+        data_row = []
+        for field in fields:
+            value = getattr(obj, field.name)
+            if isinstance(value, datetime.datetime):
+                value = value.strftime('%d/%m/%Y')
+            data_row.append(value)
+        writer.writerow(data_row)
+    return response
