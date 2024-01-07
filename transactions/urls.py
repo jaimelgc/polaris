@@ -9,6 +9,7 @@ urlpatterns = [
     path(
         'movements/<int:account_id>/', views.TransactionListView.as_view(), name='account_movements'
     ),
+    path('client/#', views.export_to_csv, name='export_to_csv'),
     path('movements/', views.TransactionListView.as_view(), name='movements'),
     path('<int:id>/', views.transfer_detail, name='transfer_detail'),
 ]

@@ -178,14 +178,23 @@ def transfer_detail(request, id):
 
 
 @login_required
-def export_to_csv(request, queryset):
-    opts = modeladmin.model._meta
-    content_disposition = f'attachment; filename={opts.verbose_name}.csv'
+def export_to_csv(request):
+    client = get_object_or_404(Client, user=request.user)
+    if 'account_id' in request.GET.keys():
+        account = get_object_or_404(Account, id=request.GET.get('account_id'), user=client.id)
+        queryset = account.transactions.all()
+    else:
+        accounts = client.accounts.all()
+        queryset = Transaction.objects.filter(account__in=accounts)
+
+    content_disposition = 'attachment; filename=movements.csv'
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = content_disposition
     writer = csv.writer(response)
     fields = [
-        field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many
+        field
+        for field in queryset[0]._meta.fields
+        if not field.many_to_many and not field.one_to_many
     ]
     # Header
     writer.writerow([field.verbose_name for field in fields])
