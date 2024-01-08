@@ -16,7 +16,7 @@
                 <a href="{% url 'dashboard' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
             </div>
             <!-- menú extendido para pantallas grandes-->
-            <div class="col-6 order-2 d-none d-md-flex justify-content-center align-items-center">
+            <div class="col-lg-8 col-7 order-2 d-none d-md-flex justify-content-center align-items-center">
                 <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                     Profile
                 </button>
@@ -28,7 +28,7 @@
                 <a href="#" class="link-nos-white-r">Help</a>
                 <a href="#" class="link-nos-white-r">Contact</a>
             </div>
-            <div class="col-lg-4 col-12 order-2 d-flex justify-content-center align-items-center">
+            <div class="col-lg-2 col-12 order-2 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-md-5 text-white p-2 w-auto d-md-block">
                         {% if request.user.is_authenticated %}
