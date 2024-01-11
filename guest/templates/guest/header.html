@@ -1,6 +1,6 @@
 {% load static %}
 
-<header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
+<header class="container-fluid bg-stg-blue pt-2 pb-4 px-2"> 
     <div class="container">
         <div class="row d-md-flex d-none justify-content-end mb-2">
             <div class="w-auto text-center bg-lgt-gray border-end border-dark">
@@ -12,18 +12,18 @@
         </div>
         <div class="row">
             <!-- logo -->
-            <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
+            <div class="col-lg-4 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-md-start justify-content-center align-content-center" >
                 <a href="{% url 'home' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
             </div>
             <!-- menu big screen-->
-            <div class="col-6 order-2 d-none d-lg-flex justify-content-end align-items-center">
+            <div class="col-lg-4 order-2 d-none d-lg-flex justify-content-center align-items-center">
                 <a href="#" class="link-nos-white">People</a>
                 <a href="#" class="link-nos-white">Businesses</a>
                 <a href="#" class="link-nos-white">ATMs</a>
                 <a href="#" class="link-nos-white">Contact</a>
             </div>
             <!-- login, register, language, menu -->
-            <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-center align-items-center">
+            <div class="col-md-2 col-6 order-3 d-lg-none d-flex justify-content-md-end justify-content-center align-items-center p-0">
                 <div class="btn-group">
                     <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                         Menu
@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-5 col-6 order-md-2 order-2 d-flex justify-content-lg-end justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-md-5 bg-lgt-gray p-2 w-auto d-none d-md-block">
                         <a href="{% url 'login' %}" class="fw-bold text-center link-nos">Access</a>
