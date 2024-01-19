@@ -17,7 +17,7 @@
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
                     <td>{{ transaction.timestamp }}</td>
-                    <td><a href="{{ transaction.get_absolute_url }}">Details</a></td>
+                    <td><a href="{{ transaction.get_absolute_url }}">{% trans "Details" %}</a></td>
                 </tr>
             {% endfor %}
         </tbody>
