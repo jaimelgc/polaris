@@ -148,18 +148,20 @@ def transfer_out(request):
     return render(request, 'transactions/transaction/create.html', {'form': form})
 
 
+def get_queryset(request):
+    client = get_object_or_404(Client, user=request.user)
+    if 'account_id' in request.GET.keys():
+        account = get_object_or_404(Account, id=request.GET.get('account_id'), user=client.id)
+        queryset = account.transactions.all()
+    else:
+        accounts = client.accounts.all()
+        queryset = Transaction.objects.filter(account__in=accounts)
+    return queryset
+
+
 class TransactionListView(LoginRequiredMixin, ListView):
-    def get_queryset(self):
-        client = get_object_or_404(Client, user=self.request.user)
-        if 'account_id' in self.request.GET.keys():
-            account = get_object_or_404(
-                Account, id=self.request.GET.get('account_id'), user=client.id
-            )
-            queryset = account.transactions.all()
-        else:
-            accounts = client.accounts.all()
-            queryset = Transaction.objects.filter(account__in=accounts)
-        return queryset
+    def _get_queryset(self):
+        get_queryset(self.request)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -179,14 +181,7 @@ def transfer_detail(request, id):
 
 @login_required
 def export_to_csv(request):
-    client = get_object_or_404(Client, user=request.user)
-    if 'account_id' in request.GET.keys():
-        account = get_object_or_404(Account, id=request.GET.get('account_id'), user=client.id)
-        queryset = account.transactions.all()
-    else:
-        accounts = client.accounts.all()
-        queryset = Transaction.objects.filter(account__in=accounts)
-
+    queryset = get_queryset(request)
     content_disposition = 'attachment; filename=movements.csv'
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = content_disposition
