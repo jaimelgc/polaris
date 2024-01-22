@@ -1,5 +1,4 @@
 import json
-import os
 from decimal import Decimal
 from typing import Any
 
@@ -14,8 +13,6 @@ from django.contrib.staticfiles import finders
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
-from django.urls import reverse
-from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
 
@@ -136,7 +133,11 @@ def transfer_out(request):
                 account.save()
                 new_transaction.save()
                 new_comission.save()
-                return render(request, 'transactions/transaction/done.html', {'form': form})
+                return render(
+                    request,
+                    'transactions/transaction/done.html',
+                    {'form': form, 'transaction': new_transaction},
+                )
         messages.error(request, 'Unable to reach the recipient.')
         return render(request, 'transactions/transaction/create.html', {'form': form})
     else:

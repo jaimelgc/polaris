@@ -30,7 +30,7 @@
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
-                    <td>{{ transaction.timestamp }}</td>
+                    <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
                 </tr>                
         </tbody>
     </table>
