@@ -1,3 +1,5 @@
+import csv
+import datetime
 import json
 from decimal import Decimal
 from typing import Any
@@ -99,7 +101,7 @@ def transfer_out(request):
             agent_type, bank_id = cd['account'][:2]
 
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
-                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
+                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] +':8000/transfer/incoming/'
                 bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
                 return HttpResponseBadRequest('Unregistered entity.')
@@ -153,18 +155,20 @@ def transfer_out(request):
     return render(request, 'transactions/transaction/create.html', {'form': form})
 
 
+def get_queryset(request):
+    client = get_object_or_404(Client, user=request.user)
+    if 'account_id' in request.GET.keys():
+        account = get_object_or_404(Account, id=request.GET.get('account_id'), user=client.id)
+        queryset = account.transactions.all()
+    else:
+        accounts = client.accounts.all()
+        queryset = Transaction.objects.filter(account__in=accounts)
+    return queryset
+
+
 class TransactionListView(LoginRequiredMixin, ListView):
-    def get_queryset(self):
-        client = get_object_or_404(Client, user=self.request.user)
-        if 'account_id' in self.request.GET.keys():
-            account = get_object_or_404(
-                Account, id=self.request.GET.get('account_id'), user=client.id
-            )
-            queryset = account.transactions.all()
-        else:
-            accounts = client.accounts.all()
-            queryset = Transaction.objects.filter(account__in=accounts)
-        return queryset
+    def _get_queryset(self):
+        get_queryset(self.request)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -193,4 +197,28 @@ def transaction_pdf(request, transaction_id):
         response,
         stylesheets=[weasyprint.CSS(finders.find('css/pdf.css'))],
     )
+
+
+def export_to_csv(request):
+    queryset = get_queryset(request)
+    content_disposition = 'attachment; filename=movements.csv'
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = content_disposition
+    writer = csv.writer(response)
+    fields = [
+        field
+        for field in queryset[0]._meta.fields
+        if not field.many_to_many and not field.one_to_many
+    ]
+    # Header
+    writer.writerow([field.verbose_name for field in fields])
+    # Datos
+    for obj in queryset:
+        data_row = []
+        for field in fields:
+            value = getattr(obj, field.name)
+            if isinstance(value, datetime.datetime):
+                value = value.strftime('%d/%m/%Y')
+            data_row.append(value)
+        writer.writerow(data_row)
     return response
