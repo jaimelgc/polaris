@@ -27,11 +27,13 @@ def transfer(request):
         if data['ccc'][:2] != 'C6':
             HttpResponseBadRequest('Unrecognized card')
         card_id = int(data['ccc'][3:])
-        if card := Card.objects.get(id=card_id, pin=data['pin'], status=Card.States.ACTIVE):
+        if card := get_object_or_404(Card, id=card_id, pin=data['pin'], status=Card.States.ACTIVE):
             account = card.account
             amount = Decimal(data['amount'])
             comission_amount = calc_comission(
-                amount, Comission.Type.PAYMENT, settings.COMISSION_TABLE
+                amount,
+                Comission.Type.PAYMENT,
+                settings.COMISSION_TABLE,
             )
             if amount + comission_amount <= account.balance:
                 account.balance -= amount + comission_amount
@@ -45,7 +47,9 @@ def transfer(request):
                 account.save()
                 new_transaction.save()
                 new_comission = Comission(
-                    kind=Comission.Type.PAYMENT, transfer=new_transaction, amount=comission_amount
+                    kind=Comission.Type.PAYMENT,
+                    transfer=new_transaction,
+                    amount=comission_amount,
                 )
                 new_comission.save()
             return HttpResponse()
@@ -60,10 +64,12 @@ def transfer_inc(request):
     data = json.loads(request.body)
     if {'sender', 'cac', 'concept', 'amount'} <= set(data.keys()):
         account_id = int(data['cac'][3:])
-        if account := Account.objects.get(id=account_id, status=Account.States.ACTIVE):
+        if account := get_object_or_404(Account, id=account_id, status=Account.States.ACTIVE):
             amount = Decimal(data['amount'])
             comission_amount = calc_comission(
-                amount, Comission.Type.INCOMING, settings.COMISSION_TABLE
+                amount,
+                Comission.Type.INCOMING,
+                settings.COMISSION_TABLE,
             )
             account.balance += amount - comission_amount
             new_transaction = Transaction(
@@ -76,7 +82,9 @@ def transfer_inc(request):
             account.save()
             new_transaction.save()
             new_comission = Comission(
-                kind=Comission.Type.INCOMING, transfer=new_transaction, amount=comission_amount
+                kind=Comission.Type.INCOMING,
+                transfer=new_transaction,
+                amount=comission_amount,
             )
             new_comission.save()
             return HttpResponse()
@@ -94,17 +102,18 @@ def transfer_out(request):
         if form.is_valid():
             cd = form.cleaned_data
             agent_type, bank_id = cd['account'][:2]
-
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
-                # bank_url = settings.BANK_DATA[int(bank_id) - 1]['url'] + ':8000/transfer/incoming/'
-                bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
+                bank_url = settings.BANK_DATA[int(bank_id)]['url'] + '/transfer/incoming/'
+                # bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
                 return HttpResponseBadRequest('Unregistered entity.')
             account_id = cd['agent']
-            account = Account.objects.get(id=account_id)
+            account = get_object_or_404(Account, id=account_id)
             amount = cd['amount']
             comission_amount = calc_comission(
-                amount, Comission.Type.OUTGOING, settings.COMISSION_TABLE
+                amount,
+                Comission.Type.OUTGOING,
+                settings.COMISSION_TABLE,
             )
             if amount + comission_amount > account.balance:
                 return HttpResponseBadRequest('Amount exceeds the account available money.')
@@ -118,10 +127,10 @@ def transfer_out(request):
             if response.status_code == 200:
                 account.balance -= amount + comission_amount
                 new_transaction = Transaction(
-                    agent=data['sender'],
+                    agent=account.alias,
                     amount=amount,
                     concept=data['concept'],
-                    account=account,
+                    account=account.code,
                     kind=Comission.Type.OUTGOING,
                 )
                 new_comission = Comission(
