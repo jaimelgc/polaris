@@ -8,7 +8,10 @@
         <thead>
             <div class="row">
                 <tr class="">
-                    <th colspan="5"><h1>Transaction Details</h1></th>
+                    <th colspan="5">
+                        <h1>Transaction Details</h1>
+                        <a href="{% url 'transaction_pdf' transaction_id=transaction.id  %}">Generate PDF</a>
+                    </th>
                 </tr>
             </div>
             <div class="row">
@@ -27,7 +30,7 @@
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
-                    <td>{{ transaction.timestamp }}</td>
+                    <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
                 </tr>                
         </tbody>
     </table>
