@@ -7,6 +7,7 @@
             <th scope="col">Concept</th>
             <th scope="col">Kind</th>
             <th scope="col">Date</th>
+            <th scope="col"><a href='{% url "export_to_csv" %}'><button>Exportar a CSV</button></a></th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +17,7 @@
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
-                    <td>{{ transaction.timestamp }}</td>
+                    <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
                     <td><a href="{{ transaction.get_absolute_url }}">Details</a></td>
                 </tr>
             {% endfor %}

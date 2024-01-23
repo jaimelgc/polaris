@@ -3,5 +3,5 @@
 {% block title %}Transfer Done{% endblock %}
 
 {% block heading %}Transaction Succesful{% endblock %}
-{% block secondary_text %}New Transfer{% endblock %}
-{% block previous_url %}{% url "transfer_out" %}{% endblock %}
+{% block secondary_text %}Download PDF{% endblock %}
+{% block previous_url %}{% url 'transaction_pdf' transaction.id  %}{% endblock %}
