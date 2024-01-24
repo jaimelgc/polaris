@@ -135,7 +135,7 @@ def transfer_out(request):
                     agent=account.alias,
                     amount=amount,
                     concept=data['concept'],
-                    account=account.code,
+                    account=account,
                     kind=Comission.Type.OUTGOING,
                 )
                 new_comission = Comission(
