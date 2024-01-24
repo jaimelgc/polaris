@@ -1,3 +1,4 @@
+{% load static %}
 
 <div class="row text-center mb-2">
     <div class="col-md-6 col-12 order-md-1 order-2 d-flex flex-column align-items-center justify-content-center py-md-0 py-2">
@@ -13,6 +14,9 @@
             <a href="{{ product.image.url }}">
                 <img src="{% thumbnail product.image 470x235 crop %}" class="img-fluid" alt="Split banner image cap">
             </a>
+            <audio controls>
+                <source src="{% static "audio/ElevenLabs_2024-01-24T18 03 54_Daniel.mp3" %}" type="audio/ogg">
+            </audio>
         {% else %}
             THERE IS NO IMAGE FOR THIS PRODUCT
         {% endif %}
