@@ -202,10 +202,7 @@ def transaction_pdf(request, transaction_id):
 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'filename=transaction_{transaction_id}.pdf'
-    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(
-        response,
-        stylesheets=[weasyprint.CSS(finders.find('css/pdf.css'))],
-    )
+    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(response)
     return response
 
 
