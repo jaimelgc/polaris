@@ -14,7 +14,7 @@ class Product(models.Model):
     type = models.CharField(max_length=3, choices=Type.choices)
 
     def __str__(self):
-        return f'Prodct: {self.title}'
+        return f'Product: {self.title}'
 
     # @property
     # def avatar(self):

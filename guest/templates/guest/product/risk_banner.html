@@ -1,12 +1,23 @@
+{% load static %}
 <div class="container">
     <div class="row bg-lgt-gray border border-dark m-md-4 m-2">
-        <div class="col-12 text-center border-bottom border-dark fs-4 p-1">Risk Level</div>
+        <div class="col-12 text-end">
+            <a href="javascript:void(0);" class="text-dark" id="risk-level-audio">🔊Listen</a>
+        </div>
+        <div class="col-12 text-center border-bottom border-dark fs-4 pb-2">Risk Level</div>
         <div class="col-2 d-flex justify-content-center fs-1 p-2">1/6</div>
         <div class="col-md-5 col-10 p-2">This number indicates the product risk, with 1 / 6 representing the lowest risk and 6 / 6 representing the highest risk.</div>
         <div class="col-md-5 d-md-block d-none p-2">
             Polaris is affiliated with Fakecountry's Deposit Guarantee Fund for Credit Institutions. 
             The maximum amount guaranteed is €100,000 per person for the total of all deposits 
             established at Polaris.
-        </div>
+        </div>         
     </div>
+    <script>
+        document.getElementById('risk-level-audio').addEventListener('click', function() {
+            var audio = new Audio("{% static "audio/en_risk_level.mp3" %}");
+            audio.play();
+        });
+    </script>
 </div>
+

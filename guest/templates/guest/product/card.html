@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="card col-5 my-2 p-0">
     {% if product.image %}
         {% load thumbnail %}
@@ -8,11 +10,29 @@
         NO IMAGE FOR THIS PRODUCT
     {% endif %}
     <div class="card-body">
+        {% if product.title  == 'Cards' %}
+        <div class="row">
+            <h3 class="col-9 card-title">{{ product.title }}</h3>
+            <a href="javascript:void(0);" class="col-3 text-dark d-flex justify-content-end align-content-center" id="cards-audio">🔊Listen</a>       
+        </div>
+        <h5 class="card-text">{{ product.subtitle }}</h5>
+        <p class="card-text">{{ product.body }}</p>
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="btn btn-primary" href="#" role="button">Learn more</a>
+        </div>
+        {% else %}
         <h3 class="card-title">{{ product.title }}</h3>
         <h5 class="card-text">{{ product.subtitle }}</h5>
         <p class="card-text">{{ product.body }}</p>
         <div class="d-flex justify-content-center align-items-center">
             <a class="btn btn-primary" href="#" role="button">Learn more</a>
         </div>
+        {% endif %}
     </div>
+    <script>
+        document.getElementById('cards-audio').addEventListener('click', function() {
+            var audio = new Audio("{% static "audio/en_cards.mp3" %}");
+            audio.play();
+        });
+    </script>
 </div>

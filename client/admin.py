@@ -13,6 +13,7 @@ class ClientAdmin(admin.ModelAdmin):
 class AccountAdmin(admin.ModelAdmin):
     list_display = ['alias', 'balance', 'status', 'user', 'id']
     raw_id_fields = ['user']
+    prepopulated_fields = {'slug':['alias',]}
 
 
 @admin.register(Card)
