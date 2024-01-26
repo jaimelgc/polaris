@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row bg-lgt-gray border border-dark m-md-4 m-2">
         <div class="col-12 text-end">
-            <a href="javascript:void(0);" class="text-dark" id="risk-level-audio">🔊Listen</a>
+            <a href="javascript:void(0);" class="text-dark text-decoration-none" id="risk-level-audio">🔊Listen</a>
         </div>
         <div class="col-12 text-center border-bottom border-dark fs-4 pb-2">Risk Level</div>
         <div class="col-2 d-flex justify-content-center fs-1 p-2">1/6</div>
@@ -14,9 +14,15 @@
         </div>         
     </div>
     <script>
+        var riskLevelAudio = new Audio("{% static "audio/en_risk_level.ogg" %}");
+        var isPlaying = false;
         document.getElementById('risk-level-audio').addEventListener('click', function() {
-            var audio = new Audio("{% static "audio/en_risk_level.ogg" %}");
-            audio.play();
+            if (isPlaying) {
+                riskLevelAudio.pause();
+            } else {
+                riskLevelAudio.play();
+            }
+        isPlaying = !isPlaying;
         });
     </script>
 </div>

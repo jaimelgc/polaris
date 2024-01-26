@@ -13,7 +13,7 @@
         {% if product.title  == 'Cards' %}
         <div class="row">
             <h3 class="col-9 card-title">{{ product.title }}</h3>
-            <a href="javascript:void(0);" class="col-3 text-dark d-flex justify-content-end align-content-center" id="cards-audio">🔊Listen</a>       
+            <a href="javascript:void(0);" class="col-3 text-dark d-flex justify-content-end align-content-center text-decoration-none" id="cards-audio">🔊Listen</a>       
         </div>
         <h5 class="card-text">{{ product.subtitle }}</h5>
         <p class="card-text">{{ product.body }}</p>
@@ -30,9 +30,16 @@
         {% endif %}
     </div>
     <script>
+        var cardAudio = new Audio("{% static "audio/en_cards.ogg" %}");
+        var isPlaying = false;
+    
         document.getElementById('cards-audio').addEventListener('click', function() {
-            var audio = new Audio("{% static "audio/en_cards.ogg" %}");
-            audio.play();
+            if (isPlaying) {
+                cardAudio.pause();
+            } else {
+                cardAudio.play();
+            }
+            isPlaying = !isPlaying;
         });
     </script>
 </div>
