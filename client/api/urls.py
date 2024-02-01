@@ -23,4 +23,14 @@ urlpatterns = [
         views.TransactionDetailView.as_view(),
         name='transaction_detail',
     ),
+    path(
+        'cards/',
+        views.CardListView.as_view(),
+        name='cards_list',
+    ),
+    path(
+        'cards/<pk>/',
+        views.CardDetailView.as_view(),
+        name='cards_detail',
+    ),
 ]

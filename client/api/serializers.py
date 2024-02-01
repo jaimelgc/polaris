@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from client.models import Account
+from client.models import Account, Card
 from transactions.models import Comission, Transaction
 
 
@@ -28,4 +28,16 @@ class TransactionSerializer(serializers.ModelSerializer):
             'concept',
             'timestamp',
             'comissions',
+        ]
+
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = [
+            'alias',
+            'status',
+            'pin',
+            'account',
+            'image',
         ]
