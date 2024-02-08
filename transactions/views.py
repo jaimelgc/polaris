@@ -11,7 +11,6 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.staticfiles import finders
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
@@ -202,10 +201,7 @@ def transaction_pdf(request, transaction_id):
 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'filename=transaction_{transaction_id}.pdf'
-    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(
-        response,
-        stylesheets=[weasyprint.CSS(finders.find('css/pdf.css'))],
-    )
+    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(response)
     return response
 
 
