@@ -1,5 +1,4 @@
 import csv
-import datetime
 import json
 from decimal import Decimal
 from typing import Any
@@ -58,9 +57,19 @@ def transfer(request):
                 new_comission.save()
             return HttpResponse()
         else:
-            return HttpResponseBadRequest('Unable to operate with the given card.')
+            error = 'Unable to operate with the given card'
+            return render(
+                request,
+                'transactions/transaction/error.html',
+                {'error': error},
+            )
     else:
-        return HttpResponseBadRequest('Data not consistent with request.')
+        error = 'Data not consistent with request'
+        return render(
+            request,
+            'transactions/transaction/error.html',
+            {'error': error},
+        )
 
 
 @csrf_exempt
@@ -93,9 +102,19 @@ def transfer_inc(request):
             new_comission.save()
             return HttpResponse()
         else:
-            return HttpResponseBadRequest('Unable to operate with the given account.')
+            error = 'Unable to operate with the given account'
+            return render(
+                request,
+                'transactions/transaction/error.html',
+                {'error': error},
+            )
     else:
-        return HttpResponseBadRequest('Data not consistent with request.')
+        error = 'Data not consistent with request'
+        return render(
+            request,
+            'transactions/transaction/error.html',
+            {'error': error},
+        )
 
 
 @csrf_exempt
@@ -108,9 +127,13 @@ def transfer_out(request):
             agent_type, bank_id = cd['account'][:2]
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
                 bank_url = settings.BANK_DATA[int(bank_id)]['url'] + '/transfer/incoming/'
-                # bank_url = 'http://127.0.0.1:8000/transfer/incoming/'
             else:
-                return HttpResponseBadRequest('Unregistered entity.')
+                error = 'Unregistered entity'
+                return render(
+                    request,
+                    'transactions/transaction/error.html',
+                    {'error': error},
+                )
             account_id = cd['agent']
             account = get_object_or_404(Account, id=account_id)
             amount = cd['amount']
@@ -120,7 +143,12 @@ def transfer_out(request):
                 settings.COMISSION_TABLE,
             )
             if amount + comission_amount > account.balance:
-                return HttpResponseBadRequest('Amount exceeds the account available money.')
+                error = 'Amount exceeds the account available money'
+                return render(
+                    request,
+                    'transactions/transaction/error.html',
+                    {'error': error},
+                )
             data = {
                 'sender': account.alias,
                 'cac': cd['account'],
@@ -218,13 +246,11 @@ def export_to_csv(request):
     ]
     # Header
     writer.writerow([field.verbose_name for field in fields])
-    # Datos
+    # Data
     for obj in queryset:
         data_row = []
         for field in fields:
             value = getattr(obj, field.name)
-            if isinstance(value, datetime.datetime):
-                value = value.strftime('%d/%m/%Y')
             data_row.append(value)
         writer.writerow(data_row)
     return response

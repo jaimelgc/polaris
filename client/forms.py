@@ -16,7 +16,7 @@ class ClientRegistrationForm(forms.ModelForm):
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
+            raise forms.ValidationError("Passwords don't match.")
         return cd['password2']
 
     def clean_email(self):
@@ -35,14 +35,6 @@ class AccountRegistrationForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['alias']
-
-    # def clean_alias(self):
-    #     cd = self.cleaned_data
-    #     alias = cd['alias']
-    #     user = cd['user']
-    #     if Account.objects.filter(alias=alias, user=user).exists():
-    #         raise forms.ValidationError('Alias already in use.')
-    #     return alias
 
 
 class AccountModificationForm(forms.ModelForm):

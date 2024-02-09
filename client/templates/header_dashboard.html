@@ -35,7 +35,7 @@
                         Hi {{ user.first_name }},
                         <a href="{% url "logout" %}" class="text-decoration-underline text-white">Log out</a>
                         {% else %}
-                        <a href="{% url "login" %}">Log in</a>
+                        <a class="text-white" href="{% url "login" %}">Log in</a>
                         {% endif %}
                     </div>
                 </div>

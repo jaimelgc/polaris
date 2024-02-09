@@ -27,8 +27,8 @@
                             {{ user_form.as_p}}                     
                             {% csrf_token %}
                         <br>
-                        <a href="">Personal data processing</a><br>
-                        <input type="checkbox" name="privacy" id="privacy"><span> I have read, I understand and agree to the processing of my personal data.</span><br><br>
+                        <a disabled href="#">Personal data processing</a><br>
+                        <input required type="checkbox" name="privacy" id="privacy"><span> I have read, I understand and agree to the processing of my personal data.</span><br><br>
                         <input type="submit" value="Register"><br><br>
                     </form>
                         <a href="#">Learn more</a>

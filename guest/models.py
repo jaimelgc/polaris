@@ -14,10 +14,4 @@ class Product(models.Model):
     type = models.CharField(max_length=3, choices=Type.choices)
 
     def __str__(self):
-        return f'Prodct: {self.title}'
-
-    # @property
-    # def avatar(self):
-    #     if self.image:
-    #         return self.image
-    #     return 'No hay imagen asociada a este producto'
+        return f'Product: {self.title}'

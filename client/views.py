@@ -33,7 +33,7 @@ def register(request):
             Client.objects.create(user=new_user)
             # show the user an alternative url
             # pass the client instead of the user, evaluate implications
-            return redirect('login')
+            return render(request, 'registration/register_done.html', {'new_user': new_user})
     else:
         user_form = ClientRegistrationForm()
     return render(request, 'client/register.html', {'user_form': user_form})
@@ -68,7 +68,6 @@ def modify_account(request, account_slug):
         if not account_slug:
             account = Account.objects.get(user=user, slug=accounts[0].slug)
         if form.is_valid():
-            # if not user.accounts.filter(alias=form.cleaned_data['alias'], slug=account.id).exists(
             account.alias = form.cleaned_data['alias']
             account.status = form.cleaned_data['status']
             account.save()
