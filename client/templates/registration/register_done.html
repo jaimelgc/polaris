@@ -1,4 +1,6 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
+
 {% block title %}Welcome{% endblock %}
 
 {% block header %}
@@ -6,10 +8,10 @@
 {% endblock header %}
 {% block content %}
 <div class="container pt-4">
-    <h1>Welcome {{ new_user.first_name }}!</h1> 
+    <h1>{% trans "Welcome" %} {{ new_user.first_name }}!</h1> 
     <p>
-        Your client account has been successfully created.
-        Now you can <a href="{% url 'login' %}">log in</a>.
+        {% trans "Your client account has been successfully created.
+        Now you can" %} <a href="{% url 'login' %}">{% trans "log in" %}</a>.
     </p>
 </div>
 {% endblock %}

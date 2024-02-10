@@ -1,13 +1,15 @@
+{% load i18n %}
+
 <div class="container">
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">Origin</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Concept</th>
-            <th scope="col">Kind</th>
-            <th scope="col">Date</th>
-            <th scope="col"><a href='{% url "export_to_csv" %}'><button>Exportar a CSV</button></a></th>
+            <th scope="col">{% trans "Origin" %}</th>
+            <th scope="col">{% trans "Amount" %}</th>
+            <th scope="col">{% trans "Concept" %}</th>
+            <th scope="col">{% trans "Kind" %}</th>
+            <th scope="col">{% trans "Date" %}</th>
+            <th scope="col"><a href='{% url "export_to_csv" %}'><button>{% trans "Export to CSV" %}</button></a></th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +20,7 @@
                     <td>{{ transaction.concept }}</td>
                     <td>{{ transaction.kind }}</td>
                     <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
-                    <td><a href="{{ transaction.get_absolute_url }}">Details</a></td>
+                    <td><a href="{{ transaction.get_absolute_url }}">{% trans "Details" %}</a></td>
                 </tr>
             {% endfor %}
         </tbody>

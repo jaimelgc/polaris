@@ -1,7 +1,8 @@
 {% extends "done_content.html" %}
+{% load i18n %}
 
 {% block title %}{{ error }}{% endblock %}
 
-{% block heading %}Error: {{ error }}{% endblock %}
-{% block secondary_text %}Try Again{% endblock %}
+{% block heading %}{% trans "Error:" %} {{ error }}{% endblock %}
+{% block secondary_text %}{% trans "Try Again" %}{% endblock %}
 {% block previous_url %}{% url "transfer_out" %}{% endblock %}

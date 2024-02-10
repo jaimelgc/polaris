@@ -6,3 +6,4 @@ prettyconf
 requests
 easy-thumbnails
 WeasyPrint
+django-rosetta

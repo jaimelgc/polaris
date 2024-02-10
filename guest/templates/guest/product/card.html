@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="card col-5 my-2 p-0">
     {% if product.image %}
         {% load thumbnail %}
@@ -5,14 +7,14 @@
             <img class="card-img-top m-0" src="{% thumbnail product.image 400x200 crop %}" alt="Card image cap">
         </a>
     {% else %}
-        NO IMAGE FOR THIS PRODUCT
+        {% trans "NO IMAGE FOR THIS PRODUCT" %}
     {% endif %}
     <div class="card-body">
         <h3 class="card-title">{{ product.title }}</h3>
         <h5 class="card-text">{{ product.subtitle }}</h5>
         <p class="card-text">{{ product.body }}</p>
         <div class="d-flex justify-content-center align-items-center">
-            <a class="btn btn-primary" href="#" role="button">Learn more</a>
+            <a class="btn btn-primary" href="#" role="button">{% trans "Learn more" %}</a>
         </div>
     </div>
 </div>

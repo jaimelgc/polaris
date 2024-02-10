@@ -74,6 +74,10 @@ body {
   text-decoration: underline;
 }
 
+.selected {
+  color: #004aad !important;
+}
+
 .w-40 {
   width: 40%;
 }

@@ -1,34 +1,36 @@
+{% load i18n %}
+
 <div class="col-lg-2 col-md-3 d-flex flex-column p-3 pt-0 mb-2 mb-md-0 d-none d-md-block" id="left-menu">
-    <div class="row border" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>Accounts:</u></b></p>
+    <div class="row border" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Accounts:" %}</u></b></p>
         <ul class="list-group list-group-flush p-3 pt-0">
             {% for account in accounts %}
             <a href="{{ account.get_absolute_url }}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">{{ account.alias }}</a>
             {% endfor %}
         </ul>
     </div>
-    <div class="row mt-5 border" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>Operations:</u></b></p>
+    <div class="row mt-5 border" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Operations:" %}</u></b></p>
         <ul class="list-group list-group-flush p-3 pt-0">
-            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">Add New Account</a>
-            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">Add New Card</a>
-            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">New Transaction</a>
+            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
+            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Card" %}</a>
+            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "New Transaction" %}</a>
         </ul>
     </div>
 </div>
 
 {% comment %} Adaptación para pantallas pequeñas {% endcomment %}
 <div class="row d-flex justify-content-center mb-2 d-md-none" id="left-menu">
-    <div class="col-6" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>Accounts:</u></b></p>
+    <div class="col-6" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Accounts:" %}</u></b></p>
         <ul class="list-group list-group-flush">
             {% for account in accounts %}
             <a href="{{ account.get_absolute_url }}" class="list-group-item list-group-item-action rounded  text-sm-left text-center text-capitalize">{{ account.alias }}</a>
             {% endfor %}
         </ul>
     </div>
-    <div class="col-6" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>Operations:</u></b></p>
+    <div class="col-6" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Operations:" %}</u></b></p>
         <ul class="list-group list-group-flush">
-            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">Add New Account</a>
-            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">Add New Card</a>
-            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">New Transaction</a>
+            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
+            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Card" %}</a>
+            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "New Transaction" %}</a>
         </ul>
     </div>
 </div>

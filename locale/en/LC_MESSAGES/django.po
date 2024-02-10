@@ -1,0 +1,642 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-10 16:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bank/settings.py:121
+msgid "English"
+msgstr ""
+
+#: bank/settings.py:122
+msgid "Spanish"
+msgstr ""
+
+#: client/forms.py:9
+msgid "Password"
+msgstr ""
+
+#: client/forms.py:10
+msgid "Repeat password"
+msgstr ""
+
+#: client/forms.py:20
+msgid "Passwords don't match."
+msgstr ""
+
+#: client/forms.py:26
+msgid "Email already in use."
+msgstr ""
+
+#: client/forms.py:31
+msgid "username"
+msgstr ""
+
+#: client/forms.py:32
+msgid "password"
+msgstr ""
+
+#: client/models.py:10 client/models.py:26 client/models.py:58
+msgid "Active"
+msgstr ""
+
+#: client/models.py:11 client/models.py:27 client/models.py:59
+msgid "Bloqued"
+msgstr ""
+
+#: client/models.py:12 client/models.py:28 client/models.py:60
+msgid "Terminated"
+msgstr ""
+
+#: client/models.py:15
+msgid "avatar"
+msgstr ""
+
+#: client/models.py:17 client/models.py:33 client/models.py:64
+msgid "status"
+msgstr ""
+
+#: client/models.py:30 client/models.py:62
+msgid "alias"
+msgstr ""
+
+#: client/models.py:32
+msgid "balance"
+msgstr ""
+
+#: client/models.py:70 guest/models.py:14
+msgid "image"
+msgstr ""
+
+#: client/templates/client/account/account_done.html:3
+#: client/templates/client/account/create_account.html:3
+#: client/templates/client/account/create_account.html:12
+#: client/templates/registration/password_change_done.html:3
+msgid "Create a bank account"
+msgstr ""
+
+#: client/templates/client/account/account_done.html:5
+msgid "Account done!"
+msgstr ""
+
+#: client/templates/client/account/account_done.html:6
+msgid "Create New Account"
+msgstr ""
+
+#: client/templates/client/account/create_account.html:15
+msgid "Please, introduce an alias for your account:"
+msgstr ""
+
+#: client/templates/client/account/create_account.html:20
+msgid "Alias:"
+msgstr ""
+
+#: client/templates/client/account/detail.html:11
+msgid "Balance:"
+msgstr ""
+
+#: client/templates/client/account/detail.html:16
+msgid "Income (last 30 days): {{ income }}€"
+msgstr ""
+
+#: client/templates/client/account/detail.html:19
+msgid "Expenses (last 30 days): {{ expenses }}€"
+msgstr ""
+
+#: client/templates/client/account/detail.html:24
+msgid "Cards"
+msgstr ""
+
+#: client/templates/client/account/detail.html:25
+msgid "Search Movements"
+msgstr ""
+
+#: client/templates/client/account/detail.html:26
+msgid "See Transactions"
+msgstr ""
+
+#: client/templates/client/account/detail.html:37
+msgid "There are no cards registered for this account."
+msgstr ""
+
+#: client/templates/client/account/detail.html:46
+msgid "There are no movements registered for this account."
+msgstr ""
+
+#: client/templates/client/account/modify_account.html:3
+msgid "Modify account"
+msgstr ""
+
+#: client/templates/client/account/modify_account.html:12
+msgid "Account Modification"
+msgstr ""
+
+#: client/templates/client/account/modify_account.html:17
+msgid "New alias:"
+msgstr ""
+
+#: client/templates/client/account/modify_account.html:20
+msgid "Status:"
+msgstr ""
+
+#: client/templates/client/dashboard.html:3
+msgid "Dashboard"
+msgstr ""
+
+#: client/templates/client/dashboard.html:22
+msgid "It seems like you don't have any accounts with us yet, please"
+msgstr ""
+
+#: client/templates/client/dashboard.html:22
+msgid "create an account."
+msgstr ""
+
+#: client/templates/client/edit.html:2 client/templates/client/edit_done.html:3
+msgid "Edit your profile"
+msgstr ""
+
+#: client/templates/client/edit.html:11
+msgid "Edit your account"
+msgstr ""
+
+#: client/templates/client/edit.html:14
+msgid "You can edit your account using the following form:"
+msgstr ""
+
+#: client/templates/client/edit_done.html:5
+msgid "Profile Succesfully Updated"
+msgstr ""
+
+#: client/templates/client/edit_done.html:6
+msgid "Edit Again"
+msgstr ""
+
+#: client/templates/client/register.html:4
+msgid "Create a client account"
+msgstr ""
+
+#: client/templates/client/register.html:24
+msgid "Get your account in just one minute."
+msgstr ""
+
+#: client/templates/client/register.html:30
+msgid "Personal data processing"
+msgstr ""
+
+#: client/templates/client/register.html:31
+msgid ""
+"I have read, I understand and agree to the processing of my personal data."
+msgstr ""
+
+#: client/templates/client/register.html:34
+#: guest/templates/guest/product/card.html:15
+#: guest/templates/guest/product/split_banner.html:7
+msgid "Learn more"
+msgstr ""
+
+#: client/templates/client/sidebar.html:2
+#: client/templates/client/sidebar.html:21
+msgid "Accounts:"
+msgstr ""
+
+#: client/templates/client/sidebar.html:9
+#: client/templates/client/sidebar.html:28
+msgid "Operations:"
+msgstr ""
+
+#: client/templates/client/sidebar.html:11
+#: client/templates/client/sidebar.html:30
+msgid "Add New Account"
+msgstr ""
+
+#: client/templates/client/sidebar.html:12
+#: client/templates/client/sidebar.html:31
+msgid "Add New Card"
+msgstr ""
+
+#: client/templates/client/sidebar.html:13
+#: client/templates/client/sidebar.html:32
+msgid "New Transaction"
+msgstr ""
+
+#: client/templates/done_content.html:11
+msgid "Go to dashboard"
+msgstr ""
+
+#: client/templates/header.html:7 client/templates/header_dashboard.html:7
+#: guest/templates/guest/header.html:7
+msgid "ES"
+msgstr ""
+
+#: client/templates/header.html:10 client/templates/header_dashboard.html:10
+#: guest/templates/guest/header.html:10
+msgid "EN"
+msgstr ""
+
+#: client/templates/header.html:18
+msgid "Helpline:"
+msgstr ""
+
+#: client/templates/header_dashboard.html:21
+#: client/templates/header_dashboard.html:47
+msgid "Profile"
+msgstr ""
+
+#: client/templates/header_dashboard.html:24
+#: client/templates/header_dashboard.html:50
+msgid "Edit profile"
+msgstr ""
+
+#: client/templates/header_dashboard.html:25
+#: client/templates/header_dashboard.html:51
+msgid "Change password"
+msgstr ""
+
+#: client/templates/header_dashboard.html:27
+#: client/templates/header_dashboard.html:56
+msgid "Mailbox"
+msgstr ""
+
+#: client/templates/header_dashboard.html:28
+#: client/templates/header_dashboard.html:55
+msgid "Help"
+msgstr ""
+
+#: client/templates/header_dashboard.html:29
+#: client/templates/header_dashboard.html:57
+#: guest/templates/guest/header.html:23 guest/templates/guest/header.html:36
+msgid "Contact"
+msgstr ""
+
+#: client/templates/header_dashboard.html:35
+msgid "Hi"
+msgstr ""
+
+#: client/templates/header_dashboard.html:36
+msgid "Log out"
+msgstr ""
+
+#: client/templates/header_dashboard.html:38
+#: client/templates/registration/login.html:3
+#: client/templates/registration/login.html:18
+msgid "Log in"
+msgstr ""
+
+#: client/templates/registration/logged_out.html:12
+msgid "Logged out"
+msgstr ""
+
+#: client/templates/registration/logged_out.html:14
+msgid "You have successfully logged out."
+msgstr ""
+
+#: client/templates/registration/logged_out.html:15
+msgid "You can now"
+msgstr ""
+
+#: client/templates/registration/logged_out.html:15
+#: client/templates/registration/register_done.html:12
+msgid "log in"
+msgstr ""
+
+#: client/templates/registration/logged_out.html:15
+msgid "again."
+msgstr ""
+
+#: client/templates/registration/login.html:26
+msgid "If you don't have an account, "
+msgstr ""
+
+#: client/templates/registration/login.html:26
+msgid "register here."
+msgstr ""
+
+#: client/templates/registration/login.html:27
+#: client/templates/registration/password_reset_form.html:12
+msgid "Forgotten password?"
+msgstr ""
+
+#: client/templates/registration/password_change_done.html:5
+msgid "Password changed"
+msgstr ""
+
+#: client/templates/registration/password_change_done.html:6
+msgid "Change Again"
+msgstr ""
+
+#: client/templates/registration/password_change_form.html:3
+msgid "Change Password"
+msgstr ""
+
+#: client/templates/registration/password_change_form.html:12
+msgid "Change your password"
+msgstr ""
+
+#: client/templates/registration/password_change_form.html:15
+msgid "Use the form below to change your password."
+msgstr ""
+
+#: client/templates/registration/password_reset_complete.html:3
+#: client/templates/registration/password_reset_confirm.html:3
+#: client/templates/registration/password_reset_done.html:3
+#: client/templates/registration/password_reset_done.html:11
+#: client/templates/registration/password_reset_form.html:3
+msgid "Account recovery"
+msgstr ""
+
+#: client/templates/registration/password_reset_complete.html:11
+msgid "Password updated"
+msgstr ""
+
+#: client/templates/registration/password_reset_complete.html:12
+msgid "Your password has been updated. You can now"
+msgstr ""
+
+#: client/templates/registration/password_reset_complete.html:12
+msgid "log in."
+msgstr ""
+
+#: client/templates/registration/password_reset_confirm.html:13
+msgid "New password:"
+msgstr ""
+
+#: client/templates/registration/password_reset_confirm.html:16
+msgid "Please insert and confirm your new password:"
+msgstr ""
+
+#: client/templates/registration/password_reset_done.html:12
+msgid ""
+"We have sent you an e-mail with instructions on how to regain access to your "
+"account."
+msgstr ""
+
+#: client/templates/registration/password_reset_done.html:13
+msgid ""
+"If you have not received the email, please make sure you have entered the "
+"same email address you used to register."
+msgstr ""
+
+#: client/templates/registration/password_reset_email.html:1
+msgid "Have you requested a password reset for the"
+msgstr ""
+
+#: client/templates/registration/password_reset_email.html:6
+msgid "Your username, in case you have forgotten it: "
+msgstr ""
+
+#: client/templates/registration/password_reset_form.html:15
+msgid "Enter your email address to get a new password."
+msgstr ""
+
+#: client/templates/registration/register_done.html:9
+msgid "Welcome"
+msgstr ""
+
+#: guest/models.py:7
+msgid "Account"
+msgstr ""
+
+#: guest/models.py:8
+msgid "Card"
+msgstr ""
+
+#: guest/models.py:10
+msgid "title"
+msgstr ""
+
+#: guest/models.py:11
+msgid "subtitle"
+msgstr ""
+
+#: guest/models.py:13
+msgid "body"
+msgstr ""
+
+#: guest/models.py:15
+msgid "type"
+msgstr ""
+
+#: guest/models.py:18
+msgid "Product: "
+msgstr ""
+
+#: guest/templates/guest/footer.html:7
+msgid "Currency exchange"
+msgstr ""
+
+#: guest/templates/guest/footer.html:8
+msgid "Responsible business"
+msgstr ""
+
+#: guest/templates/guest/footer.html:9
+msgid "Sustainability"
+msgstr ""
+
+#: guest/templates/guest/footer.html:15
+msgid "Legal notice"
+msgstr ""
+
+#: guest/templates/guest/footer.html:16
+msgid "Cookies"
+msgstr ""
+
+#: guest/templates/guest/footer.html:17
+msgid "Privacy policy"
+msgstr ""
+
+#: guest/templates/guest/footer.html:23
+msgid "Twitter"
+msgstr ""
+
+#: guest/templates/guest/footer.html:24
+msgid "Facebook"
+msgstr ""
+
+#: guest/templates/guest/footer.html:25
+msgid "Linkedin"
+msgstr ""
+
+#: guest/templates/guest/header.html:20 guest/templates/guest/header.html:34
+msgid "People"
+msgstr ""
+
+#: guest/templates/guest/header.html:21 guest/templates/guest/header.html:35
+msgid "Businesses"
+msgstr ""
+
+#: guest/templates/guest/header.html:22 guest/templates/guest/header.html:33
+msgid "ATMs"
+msgstr ""
+
+#: guest/templates/guest/header.html:29
+msgid "Menu"
+msgstr ""
+
+#: guest/templates/guest/header.html:32 guest/templates/guest/header.html:49
+msgid "Become a customer"
+msgstr ""
+
+#: guest/templates/guest/header.html:43 guest/templates/guest/header.html:46
+msgid "Access"
+msgstr ""
+
+#: guest/templates/guest/product/card.html:8
+msgid "NO IMAGE FOR THIS PRODUCT"
+msgstr ""
+
+#: guest/templates/guest/product/risk_banner.html:3
+msgid "Risk Level"
+msgstr ""
+
+#: guest/templates/guest/product/risk_banner.html:5
+msgid ""
+"This number indicates the product risk, with 1 / 6 representing the lowest "
+"risk and 6 / 6 representing the highest risk."
+msgstr ""
+
+#: guest/templates/guest/product/split_banner.html:17
+msgid "THERE IS NO IMAGE FOR THIS PRODUCT"
+msgstr ""
+
+#: transactions/forms.py:8
+msgid "Recipient"
+msgstr ""
+
+#: transactions/models.py:13
+msgid "Incomming"
+msgstr ""
+
+#: transactions/models.py:14
+msgid "Outgoing"
+msgstr ""
+
+#: transactions/models.py:15 transactions/models.py:45
+msgid "Payment"
+msgstr ""
+
+#: transactions/models.py:17
+msgid "agent"
+msgstr ""
+
+#: transactions/models.py:19 transactions/models.py:53
+msgid "amount"
+msgstr ""
+
+#: transactions/models.py:24
+msgid "concept"
+msgstr ""
+
+#: transactions/models.py:27 transactions/models.py:47
+msgid "kind"
+msgstr ""
+
+#: transactions/models.py:30
+msgid "Transaction "
+msgstr ""
+
+#: transactions/models.py:43
+msgid "Incomming Transaction"
+msgstr ""
+
+#: transactions/models.py:44
+msgid "Outgoing Transaction"
+msgstr ""
+
+#: transactions/templates/pagination.html:4
+msgid "Previous"
+msgstr ""
+
+#: transactions/templates/pagination.html:7
+msgid "Page"
+msgstr ""
+
+#: transactions/templates/pagination.html:7
+msgid "of"
+msgstr ""
+
+#: transactions/templates/pagination.html:10
+msgid "Next"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/create.html:2
+msgid "Transaction"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/create.html:10
+msgid "Your transaction:"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:12
+msgid "Transaction Details"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:13
+msgid "Generate PDF"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:19
+msgid "Origin"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:20
+#: transactions/templates/transactions/transaction/detail.html:40
+msgid "Amount"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:21
+msgid "Concept"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:22
+msgid "Kind"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:23
+msgid "Date"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/detail.html:39
+msgid "Comission"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/done.html:3
+msgid "Transfer Done"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/done.html:5
+msgid "Transaction Successful"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/done.html:6
+msgid "Download PDF"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/error.html:5
+msgid "Error:"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/error.html:6
+msgid "Try Again"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/pdf.html:12
+msgid "Transfer voucher"
+msgstr ""
+
+#: transactions/templates/transactions/transaction/pdf.html:18
+msgid "Id"
+msgstr ""

@@ -1,5 +1,7 @@
 {% extends "guest/base.html" %}
-{% block title %}Edit your profile{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit your profile" %}{% endblock %}
 
 {% block header %}
     {% include "header_dashboard.html" %}
@@ -8,10 +10,10 @@
 {% block content %}
 <div class="container pt-4">
     <div class="col-12 d-flex align-items-center justify-content-center">
-        <h2>Edit your account</h2>
+        <h2>{% trans "Edit your account" %}</h2>
     </div>
     <div class="col-12 d-flex align-items-center justify-content-center">
-        <p>You can edit your account using the following form:</p>
+        <p>{% trans "You can edit your account using the following form:" %}</p>
     </div>
     <div class="row">
         <div class="col-12 d-flex align-items-center justify-content-center">

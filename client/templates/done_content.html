@@ -1,4 +1,6 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
+
 {% block header %}
     {% include "header_dashboard.html" %}
 {% endblock %}
@@ -8,7 +10,7 @@
   <div class="col-lg-6 mx-auto">
       <br>
     <div class="d-grid gap-2 d-sm-flex justify-content-center">
-      <a href="{% url 'dashboard' %}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3" >Go to dashboard</button></a>
+      <a href="{% url 'dashboard' %}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3" >{% trans "Go to dashboard" %}</button></a>
         <a href={% block previous_url %}{% endblock %}><button type="button" class="btn btn-outline-secondary btn-lg px-4">{% block secondary_text %}{% endblock %}</button></a>
     </div>
   </div>

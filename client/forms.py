@@ -1,12 +1,13 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 from .models import Account, Card, Client
 
 
 class ClientRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Repeat password'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -16,19 +17,19 @@ class ClientRegistrationForm(forms.ModelForm):
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
-            raise forms.ValidationError("Passwords don't match.")
+            raise forms.ValidationError(_("Passwords don't match."))
         return cd['password2']
 
     def clean_email(self):
         data = self.cleaned_data['email']
         if User.objects.filter(email=data).exists():
-            raise forms.ValidationError('Email already in use.')
+            raise forms.ValidationError(_('Email already in use.'))
         return data
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label=_('username'))
+    password = forms.CharField(label=_('password'), widget=forms.PasswordInput)
 
 
 class AccountRegistrationForm(forms.ModelForm):
