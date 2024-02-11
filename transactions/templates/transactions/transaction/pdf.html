@@ -18,11 +18,11 @@
             <div class="row">
                 <tr>
                     <th scope="col">{% trans "Id" %}</th>
-                    <th scope="col">{% trans Origin %}</th>
-                    <th scope="col">{% trans Amount %}</th>
-                    <th scope="col">{% trans Concept %}</th>
-                    <th scope="col">{% trans Kind %}</th>
-                    <th scope="col">{% trans Date %}</th>
+                    <th scope="col">{% trans "Origin" %}</th>
+                    <th scope="col">{% trans "Amount" %}</th>
+                    <th scope="col">{% trans "Concept" %}</th>
+                    <th scope="col">{% trans "Kind" %}</th>
+                    <th scope="col">{% trans "Date" %}</th>
                 </tr>
             </div>
         </thead>
@@ -32,20 +32,20 @@
                     <td scope="row">{{ transaction.agent }}</td>
                     <td>{{ transaction.amount }}€</td>
                     <td>{{ transaction.concept }}</td>
-                    <td>{{ transaction.kind }}</td>
+                    <td>{{ transaction.get_kind_display }}</td>
                     <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
                 </tr>                
         </tbody>
     </table>
     <table class="table table-bordered text-center">
         <thead>
-            <th scope="col">{% trans Comission %}</th>
-            <th scope="col">{% trans Amount %}</th>
+            <th scope="col">{% trans "Comission" %}</th>
+            <th scope="col">{% trans "Amount" %}</th>
         </thead>   
         <tbody>             
             {% for comission in transaction.comissions.all %}
                 <tr>
-                    <td>{{ comission.kind }}</td>
+                    <td>{{ comission.get_kind_display  }}</td>
                     <td>{{ comission.amount }}€</td>
                 </tr>
             {% endfor %}

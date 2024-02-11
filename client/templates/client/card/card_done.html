@@ -1,7 +1,8 @@
 {% extends "done_content.html" %}
+{% load i18n %}
 
-{% block title %}Create a bank card{% endblock %}
+{% block title %}{% trans "Create a bank card" %}{% endblock %}
 
-{% block heading %}Card done!{% endblock %}
-{% block secondary_text %}Create New Card{% endblock %}
+{% block heading %}{% trans "Card done!" %}{% endblock %}
+{% block secondary_text %}{% trans "Create New Card" %}{% endblock %}
 {% block previous_url %}{% url "create_card" %}{% endblock %}

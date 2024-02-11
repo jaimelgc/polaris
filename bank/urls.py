@@ -20,15 +20,16 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.utils.translation import gettext_lazy as _
 
 urlpatterns = i18n_patterns(
-    path('admin/', admin.site.urls),
-    path('client/', include('client.urls')),
-    path('', include('guest.urls')),
-    path('payment/', include('transactions.urls')),
-    path('transfer/', include('transactions.urls')),
-    path('api/', include('client.api.urls')),
     path('rosetta/', include('rosetta.urls')),
+    path(_('admin/'), admin.site.urls),
+    path(_('client/'), include('client.urls')),
+    path('', include('guest.urls')),
+    path(_('payment/'), include('transactions.urls')),
+    path(_('transfer/'), include('transactions.urls')),
+    path(_('api/'), include('client.api.urls')),
 )
 
 if settings.DEBUG:

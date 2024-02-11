@@ -18,7 +18,7 @@
           <form method="post" id="transaction-form">
             {{ form.as_p }}
             {% csrf_token %}
-            <p><input type="submit" value="Send"></p>
+            <p><input type="submit" value={% trans "Send" %}></p>
         </form>
         </div>
     </div>

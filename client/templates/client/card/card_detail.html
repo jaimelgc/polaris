@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <div class="col-6 d-flex flex-column align-items-center">
     <div class="row">
         <h2 class="col-12 text-center text-capitalize">{{ card.alias }}
@@ -15,7 +16,7 @@
         </div>
     </div>
     <div class="row">
-        <p class="col-12">Status: {{ card.status }}</p>
+        <p class="col-12">{% trans "Status:" %} {{ card.status }}</p>
     </div>
 </div>
 
