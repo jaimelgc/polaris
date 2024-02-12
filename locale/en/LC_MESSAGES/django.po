@@ -9,313 +9,317 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-11 12:41+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2024-02-12 15:06+0000\n"
+"Last-Translator:   <e@e.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: bank/settings.py:124
+#, fuzzy
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: bank/settings.py:125
+#, fuzzy
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: bank/urls.py:27
 msgid "admin/"
-msgstr ""
+msgstr "admin/"
 
 #: bank/urls.py:28
 msgid "client/"
-msgstr ""
+msgstr "client/"
 
 #: bank/urls.py:30
 msgid "payment/"
-msgstr ""
+msgstr "payment/"
 
 #: bank/urls.py:31
 msgid "transfer/"
-msgstr ""
+msgstr "transfer/"
 
 #: bank/urls.py:32
 msgid "api/"
-msgstr ""
+msgstr "api/"
 
 #: client/forms.py:9
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: client/forms.py:10
 msgid "Repeat password"
-msgstr ""
+msgstr "Confirmar contraseña"
 
 #: client/forms.py:20
 msgid "Passwords don't match."
-msgstr ""
+msgstr "Las contraseñas no coinciden"
 
 #: client/forms.py:26
 msgid "Email already in use."
-msgstr ""
+msgstr "Este email ya está en uso"
 
 #: client/forms.py:31
 msgid "username"
-msgstr ""
+msgstr "nombre de usuario"
 
 #: client/forms.py:32
 msgid "password"
-msgstr ""
+msgstr "contraseña"
 
 #: client/models.py:10 client/models.py:26 client/models.py:58
 msgid "Active"
-msgstr ""
+msgstr "Activa"
 
 #: client/models.py:11 client/models.py:27 client/models.py:59
 msgid "Bloqued"
-msgstr ""
+msgstr "Bloqueada"
 
 #: client/models.py:12 client/models.py:28 client/models.py:60
 msgid "Terminated"
-msgstr ""
+msgstr "Terminada"
 
 #: client/models.py:15
 msgid "avatar"
-msgstr ""
+msgstr "avatar"
 
 #: client/models.py:17 client/models.py:33 client/models.py:64
 msgid "status"
-msgstr ""
+msgstr "estado"
 
 #: client/models.py:30 client/models.py:62
 msgid "alias"
-msgstr ""
+msgstr "nombre"
 
 #: client/models.py:32
 msgid "balance"
-msgstr ""
+msgstr "balance"
 
 #: client/models.py:70 guest/models.py:14
 msgid "image"
-msgstr ""
+msgstr "imagen"
 
 #: client/templates/client/account/account_done.html:4
 #: client/templates/client/account/create_account.html:4
 #: client/templates/client/account/create_account.html:13
 #: client/templates/registration/password_change_done.html:4
 msgid "Create a bank account"
-msgstr ""
+msgstr "Crear una cuenta bancaria"
 
 #: client/templates/client/account/account_done.html:6
 msgid "Account done!"
-msgstr ""
+msgstr "¡Cuenta creada!"
 
 #: client/templates/client/account/account_done.html:7
 msgid "Create New Account"
-msgstr ""
+msgstr "Crear otra cuenta"
 
 #: client/templates/client/account/create_account.html:16
 msgid "Please, insert an alias for your account:"
-msgstr ""
+msgstr "Inserte un nombre para su cuenta"
 
 #: client/templates/client/account/create_account.html:21
 #: client/templates/client/card/create_card.html:21
 msgid "Alias:"
-msgstr ""
+msgstr "Nombre:"
 
 #: client/templates/client/account/create_account.html:24
 msgid "Create new account"
-msgstr ""
+msgstr "Crear cuenta"
 
 #: client/templates/client/account/detail.html:13
 msgid "Balance:"
-msgstr ""
+msgstr "Balance:"
 
 #: client/templates/client/account/detail.html:18
 msgid "Income (last 30 days):"
-msgstr ""
+msgstr "Ingresos (últimos 30 días):"
 
 #: client/templates/client/account/detail.html:18
 #: client/templates/client/account/detail.html:21
 msgid "€"
-msgstr ""
+msgstr "€"
 
 #: client/templates/client/account/detail.html:21
 msgid "Expenses (last 30 days):"
-msgstr ""
+msgstr "Gastos (últimos 30 días):"
 
 #: client/templates/client/account/detail.html:26
 msgid "Cards"
-msgstr ""
+msgstr "Tarjetas"
 
 #: client/templates/client/account/detail.html:27
 msgid "Search Movements"
-msgstr ""
+msgstr "Buscar movimientos"
 
 #: client/templates/client/account/detail.html:28
 msgid "See Transactions"
-msgstr ""
+msgstr "Buscar traducciones"
 
 #: client/templates/client/account/detail.html:39
 msgid "There are no cards registered for this account."
-msgstr ""
+msgstr "No hay tarjetas asociadas a esta cuenta"
 
 #: client/templates/client/account/detail.html:48
 msgid "There are no movements registered for this account."
-msgstr ""
+msgstr "No hay movimientos asociados a esta cuenta"
 
 #: client/templates/client/account/modify_account.html:4
 msgid "Modify account"
-msgstr ""
+msgstr "Modificar cuenta"
 
 #: client/templates/client/account/modify_account.html:13
 msgid "Account Modification"
-msgstr ""
+msgstr "Modificación de cuenta"
 
 #: client/templates/client/account/modify_account.html:18
 msgid "New alias:"
-msgstr ""
+msgstr "Nuevo nombre:"
 
 #: client/templates/client/account/modify_account.html:21
 #: client/templates/client/card/card_detail.html:19
 #: client/templates/client/card/modify_card.html:21
 msgid "Status:"
-msgstr ""
+msgstr "Estado:"
 
 #: client/templates/client/account/modify_account.html:24
 #: client/templates/client/card/modify_card.html:24
 msgid "Save changes"
-msgstr ""
+msgstr "Guardar cambios"
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
 #: client/templates/client/card/create_card.html:13
 msgid "Create a bank card"
-msgstr ""
+msgstr "Crear tarjeta"
 
 #: client/templates/client/card/card_done.html:6
 msgid "Card done!"
-msgstr ""
+msgstr "¡Tarjeta creada!"
 
 #: client/templates/client/card/card_done.html:7
 msgid "Create New Card"
-msgstr ""
+msgstr "Crear otra tarjeta"
 
 #: client/templates/client/card/create_card.html:16
 msgid "Please, insert an alias for your card:"
-msgstr ""
+msgstr "Inserte el nombre de la tarjeta"
 
 #: client/templates/client/card/create_card.html:24
 msgid "Account:"
-msgstr ""
+msgstr "Cuenta:"
 
 #: client/templates/client/card/create_card.html:28
 msgid "Create new card"
-msgstr ""
+msgstr "Crear nueva tarjeta"
 
 #: client/templates/client/card/modify_card.html:4
 msgid "Modify card"
-msgstr ""
+msgstr "Modificar tarjeta"
 
 #: client/templates/client/card/modify_card.html:13
 msgid "Card Modification"
-msgstr ""
+msgstr "Modificación de tarjeta"
 
 #: client/templates/client/dashboard.html:4
 msgid "Dashboard"
-msgstr ""
+msgstr "Panel de control"
 
 #: client/templates/client/dashboard.html:23
 msgid "It seems like you don't have any accounts with us yet, please"
-msgstr ""
+msgstr "Parece que no tiene ninguna cuenta registrada; "
 
 #: client/templates/client/dashboard.html:23
 msgid "create an account."
-msgstr ""
+msgstr "crear una cuenta"
 
-#: client/templates/client/edit.html:4 client/templates/client/edit_done.html:4
+#: client/templates/client/edit.html:4
+#: client/templates/client/edit_done.html:4
 msgid "Edit your profile"
-msgstr ""
+msgstr "Editar perfil"
 
 #: client/templates/client/edit.html:13
 msgid "Edit your account"
-msgstr ""
+msgstr "Editar cuenta"
 
 #: client/templates/client/edit.html:16
 msgid "You can edit your account using the following form:"
-msgstr ""
+msgstr "Puede editar su cuenta con el siguiente formulario:"
 
 #: client/templates/client/edit_done.html:6
 msgid "Profile Succesfully Updated"
-msgstr ""
+msgstr "Perfil actualizado correctamente"
 
 #: client/templates/client/edit_done.html:7
 msgid "Edit Again"
-msgstr ""
+msgstr "Volver a editar"
 
 #: client/templates/client/register.html:5
 msgid "Create a client account"
-msgstr ""
+msgstr "Crear cuenta como cliente"
 
 #: client/templates/client/register.html:25
 msgid "Get your account in just one minute."
-msgstr ""
+msgstr "Cree una cuenta en menos de un minuto"
 
 #: client/templates/client/register.html:31
 msgid "Personal data processing"
-msgstr ""
+msgstr "Procesamiento de datos personales"
 
 #: client/templates/client/register.html:32
 msgid ""
 "I have read, I understand and agree to the processing of my personal data."
-msgstr ""
+msgstr "He leído y acepto los términos y condiciones de uso"
 
 #: client/templates/client/register.html:35
 #: guest/templates/guest/product/card.html:17
 #: guest/templates/guest/product/split_banner.html:8
 msgid "Learn more"
-msgstr ""
+msgstr "Saber más"
 
 #: client/templates/client/sidebar.html:4
 #: client/templates/client/sidebar.html:23
 msgid "Accounts:"
-msgstr ""
+msgstr "Cuentas:"
 
 #: client/templates/client/sidebar.html:11
 #: client/templates/client/sidebar.html:30
 msgid "Operations:"
-msgstr ""
+msgstr "Operaciones:"
 
 #: client/templates/client/sidebar.html:13
 #: client/templates/client/sidebar.html:32
 msgid "Add New Account"
-msgstr ""
+msgstr "Añadir cuenta"
 
 #: client/templates/client/sidebar.html:14
 #: client/templates/client/sidebar.html:33
 msgid "Add New Card"
-msgstr ""
+msgstr "Añadir tarjeta"
 
 #: client/templates/client/sidebar.html:15
 #: client/templates/client/sidebar.html:34
 msgid "New Transaction"
-msgstr ""
+msgstr "Nueva transacción"
 
 #: client/templates/done_content.html:13
 msgid "Go to dashboard"
-msgstr ""
+msgstr "Ir al panel de control"
 
 #: client/templates/header.html:30
 msgid "Helpline:"
-msgstr ""
+msgstr "Ayuda"
 
 #: client/templates/header_dashboard.html:33
 #: client/templates/header_dashboard.html:59
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: client/templates/header_dashboard.html:36
 #: client/templates/header_dashboard.html:62
@@ -446,8 +450,8 @@ msgstr ""
 
 #: client/templates/registration/password_reset_done.html:13
 msgid ""
-"We have sent you an e-mail with instructions on how to regain access to your "
-"account."
+"We have sent you an e-mail with instructions on how to regain access to your"
+" account."
 msgstr ""
 
 #: client/templates/registration/password_reset_done.html:14
