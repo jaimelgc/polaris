@@ -4,7 +4,7 @@
 <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
     <div class="container">
     <div class="row d-md-flex d-none justify-content-end mb-2">
-        {% get_current_language as LANGUAGE_CODE %}
+        <!-- {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
         {% for language in languages %}
@@ -20,7 +20,22 @@
                 </a>
             </div>
             {% endwith %}
-        {% endfor %}
+        {% endfor %} -->
+        <form action="{% url 'set_language' %}" method="post" class="w-auto">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local|title }}
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go">
+        </form>
     </div>
     <!-- Logo -->
     <div class="row">

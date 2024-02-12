@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-11 12:41+0000\n"
+"POT-Creation-Date: 2024-02-12 14:37+0000\n"
 "PO-Revision-Date: 2024-02-11 12:41+0000\n"
 "Last-Translator:   <sup@movistar.es>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,23 +27,23 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: bank/urls.py:27
+#: bank/urls.py:32
 msgid "admin/"
 msgstr "admin/"
 
-#: bank/urls.py:28
+#: bank/urls.py:33
 msgid "client/"
 msgstr "cliente/"
 
-#: bank/urls.py:30
+#: bank/urls.py:34
 msgid "payment/"
 msgstr "pago/"
 
-#: bank/urls.py:31
+#: bank/urls.py:35
 msgid "transfer/"
 msgstr "transferencia/"
 
-#: bank/urls.py:32
+#: bank/urls.py:36
 msgid "api/"
 msgstr "api/"
 
@@ -237,8 +237,7 @@ msgstr "Parece que aún no tiene ninguna cuenta con nosotros, por favor"
 msgid "create an account."
 msgstr "cree una cuenta."
 
-#: client/templates/client/edit.html:4
-#: client/templates/client/edit_done.html:4
+#: client/templates/client/edit.html:4 client/templates/client/edit_done.html:4
 msgid "Edit your profile"
 msgstr "Editar su perfil"
 
@@ -310,51 +309,51 @@ msgstr "Nueva Transacción"
 msgid "Go to dashboard"
 msgstr "Ir al panel de control"
 
-#: client/templates/header.html:30
+#: client/templates/header.html:45
 msgid "Helpline:"
 msgstr "Ayuda:"
 
-#: client/templates/header_dashboard.html:33
-#: client/templates/header_dashboard.html:59
+#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:74
 msgid "Profile"
 msgstr "Perfil"
 
-#: client/templates/header_dashboard.html:36
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:51
+#: client/templates/header_dashboard.html:77
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: client/templates/header_dashboard.html:37
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:52
+#: client/templates/header_dashboard.html:78
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
-#: client/templates/header_dashboard.html:39
-#: client/templates/header_dashboard.html:68
+#: client/templates/header_dashboard.html:54
+#: client/templates/header_dashboard.html:83
 msgid "Mailbox"
 msgstr "Buzón de correo"
 
-#: client/templates/header_dashboard.html:40
-#: client/templates/header_dashboard.html:67
+#: client/templates/header_dashboard.html:55
+#: client/templates/header_dashboard.html:82
 msgid "Help"
 msgstr "Ayuda"
 
-#: client/templates/header_dashboard.html:41
-#: client/templates/header_dashboard.html:69
-#: guest/templates/guest/header.html:35 guest/templates/guest/header.html:48
+#: client/templates/header_dashboard.html:56
+#: client/templates/header_dashboard.html:84
+#: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr "Contacto"
 
-#: client/templates/header_dashboard.html:47
+#: client/templates/header_dashboard.html:62
 msgid "Hi"
 msgstr "Hola"
 
-#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:63
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: client/templates/header_dashboard.html:50
+#: client/templates/header_dashboard.html:65
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"
@@ -448,11 +447,11 @@ msgstr "Por favor, introduzca y confirme su nueva contraseña:"
 
 #: client/templates/registration/password_reset_done.html:13
 msgid ""
-"We have sent you an e-mail with instructions on how to regain access to your"
-" account."
+"We have sent you an e-mail with instructions on how to regain access to your "
+"account."
 msgstr ""
-"Le hemos enviado un correo electrónico con instrucciones para obtener acceso"
-" a su cuenta."
+"Le hemos enviado un correo electrónico con instrucciones para obtener acceso "
+"a su cuenta."
 
 #: client/templates/registration/password_reset_done.html:14
 msgid ""
@@ -572,27 +571,27 @@ msgstr "Facebook"
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: guest/templates/guest/header.html:32 guest/templates/guest/header.html:46
+#: guest/templates/guest/header.html:47 guest/templates/guest/header.html:61
 msgid "People"
 msgstr "Particulares"
 
-#: guest/templates/guest/header.html:33 guest/templates/guest/header.html:47
+#: guest/templates/guest/header.html:48 guest/templates/guest/header.html:62
 msgid "Businesses"
 msgstr "Empresas"
 
-#: guest/templates/guest/header.html:34 guest/templates/guest/header.html:45
+#: guest/templates/guest/header.html:49 guest/templates/guest/header.html:60
 msgid "ATMs"
 msgstr "Cajeros"
 
-#: guest/templates/guest/header.html:41
+#: guest/templates/guest/header.html:56
 msgid "Menu"
 msgstr "Menú"
 
-#: guest/templates/guest/header.html:44 guest/templates/guest/header.html:61
+#: guest/templates/guest/header.html:59 guest/templates/guest/header.html:76
 msgid "Become a customer"
 msgstr "Hazte cliente"
 
-#: guest/templates/guest/header.html:55 guest/templates/guest/header.html:58
+#: guest/templates/guest/header.html:70 guest/templates/guest/header.html:73
 msgid "Access"
 msgstr "Acceso"
 
@@ -619,8 +618,8 @@ msgid ""
 "total of all deposits established at Polaris."
 msgstr ""
 "Polaris está afiliado con el Fondo de Depósito de Garantía de País Falso "
-"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€"
-" por persona para todos sus depósitos en Polaris."
+"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€ "
+"por persona para todos sus depósitos en Polaris."
 
 #: guest/templates/guest/product/split_banner.html:18
 msgid "THERE IS NO IMAGE FOR THIS PRODUCT"
@@ -696,6 +695,7 @@ msgstr "Origen"
 #: transactions/templates/transactions/transaction/detail.html:23
 #: transactions/templates/transactions/transaction/detail.html:43
 #: transactions/templates/transactions/transaction/pdf.html:22
+#: transactions/templates/transactions/transaction/pdf.html:43
 msgid "Amount"
 msgstr "Cantidad"
 
@@ -746,6 +746,7 @@ msgid "Generate PDF"
 msgstr "Generar PDF"
 
 #: transactions/templates/transactions/transaction/detail.html:42
+#: transactions/templates/transactions/transaction/pdf.html:42
 msgid "Comission"
 msgstr "Comisión"
 

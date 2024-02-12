@@ -22,11 +22,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
     path('rosetta/', include('rosetta.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
+    path('', include('guest.urls')),
+]
+
+urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
     path(_('client/'), include('client.urls')),
-    path('', include('guest.urls')),
     path(_('payment/'), include('transactions.urls')),
     path(_('transfer/'), include('transactions.urls')),
     path(_('api/'), include('client.api.urls')),

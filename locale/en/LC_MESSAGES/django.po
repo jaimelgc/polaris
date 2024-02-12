@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-11 12:41+0000\n"
+"POT-Creation-Date: 2024-02-12 14:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,23 +26,23 @@ msgstr ""
 msgid "Spanish"
 msgstr ""
 
-#: bank/urls.py:27
+#: bank/urls.py:32
 msgid "admin/"
 msgstr ""
 
-#: bank/urls.py:28
+#: bank/urls.py:33
 msgid "client/"
 msgstr ""
 
-#: bank/urls.py:30
+#: bank/urls.py:34
 msgid "payment/"
 msgstr ""
 
-#: bank/urls.py:31
+#: bank/urls.py:35
 msgid "transfer/"
 msgstr ""
 
-#: bank/urls.py:32
+#: bank/urls.py:36
 msgid "api/"
 msgstr ""
 
@@ -308,51 +308,51 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr ""
 
-#: client/templates/header.html:30
+#: client/templates/header.html:45
 msgid "Helpline:"
 msgstr ""
 
-#: client/templates/header_dashboard.html:33
-#: client/templates/header_dashboard.html:59
+#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:74
 msgid "Profile"
 msgstr ""
 
-#: client/templates/header_dashboard.html:36
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:51
+#: client/templates/header_dashboard.html:77
 msgid "Edit profile"
 msgstr ""
 
-#: client/templates/header_dashboard.html:37
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:52
+#: client/templates/header_dashboard.html:78
 msgid "Change password"
 msgstr ""
 
-#: client/templates/header_dashboard.html:39
-#: client/templates/header_dashboard.html:68
+#: client/templates/header_dashboard.html:54
+#: client/templates/header_dashboard.html:83
 msgid "Mailbox"
 msgstr ""
 
-#: client/templates/header_dashboard.html:40
-#: client/templates/header_dashboard.html:67
+#: client/templates/header_dashboard.html:55
+#: client/templates/header_dashboard.html:82
 msgid "Help"
 msgstr ""
 
-#: client/templates/header_dashboard.html:41
-#: client/templates/header_dashboard.html:69
-#: guest/templates/guest/header.html:35 guest/templates/guest/header.html:48
+#: client/templates/header_dashboard.html:56
+#: client/templates/header_dashboard.html:84
+#: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr ""
 
-#: client/templates/header_dashboard.html:47
+#: client/templates/header_dashboard.html:62
 msgid "Hi"
 msgstr ""
 
-#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:63
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr ""
 
-#: client/templates/header_dashboard.html:50
+#: client/templates/header_dashboard.html:65
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"
@@ -564,27 +564,27 @@ msgstr ""
 msgid "Linkedin"
 msgstr ""
 
-#: guest/templates/guest/header.html:32 guest/templates/guest/header.html:46
+#: guest/templates/guest/header.html:47 guest/templates/guest/header.html:61
 msgid "People"
 msgstr ""
 
-#: guest/templates/guest/header.html:33 guest/templates/guest/header.html:47
+#: guest/templates/guest/header.html:48 guest/templates/guest/header.html:62
 msgid "Businesses"
 msgstr ""
 
-#: guest/templates/guest/header.html:34 guest/templates/guest/header.html:45
+#: guest/templates/guest/header.html:49 guest/templates/guest/header.html:60
 msgid "ATMs"
 msgstr ""
 
-#: guest/templates/guest/header.html:41
+#: guest/templates/guest/header.html:56
 msgid "Menu"
 msgstr ""
 
-#: guest/templates/guest/header.html:44 guest/templates/guest/header.html:61
+#: guest/templates/guest/header.html:59 guest/templates/guest/header.html:76
 msgid "Become a customer"
 msgstr ""
 
-#: guest/templates/guest/header.html:55 guest/templates/guest/header.html:58
+#: guest/templates/guest/header.html:70 guest/templates/guest/header.html:73
 msgid "Access"
 msgstr ""
 
@@ -683,6 +683,7 @@ msgstr ""
 #: transactions/templates/transactions/transaction/detail.html:23
 #: transactions/templates/transactions/transaction/detail.html:43
 #: transactions/templates/transactions/transaction/pdf.html:22
+#: transactions/templates/transactions/transaction/pdf.html:43
 msgid "Amount"
 msgstr ""
 
@@ -733,6 +734,7 @@ msgid "Generate PDF"
 msgstr ""
 
 #: transactions/templates/transactions/transaction/detail.html:42
+#: transactions/templates/transactions/transaction/pdf.html:42
 msgid "Comission"
 msgstr ""
 
