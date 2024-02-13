@@ -4,23 +4,6 @@
 <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
     <div class="container">
     <div class="row d-md-flex d-none justify-content-end mb-2">
-        <!-- {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-            {% with language.code|length|add:"2"|stringformat:"s"|add:":" as path_start %}
-            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-                <a href="/{{ language.code }}/{{ request.get_full_path|slice:path_start }}" 
-                    {% if language.code == LANGUAGE_CODE %} 
-                        class="link-under selected"
-                    {% else %}
-                        class="link-under"
-                    {% endif %}>
-                    {{ language.name_local|title }}
-                </a>
-            </div>
-            {% endwith %}
-        {% endfor %} -->
         <form action="{% url 'set_language' %}" method="post" class="w-auto">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
