@@ -1,5 +1,5 @@
-{% load i18n %}
 {% extends "guest/base.html" %}
+{% load i18n %}
 
 {% block title %}{% trans "Modify card" %}{% endblock %}
 
@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form method="post" id="new-account-form">
-            <label>{% trans "New Alias: %}</label> {{ form.alias }}
+            <label>{% trans "New Alias:" %}</label> {{ form.alias }}
             <br><br>
             {% csrf_token %}
             <label>{% trans "Status:" %}</label> {{ form.status }}

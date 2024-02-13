@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 14:37+0000\n"
-"PO-Revision-Date: 2024-02-11 12:41+0000\n"
-"Last-Translator:   <sup@movistar.es>\n"
+"POT-Creation-Date: 2024-02-13 17:26+0000\n"
+"PO-Revision-Date: 2024-02-13 17:06+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -71,35 +71,35 @@ msgstr "nombre de usuario"
 msgid "password"
 msgstr "contraseña"
 
-#: client/models.py:10 client/models.py:26 client/models.py:58
+#: client/models.py:13 client/models.py:29 client/models.py:61
 msgid "Active"
 msgstr "Activa"
 
-#: client/models.py:11 client/models.py:27 client/models.py:59
+#: client/models.py:14 client/models.py:30 client/models.py:62
 msgid "Bloqued"
 msgstr "Bloqueada"
 
-#: client/models.py:12 client/models.py:28 client/models.py:60
+#: client/models.py:15 client/models.py:31 client/models.py:63
 msgid "Terminated"
 msgstr "Eliminada"
 
-#: client/models.py:15
+#: client/models.py:18
 msgid "avatar"
 msgstr "avatar"
 
-#: client/models.py:17 client/models.py:33 client/models.py:64
+#: client/models.py:20 client/models.py:36 client/models.py:67
 msgid "status"
 msgstr "estado"
 
-#: client/models.py:30 client/models.py:62
+#: client/models.py:33 client/models.py:65
 msgid "alias"
 msgstr "alias"
 
-#: client/models.py:32
+#: client/models.py:35
 msgid "balance"
 msgstr "balance"
 
-#: client/models.py:70 guest/models.py:14
+#: client/models.py:73 guest/models.py:14
 msgid "image"
 msgstr "imagen"
 
@@ -273,6 +273,10 @@ msgstr "Procesar datos personales"
 msgid ""
 "I have read, I understand and agree to the processing of my personal data."
 msgstr "He leído, entiendo y acepto que se procesen mis datos personales."
+
+#: client/templates/client/register.html:33
+msgid "Register"
+msgstr "Registro"
 
 #: client/templates/client/register.html:35
 #: guest/templates/guest/product/card.html:17
@@ -475,9 +479,14 @@ msgstr ""
 "Introduzca su dirección de correo electrónico para obtener una nueva "
 "contraseña."
 
+#: client/templates/registration/register_done.html:4
 #: client/templates/registration/register_done.html:11
 msgid "Welcome"
 msgstr "Bienvenido"
+
+#: client/templates/registration/register_done.html:13
+msgid "Your client account has been successfully created. Now you can "
+msgstr "Su cuenta de cliente se ha creado satisfactoriamente. Ahora puede"
 
 #: client/urls.py:7
 msgid "login/"
@@ -490,6 +499,12 @@ msgstr "editar/"
 #: client/urls.py:10
 msgid "register/"
 msgstr "registro/"
+
+#: client/urls.py:12
+#, fuzzy
+#| msgid "account/<slug:account_slug>/modify"
+msgid "<slug:account_slug>/"
+msgstr "cuenta/<slug:account_slug>/modificar"
 
 #: client/urls.py:13
 msgid "account/create"

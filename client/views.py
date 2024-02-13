@@ -107,7 +107,7 @@ def modify_card(request, card_id):
             card.save()
             return redirect('dashboard')
     else:
-        form = CardModificationForm()
+        form = CardModificationForm(instance=get_object_or_404(Card, id=card_id))
     return render(request, 'client/card/modify_card.html', {'form': form})
 
 
