@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 17:26+0000\n"
+"POT-Creation-Date: 2024-02-13 23:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Create new account"
 msgstr ""
 
-#: client/templates/client/account/detail.html:13
+#: client/templates/client/account/detail.html:11
 msgid "Balance:"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgid "New alias:"
 msgstr ""
 
 #: client/templates/client/account/modify_account.html:21
-#: client/templates/client/card/card_detail.html:19
+#: client/templates/client/card/card_detail.html:21
 #: client/templates/client/card/modify_card.html:21
 msgid "Status:"
 msgstr ""
@@ -188,6 +188,19 @@ msgstr ""
 #: client/templates/client/account/modify_account.html:24
 #: client/templates/client/card/modify_card.html:24
 msgid "Save changes"
+msgstr ""
+
+#: client/templates/client/card/card_detail.html:23
+#: client/templates/client/card/card_detail.html:36
+msgid "Show pin"
+msgstr ""
+
+#: client/templates/client/card/card_detail.html:34
+msgid "Code:"
+msgstr ""
+
+#: client/templates/client/card/card_detail.html:43
+msgid "Your pin is:"
 msgstr ""
 
 #: client/templates/client/card/card_done.html:4
@@ -222,6 +235,10 @@ msgstr ""
 
 #: client/templates/client/card/modify_card.html:13
 msgid "Card Modification"
+msgstr ""
+
+#: client/templates/client/card/modify_card.html:18
+msgid "New Alias:"
 msgstr ""
 
 #: client/templates/client/dashboard.html:4
@@ -312,51 +329,51 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr ""
 
-#: client/templates/header.html:45
+#: client/templates/header.html:28
 msgid "Helpline:"
 msgstr ""
 
-#: client/templates/header_dashboard.html:48
-#: client/templates/header_dashboard.html:74
+#: client/templates/header_dashboard.html:31
+#: client/templates/header_dashboard.html:59
 msgid "Profile"
 msgstr ""
 
-#: client/templates/header_dashboard.html:51
-#: client/templates/header_dashboard.html:77
+#: client/templates/header_dashboard.html:34
+#: client/templates/header_dashboard.html:62
 msgid "Edit profile"
 msgstr ""
 
-#: client/templates/header_dashboard.html:52
-#: client/templates/header_dashboard.html:78
+#: client/templates/header_dashboard.html:35
+#: client/templates/header_dashboard.html:63
 msgid "Change password"
 msgstr ""
 
-#: client/templates/header_dashboard.html:54
-#: client/templates/header_dashboard.html:83
+#: client/templates/header_dashboard.html:37
+#: client/templates/header_dashboard.html:68
 msgid "Mailbox"
 msgstr ""
 
-#: client/templates/header_dashboard.html:55
-#: client/templates/header_dashboard.html:82
+#: client/templates/header_dashboard.html:38
+#: client/templates/header_dashboard.html:67
 msgid "Help"
 msgstr ""
 
-#: client/templates/header_dashboard.html:56
-#: client/templates/header_dashboard.html:84
+#: client/templates/header_dashboard.html:39
+#: client/templates/header_dashboard.html:69
 #: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr ""
 
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:47
 msgid "Hi"
 msgstr ""
 
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:48
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr ""
 
-#: client/templates/header_dashboard.html:65
+#: client/templates/header_dashboard.html:50
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"
@@ -433,7 +450,7 @@ msgid "Password updated"
 msgstr ""
 
 #: client/templates/registration/password_reset_complete.html:13
-msgid "Your password has been updated. You can now"
+msgid "Your password has been updated. You can now "
 msgstr ""
 
 #: client/templates/registration/password_reset_complete.html:13
@@ -464,12 +481,22 @@ msgstr ""
 msgid "Have you requested a password reset for the"
 msgstr ""
 
-#: client/templates/registration/password_reset_email.html:8
+#: client/templates/registration/password_reset_email.html:4
+msgid ""
+"address? If not, simply ignore this message. Otherwise, access the following "
+"link:"
+msgstr ""
+
+#: client/templates/registration/password_reset_email.html:7
 msgid "Your username, in case you have forgotten it: "
 msgstr ""
 
 #: client/templates/registration/password_reset_form.html:16
 msgid "Enter your email address to get a new password."
+msgstr ""
+
+#: client/templates/registration/password_reset_form.html:22
+msgid "send e-mail"
 msgstr ""
 
 #: client/templates/registration/register_done.html:4
@@ -491,10 +518,6 @@ msgstr ""
 
 #: client/urls.py:10
 msgid "register/"
-msgstr ""
-
-#: client/urls.py:12
-msgid "<slug:account_slug>/"
 msgstr ""
 
 #: client/urls.py:13
@@ -718,11 +741,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: transactions/templates/transactions/movements.html:12
+#: transactions/templates/transactions/movements.html:14
 msgid "Export to CSV"
 msgstr ""
 
-#: transactions/templates/transactions/movements.html:23
+#: transactions/templates/transactions/movements.html:27
 msgid "Details"
 msgstr ""
 

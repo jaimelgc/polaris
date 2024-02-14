@@ -317,4 +317,17 @@ ul.messages li a.close {
 /* Gear image */
 .ml-hgt {
   height: 15px;
+}
+
+/* dashboard buttons */
+.btn-outline-dark {
+  color: black;
+  border-color: #000;
+  background-color: white;
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active, .btn-outline-dark.active {
+  color: black;
+  background-color: #e9ecef;
+  border-color: #000;
 }/*# sourceMappingURL=base.css.map */

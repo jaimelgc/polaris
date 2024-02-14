@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 17:26+0000\n"
-"PO-Revision-Date: 2024-02-13 17:06+0000\n"
+"POT-Creation-Date: 2024-02-13 23:15+0000\n"
+"PO-Revision-Date: 2024-02-13 23:33+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -131,7 +131,7 @@ msgstr "Alias:"
 msgid "Create new account"
 msgstr "Crear nueva cuenta"
 
-#: client/templates/client/account/detail.html:13
+#: client/templates/client/account/detail.html:11
 msgid "Balance:"
 msgstr "Balance:"
 
@@ -181,7 +181,7 @@ msgid "New alias:"
 msgstr "Nuevo alias:"
 
 #: client/templates/client/account/modify_account.html:21
-#: client/templates/client/card/card_detail.html:19
+#: client/templates/client/card/card_detail.html:21
 #: client/templates/client/card/modify_card.html:21
 msgid "Status:"
 msgstr "Estado:"
@@ -190,6 +190,19 @@ msgstr "Estado:"
 #: client/templates/client/card/modify_card.html:24
 msgid "Save changes"
 msgstr "Guardar cambios"
+
+#: client/templates/client/card/card_detail.html:23
+#: client/templates/client/card/card_detail.html:36
+msgid "Show pin"
+msgstr "Mostrar pin"
+
+#: client/templates/client/card/card_detail.html:34
+msgid "Code:"
+msgstr "Código"
+
+#: client/templates/client/card/card_detail.html:43
+msgid "Your pin is:"
+msgstr "Su pin es:"
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
@@ -225,6 +238,11 @@ msgstr "Modificar tarjeta"
 msgid "Card Modification"
 msgstr "Modificar Tarjeta"
 
+#: client/templates/client/card/modify_card.html:18
+#| msgid "New alias:"
+msgid "New Alias:"
+msgstr "Nuevo alias:"
+
 #: client/templates/client/dashboard.html:4
 msgid "Dashboard"
 msgstr "Panel de control"
@@ -237,7 +255,8 @@ msgstr "Parece que aún no tiene ninguna cuenta con nosotros, por favor"
 msgid "create an account."
 msgstr "cree una cuenta."
 
-#: client/templates/client/edit.html:4 client/templates/client/edit_done.html:4
+#: client/templates/client/edit.html:4
+#: client/templates/client/edit_done.html:4
 msgid "Edit your profile"
 msgstr "Editar su perfil"
 
@@ -313,51 +332,51 @@ msgstr "Nueva Transacción"
 msgid "Go to dashboard"
 msgstr "Ir al panel de control"
 
-#: client/templates/header.html:45
+#: client/templates/header.html:28
 msgid "Helpline:"
-msgstr "Ayuda:"
+msgstr "Teléfono de ayuda:"
 
-#: client/templates/header_dashboard.html:48
-#: client/templates/header_dashboard.html:74
+#: client/templates/header_dashboard.html:31
+#: client/templates/header_dashboard.html:59
 msgid "Profile"
 msgstr "Perfil"
 
-#: client/templates/header_dashboard.html:51
-#: client/templates/header_dashboard.html:77
+#: client/templates/header_dashboard.html:34
+#: client/templates/header_dashboard.html:62
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: client/templates/header_dashboard.html:52
-#: client/templates/header_dashboard.html:78
+#: client/templates/header_dashboard.html:35
+#: client/templates/header_dashboard.html:63
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
-#: client/templates/header_dashboard.html:54
-#: client/templates/header_dashboard.html:83
+#: client/templates/header_dashboard.html:37
+#: client/templates/header_dashboard.html:68
 msgid "Mailbox"
 msgstr "Buzón de correo"
 
-#: client/templates/header_dashboard.html:55
-#: client/templates/header_dashboard.html:82
+#: client/templates/header_dashboard.html:38
+#: client/templates/header_dashboard.html:67
 msgid "Help"
 msgstr "Ayuda"
 
-#: client/templates/header_dashboard.html:56
-#: client/templates/header_dashboard.html:84
+#: client/templates/header_dashboard.html:39
+#: client/templates/header_dashboard.html:69
 #: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr "Contacto"
 
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:47
 msgid "Hi"
 msgstr "Hola"
 
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:48
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: client/templates/header_dashboard.html:65
+#: client/templates/header_dashboard.html:50
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"
@@ -434,8 +453,9 @@ msgid "Password updated"
 msgstr "Contraseña actualizada"
 
 #: client/templates/registration/password_reset_complete.html:13
-msgid "Your password has been updated. You can now"
-msgstr "Su contraseña se ha actualziado. Puede"
+#| msgid "Your password has been updated. You can now"
+msgid "Your password has been updated. You can now "
+msgstr "Su contraseña se ha actualizado. Puede"
 
 #: client/templates/registration/password_reset_complete.html:13
 msgid "log in."
@@ -451,25 +471,33 @@ msgstr "Por favor, introduzca y confirme su nueva contraseña:"
 
 #: client/templates/registration/password_reset_done.html:13
 msgid ""
-"We have sent you an e-mail with instructions on how to regain access to your "
-"account."
+"We have sent you an e-mail with instructions on how to regain access to your"
+" account."
 msgstr ""
-"Le hemos enviado un correo electrónico con instrucciones para obtener acceso "
-"a su cuenta."
+"Le hemos enviado un correo electrónico con instrucciones para obtener acceso"
+" a su cuenta."
 
 #: client/templates/registration/password_reset_done.html:14
 msgid ""
 "If you have not received the email, please make sure you have entered the "
 "same email address you used to register."
 msgstr ""
-"Si no ha recivido el correo electrónico, asegúrese de que ha introducido la "
+"Si no ha recibido el correo electrónico, asegúrese de que ha introducido la "
 "misma dirección de correo electrónico que usó para registrarse."
 
 #: client/templates/registration/password_reset_email.html:3
 msgid "Have you requested a password reset for the"
-msgstr "¿A solicitado un cambio de contraseña para"
+msgstr "¿Ha solicitado un cambio de contraseña para"
 
-#: client/templates/registration/password_reset_email.html:8
+#: client/templates/registration/password_reset_email.html:4
+msgid ""
+"address? If not, simply ignore this message. Otherwise, access the following"
+" link:"
+msgstr ""
+"Si no es así, simplemente ignore este mensaje. De lo contrario, acceda al "
+"siguiente link:"
+
+#: client/templates/registration/password_reset_email.html:7
 msgid "Your username, in case you have forgotten it: "
 msgstr "Su nombre de usuario, en caso de que lo haya olvidado:"
 
@@ -478,6 +506,10 @@ msgid "Enter your email address to get a new password."
 msgstr ""
 "Introduzca su dirección de correo electrónico para obtener una nueva "
 "contraseña."
+
+#: client/templates/registration/password_reset_form.html:22
+msgid "send e-mail"
+msgstr "Enviar correo"
 
 #: client/templates/registration/register_done.html:4
 #: client/templates/registration/register_done.html:11
@@ -499,12 +531,6 @@ msgstr "editar/"
 #: client/urls.py:10
 msgid "register/"
 msgstr "registro/"
-
-#: client/urls.py:12
-#, fuzzy
-#| msgid "account/<slug:account_slug>/modify"
-msgid "<slug:account_slug>/"
-msgstr "cuenta/<slug:account_slug>/modificar"
 
 #: client/urls.py:13
 msgid "account/create"
@@ -633,8 +659,8 @@ msgid ""
 "total of all deposits established at Polaris."
 msgstr ""
 "Polaris está afiliado con el Fondo de Depósito de Garantía de País Falso "
-"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€ "
-"por persona para todos sus depósitos en Polaris."
+"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€"
+" por persona para todos sus depósitos en Polaris."
 
 #: guest/templates/guest/product/split_banner.html:18
 msgid "THERE IS NO IMAGE FOR THIS PRODUCT"
@@ -732,11 +758,11 @@ msgstr "Tipo"
 msgid "Date"
 msgstr "Fecha"
 
-#: transactions/templates/transactions/movements.html:12
+#: transactions/templates/transactions/movements.html:14
 msgid "Export to CSV"
 msgstr "Exportar a CSV"
 
-#: transactions/templates/transactions/movements.html:23
+#: transactions/templates/transactions/movements.html:27
 msgid "Details"
 msgstr "Detalles"
 
@@ -812,6 +838,10 @@ msgstr "cliente/#"
 #: transactions/urls.py:16
 msgid "movements/"
 msgstr "movimientos/"
+
+#, fuzzy
+#~ msgid "<slug:account_slug>/"
+#~ msgstr "cuenta/<slug:account_slug>/modificar"
 
 #, fuzzy
 #~ msgid "ES"

@@ -72,6 +72,8 @@ def modify_account(request, account_slug):
             account.status = form.cleaned_data['status']
             account.save()
             return redirect('dashboard')
+    else:
+        form = AccountModificationForm(instance=get_object_or_404(Account, slug=account_slug))
     return render(request, 'client/account/modify_account.html', {'form': form})
 
 

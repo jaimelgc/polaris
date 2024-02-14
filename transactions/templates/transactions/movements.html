@@ -9,7 +9,11 @@
             <th scope="col">{% trans "Concept" %}</th>
             <th scope="col">{% trans "Kind" %}</th>
             <th scope="col">{% trans "Date" %}</th>
-            <th scope="col"><a href='{% url "export_to_csv" %}'><button>{% trans "Export to CSV" %}</button></a></th>
+            <th scope="col">
+                <a href='{% url "export_to_csv" %}'>
+                <button class="btn btn-outline-dark">{% trans "Export to CSV" %}</button>
+                </a>
+            </th>
             </tr>
         </thead>
         <tbody>

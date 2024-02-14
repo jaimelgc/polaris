@@ -41,7 +41,8 @@
             <div class="col-lg-2 col-12 order-2 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-md-5 text-white p-2 w-auto d-md-block">
-                        {% if request.user.is_logged %}
+                        {% comment %} #issue ahora no aparece cerrar sesión en el dashboard{% endcomment %}
+                        {% if request.user.is_authenticated %}
                             {% trans "Hi" %} {{ user.first_name }},
                         <a href="{% url "logout" %}" class="text-decoration-underline text-white">{% trans "Log out" %}</a>
                         {% else %}
