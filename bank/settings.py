@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rosetta',
     'easy_thumbnails',
     'rest_framework',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -187,3 +188,14 @@ COMISSION_TABLE = [
     (500, {'OUT': '4.00', 'INC': '2.00', 'PAY': '5.00'}),
     (float("inf"), {'OUT': '6.00', 'INC': '3.00', 'PAY': '7.00'}),
 ]
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
