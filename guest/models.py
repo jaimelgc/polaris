@@ -1,16 +1,17 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 
-
-class Product(models.Model):
+class Product(TranslatableModel):
     class Type(models.TextChoices):
         ACCOUNT = "ACC", _("Account")
         CARD = "CRD", _("Card")
-
-    title = models.CharField(_('title'), max_length=250)
-    subtitle = models.CharField(_('subtitle'), max_length=250)
+    translations = TranslatedFields(
+    title = models.CharField(_('title'), max_length=250),
+    subtitle = models.CharField(_('subtitle'), max_length=250),    
+    body = models.TextField(_('body')),
+    )
     slug = models.SlugField(max_length=250)
-    body = models.TextField(_('body'))
     image = models.ImageField(_('image'), upload_to="products/%Y/%m/%d/", blank=True)
     type = models.CharField(_('type'), max_length=3, choices=Type.choices)
 

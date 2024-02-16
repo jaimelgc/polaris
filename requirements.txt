@@ -9,3 +9,4 @@ WeasyPrint
 django-rosetta
 django-taggit
 markdown
+django-parler
