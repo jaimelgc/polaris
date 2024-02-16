@@ -3,13 +3,21 @@
 
 {% block content %}
     <div class="row bg-stg-blue text-white" id="account-info">
-        <div class="col-6 d-flex p-3">
-            <h2 class="m-0 text-capitalize">{{ acc_detail.alias }}
-            <a href="{% url 'modify_account'  acc_detail.slug %}"><img class="ml-hgt mb-4" src="{% static 'img/white_gear.png' %}"></a></h2>
+        <div class="col-6 d-flex p-3 d-flex justify-content-start align-items-center">
+            <h2 class="m-0 text-capitalize">{{ acc_detail.alias }} ({{ acc_detail.code }})
+                <a href="{% url 'modify_account'  acc_detail.slug %}"><img class="ml-hgt mb-4" src="{% static 'img/white_gear.png' %}"></a>
+            </h2>
+            <div class="row">
+                <p class="col-12 m-0">
+                   
+                </p></div>
         </div>
-        <div class="col-6 d-flex justify-content-end align-items-end p-4">
+        <div class="col-6 d-flex justify-content-end align-items-center p-3">
             <p class="m-0">{% trans "Balance:" %} {{ acc_detail.balance }}€</p>
             {% comment %} issue ordenar debajo de nombre de cuenta <p class="m-0">{{ acc_detail.code }}</p> {% endcomment %}
+        </div>
+        <div class="col-12 d-flex justify-content-start align-items-center">
+            
         </div>
     </div>
     <div class="row bg-white" >
@@ -46,5 +54,10 @@
         {% else %}
             {% trans "There are no movements registered for this account." %}
         {% endif %}
-    </div>     
+    </div> 
+    <script>
+        function showCode(code) {
+            alert(`{% trans "Your account code is:" %} ${code}`);
+        }    
+    </script>    
 {% endblock %}

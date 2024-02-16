@@ -19,8 +19,8 @@
     </div>
     <div class="row">
         <p class="col-12 text-center">{% trans "Status:" %} {{ card.get_status_display }}</p>
-        <button type="button" class="col-12 d-none d-lg-block btn btn-outline-dark" onclick=showPin('{{ card.pin }}')>
-            {% trans "Show pin" %}
+        <button type="button" id="cac-btn" class="col-12 d-none d-lg-block btn btn-outline-dark mb-4" onclick=showPin('{{ card.pin }}')>
+            {% trans "Show CAC" %}
         </button>
     </div>
 </div>
@@ -32,14 +32,14 @@
             <p><u>{{ user.first_name }} {{ user.last_name }}</u></p>
             <p>{% trans "Code:" %} {{ card.code }}</p>
             <button type="button" class="col-12 btn btn-outline-dark" onclick=showPin('{{ card.pin }}')>
-                {% trans "Show pin" %}
+                {% trans "Show CAC" %}
             </button>
         </div>
     </div>
 </div>
 <script>
     function showPin(pin) {
-        alert(`{% trans "Your pin is:" %} ${pin}`);
+        alert(`{% trans "Your CAC is:" %} ${pin}`);
     }    
 </script>
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 23:15+0000\n"
+"POT-Creation-Date: 2024-02-16 15:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,41 +130,49 @@ msgstr ""
 msgid "Create new account"
 msgstr ""
 
-#: client/templates/client/account/detail.html:11
+#: client/templates/client/account/detail.html:12
+msgid "Show account code"
+msgstr ""
+
+#: client/templates/client/account/detail.html:16
 msgid "Balance:"
 msgstr ""
 
-#: client/templates/client/account/detail.html:18
+#: client/templates/client/account/detail.html:23
 msgid "Income (last 30 days):"
 msgstr ""
 
-#: client/templates/client/account/detail.html:18
-#: client/templates/client/account/detail.html:21
+#: client/templates/client/account/detail.html:23
+#: client/templates/client/account/detail.html:26
 msgid "€"
 msgstr ""
 
-#: client/templates/client/account/detail.html:21
+#: client/templates/client/account/detail.html:26
 msgid "Expenses (last 30 days):"
 msgstr ""
 
-#: client/templates/client/account/detail.html:26
+#: client/templates/client/account/detail.html:31
 msgid "Cards"
 msgstr ""
 
-#: client/templates/client/account/detail.html:27
+#: client/templates/client/account/detail.html:32
 msgid "Search Movements"
 msgstr ""
 
-#: client/templates/client/account/detail.html:28
+#: client/templates/client/account/detail.html:33
 msgid "See Transactions"
 msgstr ""
 
-#: client/templates/client/account/detail.html:39
+#: client/templates/client/account/detail.html:44
 msgid "There are no cards registered for this account."
 msgstr ""
 
-#: client/templates/client/account/detail.html:48
+#: client/templates/client/account/detail.html:53
 msgid "There are no movements registered for this account."
+msgstr ""
+
+#: client/templates/client/account/detail.html:58
+msgid "Your account code is:"
 msgstr ""
 
 #: client/templates/client/account/modify_account.html:4
@@ -192,7 +200,7 @@ msgstr ""
 
 #: client/templates/client/card/card_detail.html:23
 #: client/templates/client/card/card_detail.html:36
-msgid "Show pin"
+msgid "Show CAC"
 msgstr ""
 
 #: client/templates/client/card/card_detail.html:34
@@ -200,7 +208,7 @@ msgid "Code:"
 msgstr ""
 
 #: client/templates/client/card/card_detail.html:43
-msgid "Your pin is:"
+msgid "Your CAC is:"
 msgstr ""
 
 #: client/templates/client/card/card_done.html:4
@@ -334,46 +342,46 @@ msgid "Helpline:"
 msgstr ""
 
 #: client/templates/header_dashboard.html:31
-#: client/templates/header_dashboard.html:59
+#: client/templates/header_dashboard.html:57
 msgid "Profile"
 msgstr ""
 
 #: client/templates/header_dashboard.html:34
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:60
 msgid "Edit profile"
 msgstr ""
 
 #: client/templates/header_dashboard.html:35
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:61
 msgid "Change password"
 msgstr ""
 
 #: client/templates/header_dashboard.html:37
-#: client/templates/header_dashboard.html:68
+#: client/templates/header_dashboard.html:66
 msgid "Mailbox"
 msgstr ""
 
 #: client/templates/header_dashboard.html:38
-#: client/templates/header_dashboard.html:67
+#: client/templates/header_dashboard.html:65
 msgid "Help"
 msgstr ""
 
 #: client/templates/header_dashboard.html:39
-#: client/templates/header_dashboard.html:69
+#: client/templates/header_dashboard.html:67
 #: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr ""
 
-#: client/templates/header_dashboard.html:47
+#: client/templates/header_dashboard.html:45
 msgid "Hi"
 msgstr ""
 
-#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:46
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr ""
 
-#: client/templates/header_dashboard.html:50
+#: client/templates/header_dashboard.html:48
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"

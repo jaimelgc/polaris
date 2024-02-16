@@ -22,11 +22,11 @@
         </div>
         <div class="row">
             <!-- logo -->
-            <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
+            <div class="col-lg-2 col-md-6 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center mb-2" >
                 <a href="{% url 'dashboard' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
             </div>
             <!-- menú extendido para pantallas grandes-->
-            <div class="col-lg-8 col-7 order-2 d-none d-md-flex justify-content-center align-items-center">
+            <div class="col-lg-8 col-12 order-lg-2 order-3 d-none d-md-flex justify-content-center align-items-center">
                 <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                     {% trans "Profile" %}
                 </button>
@@ -34,14 +34,13 @@
                     <li><a class="dropdown-item" href="{% url 'edit' %}">{% trans "Edit profile" %}</a></li>
                     <li><a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Change password" %}</a></li>
                 </ul>
-                <a href="#" class="link-nos-white-r">{% trans "Mailbox" %}</a>
+                <a href="#" class="link-nos-white-r text-center">{% trans "Mailbox" %}</a>
                 <a href="#" class="link-nos-white-r">{% trans "Help" %}</a>
                 <a href="#" class="link-nos-white-r">{% trans "Contact" %}</a>
             </div>
-            <div class="col-lg-2 col-12 order-2 d-flex justify-content-center align-items-center">
+            <div class="col-lg-2 col-md-6 col-12 order-2 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="col-md-5 text-white p-2 w-auto d-md-block">
-                        {% comment %} #issue ahora no aparece cerrar sesión en el dashboard{% endcomment %}
                         {% if request.user.is_authenticated %}
                             {% trans "Hi" %} {{ user.first_name }},
                         <a href="{% url "logout" %}" class="text-decoration-underline text-white">{% trans "Log out" %}</a>
@@ -62,7 +61,7 @@
                         <li><a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Change password" %}</a></li>
                     </ul>
                 </div>
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group d-flex justify-content-center align-items-center text-center" role="group" aria-label="Button group with nested dropdown">
                     <a class="link-nos-white-r m-2" href="#">{% trans "Help" %}</a>
                     <a class="link-nos-white-r m-2" href="#">{% trans "Mailbox" %}</a>
                     <a class="link-nos-white-r m-2" href="#">{% trans "Contact" %}</a>

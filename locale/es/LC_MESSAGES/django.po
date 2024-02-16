@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-13 23:15+0000\n"
-"PO-Revision-Date: 2024-02-13 23:33+0000\n"
+"POT-Creation-Date: 2024-02-16 15:55+0000\n"
+"PO-Revision-Date: 2024-02-16 15:22+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -131,42 +131,52 @@ msgstr "Alias:"
 msgid "Create new account"
 msgstr "Crear nueva cuenta"
 
-#: client/templates/client/account/detail.html:11
+#: client/templates/client/account/detail.html:12
+#, fuzzy
+#| msgid "Account recovery"
+msgid "Show account code"
+msgstr "Recuperación de cuenta"
+
+#: client/templates/client/account/detail.html:16
 msgid "Balance:"
 msgstr "Balance:"
 
-#: client/templates/client/account/detail.html:18
+#: client/templates/client/account/detail.html:23
 msgid "Income (last 30 days):"
 msgstr "Ingresos (últimos 30 días):"
 
-#: client/templates/client/account/detail.html:18
-#: client/templates/client/account/detail.html:21
+#: client/templates/client/account/detail.html:23
+#: client/templates/client/account/detail.html:26
 msgid "€"
 msgstr "€"
 
-#: client/templates/client/account/detail.html:21
+#: client/templates/client/account/detail.html:26
 msgid "Expenses (last 30 days):"
 msgstr "Gastos (últimos 30 días):"
 
-#: client/templates/client/account/detail.html:26
+#: client/templates/client/account/detail.html:31
 msgid "Cards"
 msgstr "Tarjetas"
 
-#: client/templates/client/account/detail.html:27
+#: client/templates/client/account/detail.html:32
 msgid "Search Movements"
 msgstr "Buscar Movimientos"
 
-#: client/templates/client/account/detail.html:28
+#: client/templates/client/account/detail.html:33
 msgid "See Transactions"
 msgstr "Ver Transacciones"
 
-#: client/templates/client/account/detail.html:39
+#: client/templates/client/account/detail.html:44
 msgid "There are no cards registered for this account."
 msgstr "No hay tarjetas registradas para esta cuenta."
 
-#: client/templates/client/account/detail.html:48
+#: client/templates/client/account/detail.html:53
 msgid "There are no movements registered for this account."
 msgstr "No hay movimientos registrados para esta cuenta."
+
+#: client/templates/client/account/detail.html:58
+msgid "Your account code is:"
+msgstr ""
 
 #: client/templates/client/account/modify_account.html:4
 msgid "Modify account"
@@ -193,16 +203,16 @@ msgstr "Guardar cambios"
 
 #: client/templates/client/card/card_detail.html:23
 #: client/templates/client/card/card_detail.html:36
-msgid "Show pin"
-msgstr "Mostrar pin"
+msgid "Show CAC"
+msgstr "Mostrar CAC"
 
 #: client/templates/client/card/card_detail.html:34
 msgid "Code:"
-msgstr "Código"
+msgstr "Código:"
 
 #: client/templates/client/card/card_detail.html:43
-msgid "Your pin is:"
-msgstr "Su pin es:"
+msgid "Your CAC is:"
+msgstr "Su CAC es:"
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
@@ -239,7 +249,6 @@ msgid "Card Modification"
 msgstr "Modificar Tarjeta"
 
 #: client/templates/client/card/modify_card.html:18
-#| msgid "New alias:"
 msgid "New Alias:"
 msgstr "Nuevo alias:"
 
@@ -255,8 +264,7 @@ msgstr "Parece que aún no tiene ninguna cuenta con nosotros, por favor"
 msgid "create an account."
 msgstr "cree una cuenta."
 
-#: client/templates/client/edit.html:4
-#: client/templates/client/edit_done.html:4
+#: client/templates/client/edit.html:4 client/templates/client/edit_done.html:4
 msgid "Edit your profile"
 msgstr "Editar su perfil"
 
@@ -337,46 +345,46 @@ msgid "Helpline:"
 msgstr "Teléfono de ayuda:"
 
 #: client/templates/header_dashboard.html:31
-#: client/templates/header_dashboard.html:59
+#: client/templates/header_dashboard.html:57
 msgid "Profile"
 msgstr "Perfil"
 
 #: client/templates/header_dashboard.html:34
-#: client/templates/header_dashboard.html:62
+#: client/templates/header_dashboard.html:60
 msgid "Edit profile"
 msgstr "Editar perfil"
 
 #: client/templates/header_dashboard.html:35
-#: client/templates/header_dashboard.html:63
+#: client/templates/header_dashboard.html:61
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
 #: client/templates/header_dashboard.html:37
-#: client/templates/header_dashboard.html:68
+#: client/templates/header_dashboard.html:66
 msgid "Mailbox"
 msgstr "Buzón de correo"
 
 #: client/templates/header_dashboard.html:38
-#: client/templates/header_dashboard.html:67
+#: client/templates/header_dashboard.html:65
 msgid "Help"
 msgstr "Ayuda"
 
 #: client/templates/header_dashboard.html:39
-#: client/templates/header_dashboard.html:69
+#: client/templates/header_dashboard.html:67
 #: guest/templates/guest/header.html:50 guest/templates/guest/header.html:63
 msgid "Contact"
 msgstr "Contacto"
 
-#: client/templates/header_dashboard.html:47
+#: client/templates/header_dashboard.html:45
 msgid "Hi"
 msgstr "Hola"
 
-#: client/templates/header_dashboard.html:48
+#: client/templates/header_dashboard.html:46
 #: client/templates/registration/logged_out.html:4
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: client/templates/header_dashboard.html:50
+#: client/templates/header_dashboard.html:48
 #: client/templates/registration/login.html:4
 #: client/templates/registration/login.html:19
 msgid "Log in"
@@ -453,7 +461,6 @@ msgid "Password updated"
 msgstr "Contraseña actualizada"
 
 #: client/templates/registration/password_reset_complete.html:13
-#| msgid "Your password has been updated. You can now"
 msgid "Your password has been updated. You can now "
 msgstr "Su contraseña se ha actualizado. Puede"
 
@@ -471,11 +478,11 @@ msgstr "Por favor, introduzca y confirme su nueva contraseña:"
 
 #: client/templates/registration/password_reset_done.html:13
 msgid ""
-"We have sent you an e-mail with instructions on how to regain access to your"
-" account."
+"We have sent you an e-mail with instructions on how to regain access to your "
+"account."
 msgstr ""
-"Le hemos enviado un correo electrónico con instrucciones para obtener acceso"
-" a su cuenta."
+"Le hemos enviado un correo electrónico con instrucciones para obtener acceso "
+"a su cuenta."
 
 #: client/templates/registration/password_reset_done.html:14
 msgid ""
@@ -491,8 +498,8 @@ msgstr "¿Ha solicitado un cambio de contraseña para"
 
 #: client/templates/registration/password_reset_email.html:4
 msgid ""
-"address? If not, simply ignore this message. Otherwise, access the following"
-" link:"
+"address? If not, simply ignore this message. Otherwise, access the following "
+"link:"
 msgstr ""
 "Si no es así, simplemente ignore este mensaje. De lo contrario, acceda al "
 "siguiente link:"
@@ -659,8 +666,8 @@ msgid ""
 "total of all deposits established at Polaris."
 msgstr ""
 "Polaris está afiliado con el Fondo de Depósito de Garantía de País Falso "
-"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€"
-" por persona para todos sus depósitos en Polaris."
+"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€ "
+"por persona para todos sus depósitos en Polaris."
 
 #: guest/templates/guest/product/split_banner.html:18
 msgid "THERE IS NO IMAGE FOR THIS PRODUCT"

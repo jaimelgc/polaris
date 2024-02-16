@@ -330,4 +330,16 @@ ul.messages li a.close {
   color: black;
   background-color: #e9ecef;
   border-color: #000;
+}
+
+.btn-outline-light {
+  color: white;
+  border-style: none;
+}
+
+.btn-outline-light:hover, .btn-outline-light:focus, .btn-outline-light:active, .btn-outline-light.active {
+  border-style: none;
+  text-decoration: underline;
+  background: none;
+  color: white;
 }/*# sourceMappingURL=base.css.map */
