@@ -1,30 +1,46 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext_lazy as _
 
 from .models import Account, Card, Client
 
 
 class ClientRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput,
+        validators=[validate_password],
+    )
     password2 = forms.CharField(label=_('Repeat password'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
-        # register with default image, modify later
         fields = ['username', 'first_name', 'last_name', 'email']
 
     def clean_password2(self):
         cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
+        if cd.get('password') != cd.get('password2'):
             raise forms.ValidationError(_("Passwords don't match."))
-        return cd['password2']
+        return cd.get('password2')
 
     def clean_email(self):
-        data = self.cleaned_data['email']
-        if User.objects.filter(email=data).exists():
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
             raise forms.ValidationError(_('Email already in use.'))
-        return data
+        elif email == '':
+            raise forms.ValidationError(_('Email is required for registration.'))
+        return email
+
+    def clean_first_name(self):
+        if first_name := self.cleaned_data.get('first_name'):
+            return first_name
+        raise forms.ValidationError(_('First name is required for registration.'))
+
+    def clean_last_name(self):
+        if last_name := self.cleaned_data.get('last_name'):
+            return last_name
+        raise forms.ValidationError(_('Last name is required for registration.'))
 
 
 class LoginForm(forms.Form):

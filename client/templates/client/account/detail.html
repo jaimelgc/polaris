@@ -4,12 +4,14 @@
 {% block content %}
     <div class="row bg-stg-blue text-white" id="account-info">
         <div class="col-6 d-flex p-3 d-flex justify-content-start align-items-center">
-            <h2 class="m-0 text-capitalize">{{ acc_detail.alias }} ({{ acc_detail.code }})
-                <a href="{% url 'modify_account'  acc_detail.slug %}"><img class="ml-hgt mb-4" src="{% static 'img/white_gear.png' %}"></a>
-            </h2>
+            <div>
+                <h2 class="m-0 text-capitalize">
+                    {{ acc_detail.alias }} ({{ acc_detail.code }})
+                    <a href="{% url 'modify_account'  acc_detail.slug %}"><img class="ml-hgt mb-4" src="{% static 'img/white_gear.png' %}"></a>
+                </h2>
+            </div>
             <div class="row">
                 <p class="col-12 m-0">
-                   
                 </p></div>
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center p-3">

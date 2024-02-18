@@ -4,9 +4,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-BANK_CARD_CODE = 'C6'
-BANK_ACCOUNT_CODE = 'A6'
-
 
 class Client(models.Model):
     class States(models.TextChoices):
@@ -50,7 +47,7 @@ class Account(models.Model):
 
     @property
     def code(self):
-        return f'{BANK_ACCOUNT_CODE}-{str(self.id).zfill(4)}'
+        return f'{settings.BANK_ACCOUNT_CODE}-{str(self.id).zfill(4)}'
 
     def get_absolute_url(self):
         return reverse('dashboard_acc_detail', args=[self.slug])
@@ -78,4 +75,4 @@ class Card(models.Model):
 
     @property
     def code(self):
-        return f'{BANK_CARD_CODE}-{str(self.id).zfill(4)}'
+        return f'{settings.BANK_CARD_CODE}-{str(self.id).zfill(4)}'

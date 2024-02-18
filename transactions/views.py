@@ -13,6 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
 
@@ -27,7 +28,8 @@ from .utils import calc_comission
 def transfer(request):
     data = json.loads(request.body)
     if {'business', 'ccc', 'pin', 'amount'} == set(data.keys()):
-        if data['ccc'][:2] != 'C6':
+        if data['ccc'][:2] != settings.BANK_CARD_CODE:
+            # todo
             HttpResponseBadRequest('Unrecognized card')
         card_id = int(data['ccc'][3:])
         if card := get_object_or_404(Card, id=card_id, pin=data['pin'], status=Card.States.ACTIVE):
@@ -55,16 +57,17 @@ def transfer(request):
                     amount=comission_amount,
                 )
                 new_comission.save()
+                # todo
             return HttpResponse()
         else:
-            error = 'Unable to operate with the given card'
+            error = _('Unable to operate with the given card')
             return render(
                 request,
                 'transactions/transaction/error.html',
                 {'error': error},
             )
     else:
-        error = 'Data not consistent with request'
+        error = _('Data not consistent with request')
         return render(
             request,
             'transactions/transaction/error.html',
@@ -100,16 +103,17 @@ def transfer_inc(request):
                 amount=comission_amount,
             )
             new_comission.save()
+            # todo
             return HttpResponse()
         else:
-            error = 'Unable to operate with the given account'
+            error = _('Unable to operate with the given account')
             return render(
                 request,
                 'transactions/transaction/error.html',
                 {'error': error},
             )
     else:
-        error = 'Data not consistent with request'
+        error = _('Data not consistent with request')
         return render(
             request,
             'transactions/transaction/error.html',
@@ -128,7 +132,7 @@ def transfer_out(request):
             if agent_type == 'A' and int(bank_id) < len(settings.BANK_DATA):
                 bank_url = settings.BANK_DATA[int(bank_id)]['url'] + '/transfer/incoming/'
             else:
-                error = 'Unregistered entity'
+                error = _('Unregistered entity')
                 return render(
                     request,
                     'transactions/transaction/error.html',
@@ -143,7 +147,7 @@ def transfer_out(request):
                 settings.COMISSION_TABLE,
             )
             if amount + comission_amount > account.balance:
-                error = 'Amount exceeds the account available money'
+                error = _("Amount exceeds account\'s available money")
                 return render(
                     request,
                     'transactions/transaction/error.html',
@@ -176,17 +180,18 @@ def transfer_out(request):
                     'transactions/transaction/done.html',
                     {'form': form, 'transaction': new_transaction},
                 )
-        messages.error(request, 'Unable to reach the recipient.')
+        messages.error(request, _('Unable to reach the recipient.'))
         return render(request, 'transactions/transaction/create.html', {'form': form})
     else:
         user = Client.objects.get(user=request.user)
         if accounts := user.accounts.filter(status=Account.States.ACTIVE):
             form = TransactionForm()
-            form.fields['agent'] = forms.ModelChoiceField(queryset=accounts)
+            form.fields['agent'] = forms.ModelChoiceField(label=_('Agent'), queryset=accounts)
         else:
             messages.error(
-                request, 'You must have an active account in order to make a transaction.'
+                request, _('You must have an active account in order to make a transaction.')
             )
+            # todo
             return HttpResponseRedirect('/client/')
     return render(request, 'transactions/transaction/create.html', {'form': form})
 

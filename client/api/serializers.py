@@ -7,7 +7,7 @@ from transactions.models import Comission, Transaction
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['pk','alias', 'code', 'status', 'balance']
+        fields = ['pk', 'alias', 'code', 'status', 'balance']
 
 
 class ComissionSerializer(serializers.ModelSerializer):

@@ -15,7 +15,7 @@
        {% include "guest/product/risk_banner.html" %}
     </div>
     <!-- Register -->
-        <div class="container d-flex align-items-center justify-content-center">
+        <div class="container d-flex align-items-center justify-content-center mb-5">
             <form method="post" class="col-12" id="register-form">
                 <div class="row">
                     <div class="col-2 d-flex justify-content-center align-items-center p-0">
@@ -30,7 +30,7 @@
                         <br>
                         <a disabled href="#">{% trans "Personal data processing" %}</a><br>
                         <input required type="checkbox" name="privacy" id="privacy"><span> {% trans "I have read, I understand and agree to the processing of my personal data." %}</span><br><br>
-                        <input type="submit" value={% trans "Register" %}><br><br>
+                        <input type="submit" value="{% trans 'Register' %}"><br><br>
                     </form>
                         <a href="#">{% trans "Learn more" %}</a>
                     </div>

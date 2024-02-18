@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 15:55+0000\n"
-"PO-Revision-Date: 2024-02-16 15:22+0000\n"
-"Last-Translator:   <>\n"
+"POT-Creation-Date: 2024-02-18 15:40+0000\n"
+"PO-Revision-Date: 2024-02-18 15:40+0000\n"
+"Last-Translator:   <admin@admin.es>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,87 +19,95 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: bank/settings.py:124
+#: bank/settings.py:125
 msgid "English"
 msgstr "Inglés"
 
-#: bank/settings.py:125
+#: bank/settings.py:126
 msgid "Spanish"
 msgstr "Español"
 
-#: bank/urls.py:32
+#: bank/urls.py:33
 msgid "admin/"
 msgstr "admin/"
 
-#: bank/urls.py:33
+#: bank/urls.py:34
 msgid "client/"
 msgstr "cliente/"
 
-#: bank/urls.py:34
+#: bank/urls.py:35
 msgid "payment/"
 msgstr "pago/"
 
-#: bank/urls.py:35
+#: bank/urls.py:36
 msgid "transfer/"
 msgstr "transferencia/"
 
-#: bank/urls.py:36
-msgid "api/"
-msgstr "api/"
-
-#: client/forms.py:9
+#: client/forms.py:11
 msgid "Password"
 msgstr "Contraseña"
 
-#: client/forms.py:10
+#: client/forms.py:15
 msgid "Repeat password"
 msgstr "Repita la contraseña"
 
-#: client/forms.py:20
+#: client/forms.py:24
 msgid "Passwords don't match."
 msgstr "Las contraseñas no coinciden."
 
-#: client/forms.py:26
+#: client/forms.py:30
 msgid "Email already in use."
 msgstr "Este correo ya está siendo utilizado."
 
-#: client/forms.py:31
+#: client/forms.py:32
+msgid "Email is required for registration."
+msgstr "Correo electrónico requerido para registrarse."
+
+#: client/forms.py:38
+msgid "First name is required for registration."
+msgstr "Nombre requerido para registrarse."
+
+#: client/forms.py:43
+msgid "Last name is required for registration."
+msgstr "Apellidos requeridos para registrarse."
+
+#: client/forms.py:47
 msgid "username"
 msgstr "nombre de usuario"
 
-#: client/forms.py:32
+#: client/forms.py:48
 msgid "password"
 msgstr "contraseña"
 
-#: client/models.py:13 client/models.py:29 client/models.py:61
+#: client/models.py:10 client/models.py:26 client/models.py:58
 msgid "Active"
 msgstr "Activa"
 
-#: client/models.py:14 client/models.py:30 client/models.py:62
+#: client/models.py:11 client/models.py:27 client/models.py:59
 msgid "Bloqued"
 msgstr "Bloqueada"
 
-#: client/models.py:15 client/models.py:31 client/models.py:63
+#: client/models.py:12 client/models.py:28 client/models.py:60
 msgid "Terminated"
 msgstr "Eliminada"
 
-#: client/models.py:18
+#: client/models.py:15
 msgid "avatar"
 msgstr "avatar"
 
-#: client/models.py:20 client/models.py:36 client/models.py:67
+#: client/models.py:17 client/models.py:33 client/models.py:64
 msgid "status"
 msgstr "estado"
 
-#: client/models.py:33 client/models.py:65
+#: client/models.py:30 client/models.py:62
 msgid "alias"
 msgstr "alias"
 
-#: client/models.py:35
+#: client/models.py:32
 msgid "balance"
 msgstr "balance"
 
-#: client/models.py:73 guest/models.py:14
+#: client/models.py:70 guest/models.py:15
 msgid "image"
 msgstr "imagen"
 
@@ -131,52 +139,46 @@ msgstr "Alias:"
 msgid "Create new account"
 msgstr "Crear nueva cuenta"
 
-#: client/templates/client/account/detail.html:12
-#, fuzzy
-#| msgid "Account recovery"
-msgid "Show account code"
-msgstr "Recuperación de cuenta"
-
-#: client/templates/client/account/detail.html:16
+#: client/templates/client/account/detail.html:18
 msgid "Balance:"
 msgstr "Balance:"
 
-#: client/templates/client/account/detail.html:23
+#: client/templates/client/account/detail.html:28
 msgid "Income (last 30 days):"
 msgstr "Ingresos (últimos 30 días):"
 
-#: client/templates/client/account/detail.html:23
-#: client/templates/client/account/detail.html:26
+#: client/templates/client/account/detail.html:28
+#: client/templates/client/account/detail.html:31
 msgid "€"
 msgstr "€"
 
-#: client/templates/client/account/detail.html:26
+#: client/templates/client/account/detail.html:31
 msgid "Expenses (last 30 days):"
 msgstr "Gastos (últimos 30 días):"
 
-#: client/templates/client/account/detail.html:31
+#: client/templates/client/account/detail.html:36
 msgid "Cards"
 msgstr "Tarjetas"
 
-#: client/templates/client/account/detail.html:32
+#: client/templates/client/account/detail.html:37
 msgid "Search Movements"
 msgstr "Buscar Movimientos"
 
-#: client/templates/client/account/detail.html:33
+#: client/templates/client/account/detail.html:38
 msgid "See Transactions"
 msgstr "Ver Transacciones"
 
-#: client/templates/client/account/detail.html:44
+#: client/templates/client/account/detail.html:49
 msgid "There are no cards registered for this account."
 msgstr "No hay tarjetas registradas para esta cuenta."
 
-#: client/templates/client/account/detail.html:53
+#: client/templates/client/account/detail.html:58
 msgid "There are no movements registered for this account."
 msgstr "No hay movimientos registrados para esta cuenta."
 
-#: client/templates/client/account/detail.html:58
+#: client/templates/client/account/detail.html:63
 msgid "Your account code is:"
-msgstr ""
+msgstr "El código de cuenta es:"
 
 #: client/templates/client/account/modify_account.html:4
 msgid "Modify account"
@@ -198,21 +200,22 @@ msgstr "Estado:"
 
 #: client/templates/client/account/modify_account.html:24
 #: client/templates/client/card/modify_card.html:24
+#: client/templates/client/edit.html:24
 msgid "Save changes"
 msgstr "Guardar cambios"
 
 #: client/templates/client/card/card_detail.html:23
 #: client/templates/client/card/card_detail.html:36
-msgid "Show CAC"
-msgstr "Mostrar CAC"
+msgid "Show PIN"
+msgstr "Mostrar PIN"
 
 #: client/templates/client/card/card_detail.html:34
 msgid "Code:"
 msgstr "Código:"
 
 #: client/templates/client/card/card_detail.html:43
-msgid "Your CAC is:"
-msgstr "Su CAC es:"
+msgid "The card's PIN is:"
+msgstr "El PIN de la tarjeta es: "
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
@@ -264,7 +267,8 @@ msgstr "Parece que aún no tiene ninguna cuenta con nosotros, por favor"
 msgid "create an account."
 msgstr "cree una cuenta."
 
-#: client/templates/client/edit.html:4 client/templates/client/edit_done.html:4
+#: client/templates/client/edit.html:4
+#: client/templates/client/edit_done.html:4
 msgid "Edit your profile"
 msgstr "Editar su perfil"
 
@@ -340,6 +344,11 @@ msgstr "Nueva Transacción"
 msgid "Go to dashboard"
 msgstr "Ir al panel de control"
 
+#: client/templates/header.html:20 client/templates/header_dashboard.html:20
+#: guest/templates/guest/header.html:37
+msgid "Go"
+msgstr "Ir"
+
 #: client/templates/header.html:28
 msgid "Helpline:"
 msgstr "Teléfono de ayuda:"
@@ -356,6 +365,8 @@ msgstr "Editar perfil"
 
 #: client/templates/header_dashboard.html:35
 #: client/templates/header_dashboard.html:61
+#: client/templates/registration/password_change_form.html:22
+#: client/templates/registration/password_reset_confirm.html:21
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
@@ -478,11 +489,11 @@ msgstr "Por favor, introduzca y confirme su nueva contraseña:"
 
 #: client/templates/registration/password_reset_done.html:13
 msgid ""
-"We have sent you an e-mail with instructions on how to regain access to your "
-"account."
+"We have sent you an e-mail with instructions on how to regain access to your"
+" account."
 msgstr ""
-"Le hemos enviado un correo electrónico con instrucciones para obtener acceso "
-"a su cuenta."
+"Le hemos enviado un correo electrónico con instrucciones para obtener acceso"
+" a su cuenta."
 
 #: client/templates/registration/password_reset_done.html:14
 msgid ""
@@ -498,8 +509,8 @@ msgstr "¿Ha solicitado un cambio de contraseña para"
 
 #: client/templates/registration/password_reset_email.html:4
 msgid ""
-"address? If not, simply ignore this message. Otherwise, access the following "
-"link:"
+"address? If not, simply ignore this message. Otherwise, access the following"
+" link:"
 msgstr ""
 "Si no es así, simplemente ignore este mensaje. De lo contrario, acceda al "
 "siguiente link:"
@@ -515,7 +526,7 @@ msgstr ""
 "contraseña."
 
 #: client/templates/registration/password_reset_form.html:22
-msgid "send e-mail"
+msgid "Send e-mail"
 msgstr "Enviar correo"
 
 #: client/templates/registration/register_done.html:4
@@ -555,6 +566,14 @@ msgstr "tarjeta/crear"
 msgid "card/<int:card_id>/modify"
 msgstr "tarjeta/<int:card_id>/modificar"
 
+#: client/views.py:127
+msgid "Client not active"
+msgstr "Cliente inhabilitado."
+
+#: client/views.py:129
+msgid "Invalid Login"
+msgstr "Inicio de sesión incorrecto."
+
 #: guest/models.py:7
 msgid "Account"
 msgstr "Cuenta"
@@ -571,15 +590,15 @@ msgstr "título"
 msgid "subtitle"
 msgstr "subtítulo"
 
-#: guest/models.py:13
+#: guest/models.py:12
 msgid "body"
 msgstr "descripción"
 
-#: guest/models.py:15
+#: guest/models.py:16
 msgid "type"
 msgstr "tipo"
 
-#: guest/models.py:18
+#: guest/models.py:19
 msgid "Product: "
 msgstr "Producto:"
 
@@ -666,8 +685,8 @@ msgid ""
 "total of all deposits established at Polaris."
 msgstr ""
 "Polaris está afiliado con el Fondo de Depósito de Garantía de País Falso "
-"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€ "
-"por persona para todos sus depósitos en Polaris."
+"para instituciones de crédito. La cantidad máxima garantizada es de 100.000€"
+" por persona para todos sus depósitos en Polaris."
 
 #: guest/templates/guest/product/split_banner.html:18
 msgid "THERE IS NO IMAGE FOR THIS PRODUCT"
@@ -845,6 +864,48 @@ msgstr "cliente/#"
 #: transactions/urls.py:16
 msgid "movements/"
 msgstr "movimientos/"
+
+#: transactions/views.py:63
+msgid "Unable to operate with the given card"
+msgstr "No es posible operar con la tarjeta indicada."
+
+#: transactions/views.py:70 transactions/views.py:116
+msgid "Data not consistent with request"
+msgstr "Los datos no son consistentes con la petición."
+
+#: transactions/views.py:109
+msgid "Unable to operate with the given account"
+msgstr "No es posible operar con la cuenta indicada."
+
+#: transactions/views.py:135
+msgid "Unregistered entity"
+msgstr "Entidad no registrada."
+
+#: transactions/views.py:150
+msgid "Amount exceeds account's available money"
+msgstr "La cantidad excede el dinero disponible en la cuenta."
+
+#: transactions/views.py:183
+msgid "Unable to reach the recipient."
+msgstr "Imposible llegar al destinatario."
+
+#: transactions/views.py:189
+msgid "Agent"
+msgstr "Agente"
+
+#: transactions/views.py:192
+msgid "You must have an active account in order to make a transaction."
+msgstr "Debe tener una cuenta activa para poder realizar una transacción."
+
+#~ msgid "Your CAC is:"
+#~ msgstr "Su CAC es:"
+
+#~ msgid "api/"
+#~ msgstr "api/"
+
+#, fuzzy
+#~ msgid "Show account code"
+#~ msgstr "Recuperación de cuenta"
 
 #, fuzzy
 #~ msgid "<slug:account_slug>/"

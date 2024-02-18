@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.translation import gettext_lazy as _
 
 from transactions.models import Comission
 
@@ -29,13 +30,11 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            # Create profile of the user (create saves to db)
             Client.objects.create(user=new_user)
-            # show the user an alternative url
-            # pass the client instead of the user, evaluate implications
             return render(request, 'registration/register_done.html', {'new_user': new_user})
-    else:
-        user_form = ClientRegistrationForm()
+        else:
+            return render(request, 'client/register.html', {'user_form': user_form})
+    user_form = ClientRegistrationForm()
     return render(request, 'client/register.html', {'user_form': user_form})
 
 
@@ -51,6 +50,7 @@ def create_account(request):
                 new_account.save()
                 return render(request, 'client/account/account_done.html', {'form': form})
             else:
+                # todo
                 return HttpResponse('Alias already in use.')
     else:
         form = AccountRegistrationForm()
@@ -90,6 +90,7 @@ def create_card(request):
                 new_card.save()
                 return render(request, 'client/card/card_done.html', {'form': form})
             else:
+                # todo
                 return HttpResponse('Unable to create card')
     else:
         form = CardCreationForm()
@@ -125,9 +126,9 @@ def user_login(request):
                     login(request, user)
                     return redirect('dashboard')
                 else:
-                    error = 'Client not active'
+                    error = _('Client not active')
             else:
-                error = 'Invalid Login'
+                error = _('Invalid Login')
             messages.error(request, error)
     else:
         form = LoginForm()

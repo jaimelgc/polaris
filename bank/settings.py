@@ -181,6 +181,9 @@ BANK_DOMAINS_URL = (
 BANK_DATA = get_banks_data()
 PAYMENT = 'PAY'
 
+BANK_CARD_CODE = 'C6'
+BANK_ACCOUNT_CODE = 'A6'
+
 # Comissions
 
 COMISSION_TABLE = [
@@ -197,5 +200,5 @@ PARLER_LANGUAGES = {
     'default': {
         'fallback': 'en',
         'hide_untranslated': False,
-    }
+    },
 }

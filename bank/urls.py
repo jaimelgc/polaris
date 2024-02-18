@@ -23,6 +23,7 @@ from django.urls import include, path
 from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
+    path('api/', include('client.api.urls')),
     path('rosetta/', include('rosetta.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('', include('guest.urls')),
@@ -33,7 +34,6 @@ urlpatterns += i18n_patterns(
     path(_('client/'), include('client.urls')),
     path(_('payment/'), include('transactions.urls')),
     path(_('transfer/'), include('transactions.urls')),
-    path(_('api/'), include('client.api.urls')),
 )
 
 if settings.DEBUG:
