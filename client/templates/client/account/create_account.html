@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+{% include "messages.html" %}
 <div class="container pt-4">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <h2>{% trans "Create a bank account" %}</h2>
@@ -21,7 +22,7 @@
             <label>{% trans "Alias:" %} </label> {{ form.alias }}
             <br><br>
             {% csrf_token %}
-            <p><input type="submit" value={% trans "Create new account" %}></p>
+            <p><input type="submit" value="{% trans 'Create new account' %}""></p>
         </form>
     </div>
 </div>

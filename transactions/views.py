@@ -9,13 +9,11 @@ from django import forms
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic.list import ListView
 
 from client.models import Account, Card, Client
 
@@ -29,8 +27,12 @@ def transfer(request):
     data = json.loads(request.body)
     if {'business', 'ccc', 'pin', 'amount'} == set(data.keys()):
         if data['ccc'][:2] != settings.BANK_CARD_CODE:
-            # todo
-            HttpResponseBadRequest('Unrecognized card')
+            error = _('Unrecognized card')
+            return render(
+                request,
+                'transactions/transaction/error.html',
+                {'error': error},
+            )
         card_id = int(data['ccc'][3:])
         if card := get_object_or_404(Card, id=card_id, pin=data['pin'], status=Card.States.ACTIVE):
             account = card.account
@@ -57,7 +59,6 @@ def transfer(request):
                     amount=comission_amount,
                 )
                 new_comission.save()
-                # todo
             return HttpResponse()
         else:
             error = _('Unable to operate with the given card')
@@ -103,7 +104,7 @@ def transfer_inc(request):
                 amount=comission_amount,
             )
             new_comission.save()
-            # todo
+
             return HttpResponse()
         else:
             error = _('Unable to operate with the given account')
@@ -191,7 +192,6 @@ def transfer_out(request):
             messages.error(
                 request, _('You must have an active account in order to make a transaction.')
             )
-            # todo
             return HttpResponseRedirect('/client/')
     return render(request, 'transactions/transaction/create.html', {'form': form})
 
@@ -205,20 +205,6 @@ def get_queryset(request):
         accounts = client.accounts.all()
         queryset = Transaction.objects.filter(account__in=accounts)
     return queryset
-
-
-class TransactionListView(LoginRequiredMixin, ListView):
-    def _get_queryset(self):
-        get_queryset(self.request)
-
-    def get_context_data(self, **kwargs: Any):
-        context = super().get_context_data(**kwargs)
-        context['client'] = get_object_or_404(Client, user=self.request.user)
-        return context
-
-    paginate_by = 2
-    context_object_name = 'transactions'
-    template_name = 'transactions/movements.html'
 
 
 @login_required
@@ -238,8 +224,9 @@ def transaction_pdf(request, transaction_id):
     return response
 
 
-def export_to_csv(request):
-    queryset = get_queryset(request)
+def export_to_csv(request, account_slug):
+    target_account = get_object_or_404(Account, slug=account_slug)
+    queryset = get_queryset(request).filter(account=target_account)
     content_disposition = 'attachment; filename=movements.csv'
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = content_disposition

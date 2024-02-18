@@ -10,9 +10,15 @@
     </div>
     <div class="row mt-5 border" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Operations:" %}</u></b></p>
         <ul class="list-group list-group-flush p-3 pt-0">
-            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
-            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Card" %}</a>
-            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "New Transaction" %}</a>
+            <a href="{% url 'create_account' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
+            <a {% if accounts %}href="{% url 'create_card' %}"{% else %}role="link" aria-disabled="true" style="color: lightgrey"{% endif %} 
+                class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">
+                {% trans "Add New Card" %}
+            </a>
+            <a {% if accounts %}href="{% url 'transfer_out' %}"{% else %}role="link" aria-disabled="true" style="color: lightgrey"{% endif %} 
+                class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">
+                {% trans "New Transaction" %}
+            </a>
         </ul>
     </div>
 </div>
@@ -28,9 +34,15 @@
     </div>
     <div class="col-6" id="left-menu"><p class="text-center bg-whitesmoke p-3" id="left-menu"><b><u>{% trans "Operations:" %}</u></b></p>
         <ul class="list-group list-group-flush">
-            <a href="{% url "create_account" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
-            <a href="{% url "create_card" %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Card" %}</a>
-            <a href="{% url 'transfer_out' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "New Transaction" %}</a>
+            <a href="{% url 'create_account' %}" class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">{% trans "Add New Account" %}</a>
+            <a {% if accounts %}href="{% url 'create_card' %}"{% else %}role="link" aria-disabled="true" style="color: lightgrey"{% endif %} 
+                class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">
+                {% trans "Add New Card" %}
+            </a>
+            <a {% if accounts %}href="{% url 'transfer_out' %}"{% else %}role="link" aria-disabled="true" style="color: lightgrey"{% endif %} 
+                class="list-group-item list-group-item-action rounded text-sm-left text-center text-capitalize">
+                {% trans "New Transaction" %}
+            </a>
         </ul>
     </div>
 </div>

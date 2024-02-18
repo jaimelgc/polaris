@@ -10,7 +10,7 @@
             <th scope="col">{% trans "Kind" %}</th>
             <th scope="col">{% trans "Date" %}</th>
             <th scope="col">
-                <a href='{% url "export_to_csv" %}'>
+                <a href='{% url "export_to_csv" acc_detail.slug %}'>
                 <button class="btn btn-outline-dark">{% trans "Export to CSV" %}</button>
                 </a>
             </th>
@@ -29,5 +29,4 @@
             {% endfor %}
         </tbody>
     </table>
-    {% include "pagination.html" with page=page_obj %}
 </div>

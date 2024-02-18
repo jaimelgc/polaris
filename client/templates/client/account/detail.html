@@ -45,7 +45,9 @@
                 {% endfor %}
             </div>
         {% else %}
-            <p>{% trans "There are no cards registered for this account." %}</p>
+            <p class="p-4">
+                {% trans "There are no cards registered for this account." %}
+            </p>
         {% endif %}
     </div>
     <div class="row d-none" id="movements-container">
@@ -54,7 +56,9 @@
                 {% include "transactions/movements.html" %}
             {% endwith %}
         {% else %}
+        <p class="p-4">
             {% trans "There are no movements registered for this account." %}
+        </p>
         {% endif %}
     </div> 
     <script>
