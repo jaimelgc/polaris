@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 15:40+0000\n"
+"POT-Creation-Date: 2024-02-19 15:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,7 +94,7 @@ msgstr ""
 msgid "avatar"
 msgstr ""
 
-#: client/models.py:17 client/models.py:33 client/models.py:64
+#: client/models.py:17 client/models.py:33 client/models.py:65
 msgid "status"
 msgstr ""
 
@@ -106,13 +106,13 @@ msgstr ""
 msgid "balance"
 msgstr ""
 
-#: client/models.py:70 guest/models.py:15
+#: client/models.py:71 guest/models.py:15
 msgid "image"
 msgstr ""
 
 #: client/templates/client/account/account_done.html:4
 #: client/templates/client/account/create_account.html:4
-#: client/templates/client/account/create_account.html:13
+#: client/templates/client/account/create_account.html:14
 #: client/templates/registration/password_change_done.html:4
 msgid "Create a bank account"
 msgstr ""
@@ -125,16 +125,16 @@ msgstr ""
 msgid "Create New Account"
 msgstr ""
 
-#: client/templates/client/account/create_account.html:16
+#: client/templates/client/account/create_account.html:17
 msgid "Please, insert an alias for your account:"
 msgstr ""
 
-#: client/templates/client/account/create_account.html:21
-#: client/templates/client/card/create_card.html:21
+#: client/templates/client/account/create_account.html:22
+#: client/templates/client/card/create_card.html:22
 msgid "Alias:"
 msgstr ""
 
-#: client/templates/client/account/create_account.html:24
+#: client/templates/client/account/create_account.html:25
 msgid "Create new account"
 msgstr ""
 
@@ -167,15 +167,15 @@ msgstr ""
 msgid "See Transactions"
 msgstr ""
 
-#: client/templates/client/account/detail.html:49
+#: client/templates/client/account/detail.html:50
 msgid "There are no cards registered for this account."
 msgstr ""
 
-#: client/templates/client/account/detail.html:58
+#: client/templates/client/account/detail.html:61
 msgid "There are no movements registered for this account."
 msgstr ""
 
-#: client/templates/client/account/detail.html:63
+#: client/templates/client/account/detail.html:67
 msgid "Your account code is:"
 msgstr ""
 
@@ -183,23 +183,23 @@ msgstr ""
 msgid "Modify account"
 msgstr ""
 
-#: client/templates/client/account/modify_account.html:13
+#: client/templates/client/account/modify_account.html:14
 msgid "Account Modification"
 msgstr ""
 
-#: client/templates/client/account/modify_account.html:18
+#: client/templates/client/account/modify_account.html:19
 msgid "New alias:"
 msgstr ""
 
-#: client/templates/client/account/modify_account.html:21
+#: client/templates/client/account/modify_account.html:22
 #: client/templates/client/card/card_detail.html:21
-#: client/templates/client/card/modify_card.html:21
+#: client/templates/client/card/modify_card.html:22
 msgid "Status:"
 msgstr ""
 
-#: client/templates/client/account/modify_account.html:24
-#: client/templates/client/card/modify_card.html:24
-#: client/templates/client/edit.html:24
+#: client/templates/client/account/modify_account.html:25
+#: client/templates/client/card/modify_card.html:25
+#: client/templates/client/edit.html:25
 msgid "Save changes"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
-#: client/templates/client/card/create_card.html:13
+#: client/templates/client/card/create_card.html:14
 msgid "Create a bank card"
 msgstr ""
 
@@ -230,15 +230,15 @@ msgstr ""
 msgid "Create New Card"
 msgstr ""
 
-#: client/templates/client/card/create_card.html:16
+#: client/templates/client/card/create_card.html:17
 msgid "Please, insert an alias for your card:"
 msgstr ""
 
-#: client/templates/client/card/create_card.html:24
+#: client/templates/client/card/create_card.html:25
 msgid "Account:"
 msgstr ""
 
-#: client/templates/client/card/create_card.html:28
+#: client/templates/client/card/create_card.html:29
 msgid "Create new card"
 msgstr ""
 
@@ -246,11 +246,11 @@ msgstr ""
 msgid "Modify card"
 msgstr ""
 
-#: client/templates/client/card/modify_card.html:13
+#: client/templates/client/card/modify_card.html:14
 msgid "Card Modification"
 msgstr ""
 
-#: client/templates/client/card/modify_card.html:18
+#: client/templates/client/card/modify_card.html:19
 msgid "New Alias:"
 msgstr ""
 
@@ -270,11 +270,11 @@ msgstr ""
 msgid "Edit your profile"
 msgstr ""
 
-#: client/templates/client/edit.html:13
+#: client/templates/client/edit.html:14
 msgid "Edit your account"
 msgstr ""
 
-#: client/templates/client/edit.html:16
+#: client/templates/client/edit.html:17
 msgid "You can edit your account using the following form:"
 msgstr ""
 
@@ -314,27 +314,27 @@ msgid "Learn more"
 msgstr ""
 
 #: client/templates/client/sidebar.html:4
-#: client/templates/client/sidebar.html:23
+#: client/templates/client/sidebar.html:29
 msgid "Accounts:"
 msgstr ""
 
 #: client/templates/client/sidebar.html:11
-#: client/templates/client/sidebar.html:30
+#: client/templates/client/sidebar.html:36
 msgid "Operations:"
 msgstr ""
 
 #: client/templates/client/sidebar.html:13
-#: client/templates/client/sidebar.html:32
+#: client/templates/client/sidebar.html:38
 msgid "Add New Account"
 msgstr ""
 
-#: client/templates/client/sidebar.html:14
-#: client/templates/client/sidebar.html:33
+#: client/templates/client/sidebar.html:16
+#: client/templates/client/sidebar.html:41
 msgid "Add New Card"
 msgstr ""
 
-#: client/templates/client/sidebar.html:15
-#: client/templates/client/sidebar.html:34
+#: client/templates/client/sidebar.html:20
+#: client/templates/client/sidebar.html:45
 msgid "New Transaction"
 msgstr ""
 
@@ -556,12 +556,24 @@ msgstr ""
 msgid "card/<int:card_id>/modify"
 msgstr ""
 
-#: client/views.py:127
+#: client/views.py:55 client/views.py:77 client/views.py:98 client/views.py:120
+msgid "Alias already exists."
+msgstr ""
+
+#: client/views.py:139
 msgid "Client not active"
 msgstr ""
 
-#: client/views.py:129
+#: client/views.py:141
 msgid "Invalid Login"
+msgstr ""
+
+#: client/views.py:156
+msgid "Email already used."
+msgstr ""
+
+#: client/views.py:158
+msgid "Invalid email."
 msgstr ""
 
 #: guest/models.py:7
@@ -721,22 +733,6 @@ msgstr ""
 msgid "Outgoing Transaction"
 msgstr ""
 
-#: transactions/templates/pagination.html:6
-msgid "Previous"
-msgstr ""
-
-#: transactions/templates/pagination.html:9
-msgid "Page"
-msgstr ""
-
-#: transactions/templates/pagination.html:9
-msgid "of"
-msgstr ""
-
-#: transactions/templates/pagination.html:12
-msgid "Next"
-msgstr ""
-
 #: transactions/templates/transactions/movements.html:7
 #: transactions/templates/transactions/transaction/detail.html:22
 #: transactions/templates/transactions/transaction/pdf.html:21
@@ -838,46 +834,42 @@ msgstr ""
 msgid "outgoing/"
 msgstr ""
 
-#: transactions/urls.py:11
-msgid "movements/<int:account_id>/"
+#: transactions/urls.py:10
+msgid "client/<slug:account_slug>/"
 msgstr ""
 
-#: transactions/urls.py:15
-msgid "client/#"
+#: transactions/views.py:30
+msgid "Unrecognized card"
 msgstr ""
 
-#: transactions/urls.py:16
-msgid "movements/"
-msgstr ""
-
-#: transactions/views.py:63
+#: transactions/views.py:64
 msgid "Unable to operate with the given card"
 msgstr ""
 
-#: transactions/views.py:70 transactions/views.py:116
+#: transactions/views.py:71 transactions/views.py:117
 msgid "Data not consistent with request"
 msgstr ""
 
-#: transactions/views.py:109
+#: transactions/views.py:110
 msgid "Unable to operate with the given account"
 msgstr ""
 
-#: transactions/views.py:135
+#: transactions/views.py:136
 msgid "Unregistered entity"
 msgstr ""
 
-#: transactions/views.py:150
+#: transactions/views.py:151
 msgid "Amount exceeds account's available money"
 msgstr ""
 
-#: transactions/views.py:183
+#: transactions/views.py:184
 msgid "Unable to reach the recipient."
 msgstr ""
 
-#: transactions/views.py:189
+#: transactions/views.py:190
 msgid "Agent"
 msgstr ""
 
-#: transactions/views.py:192
+#: transactions/views.py:193
 msgid "You must have an active account in order to make a transaction."
 msgstr ""

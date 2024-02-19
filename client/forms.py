@@ -6,7 +6,27 @@ from django.utils.translation import gettext_lazy as _
 from .models import Account, Card, Client
 
 
-class ClientRegistrationForm(forms.ModelForm):
+class CleanUserData:
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exclude(id=self.instance.id).exists():
+            raise forms.ValidationError(_('Email already in use.'))
+        elif email == '':
+            raise forms.ValidationError(_('Email is required for registration.'))
+        return email
+
+    def clean_first_name(self):
+        if first_name := self.cleaned_data.get('first_name'):
+            return first_name
+        raise forms.ValidationError(_('First name is required for registration.'))
+
+    def clean_last_name(self):
+        if last_name := self.cleaned_data.get('last_name'):
+            return last_name
+        raise forms.ValidationError(_('Last name is required for registration.'))
+
+
+class ClientRegistrationForm(forms.ModelForm, CleanUserData):
     password = forms.CharField(
         label=_('Password'),
         widget=forms.PasswordInput,
@@ -23,24 +43,6 @@ class ClientRegistrationForm(forms.ModelForm):
         if cd.get('password') != cd.get('password2'):
             raise forms.ValidationError(_("Passwords don't match."))
         return cd.get('password2')
-
-    def clean_email(self):
-        email = self.cleaned_data['email']
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError(_('Email already in use.'))
-        elif email == '':
-            raise forms.ValidationError(_('Email is required for registration.'))
-        return email
-
-    def clean_first_name(self):
-        if first_name := self.cleaned_data.get('first_name'):
-            return first_name
-        raise forms.ValidationError(_('First name is required for registration.'))
-
-    def clean_last_name(self):
-        if last_name := self.cleaned_data.get('last_name'):
-            return last_name
-        raise forms.ValidationError(_('Last name is required for registration.'))
 
 
 class LoginForm(forms.Form):
@@ -72,7 +74,7 @@ class CardModificationForm(forms.ModelForm):
         fields = ['alias', 'status']
 
 
-class UserEditForm(forms.ModelForm):
+class UserEditForm(forms.ModelForm, CleanUserData):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']

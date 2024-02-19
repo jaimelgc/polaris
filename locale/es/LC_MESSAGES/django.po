@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 15:40+0000\n"
-"PO-Revision-Date: 2024-02-18 15:40+0000\n"
+"POT-Creation-Date: 2024-02-19 15:10+0000\n"
+"PO-Revision-Date: 2024-02-19 15:17+0000\n"
 "Last-Translator:   <admin@admin.es>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -95,7 +95,7 @@ msgstr "Eliminada"
 msgid "avatar"
 msgstr "avatar"
 
-#: client/models.py:17 client/models.py:33 client/models.py:64
+#: client/models.py:17 client/models.py:33 client/models.py:65
 msgid "status"
 msgstr "estado"
 
@@ -107,13 +107,13 @@ msgstr "alias"
 msgid "balance"
 msgstr "balance"
 
-#: client/models.py:70 guest/models.py:15
+#: client/models.py:71 guest/models.py:15
 msgid "image"
 msgstr "imagen"
 
 #: client/templates/client/account/account_done.html:4
 #: client/templates/client/account/create_account.html:4
-#: client/templates/client/account/create_account.html:13
+#: client/templates/client/account/create_account.html:14
 #: client/templates/registration/password_change_done.html:4
 msgid "Create a bank account"
 msgstr "Crear cuenta bancaria"
@@ -126,16 +126,16 @@ msgstr "¡Cuenta creada!"
 msgid "Create New Account"
 msgstr "Crear Nueva Cuenta"
 
-#: client/templates/client/account/create_account.html:16
+#: client/templates/client/account/create_account.html:17
 msgid "Please, insert an alias for your account:"
 msgstr "Por favor, introduce un alias para tu cuenta:"
 
-#: client/templates/client/account/create_account.html:21
-#: client/templates/client/card/create_card.html:21
+#: client/templates/client/account/create_account.html:22
+#: client/templates/client/card/create_card.html:22
 msgid "Alias:"
 msgstr "Alias:"
 
-#: client/templates/client/account/create_account.html:24
+#: client/templates/client/account/create_account.html:25
 msgid "Create new account"
 msgstr "Crear nueva cuenta"
 
@@ -168,15 +168,15 @@ msgstr "Buscar Movimientos"
 msgid "See Transactions"
 msgstr "Ver Transacciones"
 
-#: client/templates/client/account/detail.html:49
+#: client/templates/client/account/detail.html:50
 msgid "There are no cards registered for this account."
 msgstr "No hay tarjetas registradas para esta cuenta."
 
-#: client/templates/client/account/detail.html:58
+#: client/templates/client/account/detail.html:61
 msgid "There are no movements registered for this account."
 msgstr "No hay movimientos registrados para esta cuenta."
 
-#: client/templates/client/account/detail.html:63
+#: client/templates/client/account/detail.html:67
 msgid "Your account code is:"
 msgstr "El código de cuenta es:"
 
@@ -184,23 +184,23 @@ msgstr "El código de cuenta es:"
 msgid "Modify account"
 msgstr "Modificar cuenta"
 
-#: client/templates/client/account/modify_account.html:13
+#: client/templates/client/account/modify_account.html:14
 msgid "Account Modification"
 msgstr "Modificar Cuenta"
 
-#: client/templates/client/account/modify_account.html:18
+#: client/templates/client/account/modify_account.html:19
 msgid "New alias:"
 msgstr "Nuevo alias:"
 
-#: client/templates/client/account/modify_account.html:21
+#: client/templates/client/account/modify_account.html:22
 #: client/templates/client/card/card_detail.html:21
-#: client/templates/client/card/modify_card.html:21
+#: client/templates/client/card/modify_card.html:22
 msgid "Status:"
 msgstr "Estado:"
 
-#: client/templates/client/account/modify_account.html:24
-#: client/templates/client/card/modify_card.html:24
-#: client/templates/client/edit.html:24
+#: client/templates/client/account/modify_account.html:25
+#: client/templates/client/card/modify_card.html:25
+#: client/templates/client/edit.html:25
 msgid "Save changes"
 msgstr "Guardar cambios"
 
@@ -219,7 +219,7 @@ msgstr "El PIN de la tarjeta es: "
 
 #: client/templates/client/card/card_done.html:4
 #: client/templates/client/card/create_card.html:4
-#: client/templates/client/card/create_card.html:13
+#: client/templates/client/card/create_card.html:14
 msgid "Create a bank card"
 msgstr "Crear tarjeta"
 
@@ -231,15 +231,15 @@ msgstr "¡Tarjeta creada!"
 msgid "Create New Card"
 msgstr "Crear Nueva Tarjeta"
 
-#: client/templates/client/card/create_card.html:16
+#: client/templates/client/card/create_card.html:17
 msgid "Please, insert an alias for your card:"
 msgstr "Por favor, introduce un alias para tu cuenta:"
 
-#: client/templates/client/card/create_card.html:24
+#: client/templates/client/card/create_card.html:25
 msgid "Account:"
 msgstr "Cuenta:"
 
-#: client/templates/client/card/create_card.html:28
+#: client/templates/client/card/create_card.html:29
 msgid "Create new card"
 msgstr "Crear nueva tarjeta"
 
@@ -247,11 +247,11 @@ msgstr "Crear nueva tarjeta"
 msgid "Modify card"
 msgstr "Modificar tarjeta"
 
-#: client/templates/client/card/modify_card.html:13
+#: client/templates/client/card/modify_card.html:14
 msgid "Card Modification"
 msgstr "Modificar Tarjeta"
 
-#: client/templates/client/card/modify_card.html:18
+#: client/templates/client/card/modify_card.html:19
 msgid "New Alias:"
 msgstr "Nuevo alias:"
 
@@ -272,11 +272,11 @@ msgstr "cree una cuenta."
 msgid "Edit your profile"
 msgstr "Editar su perfil"
 
-#: client/templates/client/edit.html:13
+#: client/templates/client/edit.html:14
 msgid "Edit your account"
 msgstr "Editar su cuenta"
 
-#: client/templates/client/edit.html:16
+#: client/templates/client/edit.html:17
 msgid "You can edit your account using the following form:"
 msgstr "Puede editar su cuenta utilizando el siguiente formulario:"
 
@@ -316,27 +316,27 @@ msgid "Learn more"
 msgstr "Saber más"
 
 #: client/templates/client/sidebar.html:4
-#: client/templates/client/sidebar.html:23
+#: client/templates/client/sidebar.html:29
 msgid "Accounts:"
 msgstr "Cuentas:"
 
 #: client/templates/client/sidebar.html:11
-#: client/templates/client/sidebar.html:30
+#: client/templates/client/sidebar.html:36
 msgid "Operations:"
 msgstr "Operaciones:"
 
 #: client/templates/client/sidebar.html:13
-#: client/templates/client/sidebar.html:32
+#: client/templates/client/sidebar.html:38
 msgid "Add New Account"
 msgstr "Añadir Nueva Cuenta"
 
-#: client/templates/client/sidebar.html:14
-#: client/templates/client/sidebar.html:33
+#: client/templates/client/sidebar.html:16
+#: client/templates/client/sidebar.html:41
 msgid "Add New Card"
 msgstr "Añadir Nueva Tarjeta"
 
-#: client/templates/client/sidebar.html:15
-#: client/templates/client/sidebar.html:34
+#: client/templates/client/sidebar.html:20
+#: client/templates/client/sidebar.html:45
 msgid "New Transaction"
 msgstr "Nueva Transacción"
 
@@ -566,13 +566,29 @@ msgstr "tarjeta/crear"
 msgid "card/<int:card_id>/modify"
 msgstr "tarjeta/<int:card_id>/modificar"
 
-#: client/views.py:127
+#: client/views.py:55 client/views.py:77 client/views.py:98
+#: client/views.py:120
+#| msgid "Email already in use."
+msgid "Alias already exists."
+msgstr "Este alias ya está siendo utilizado."
+
+#: client/views.py:139
 msgid "Client not active"
 msgstr "Cliente inhabilitado."
 
-#: client/views.py:129
+#: client/views.py:141
 msgid "Invalid Login"
 msgstr "Inicio de sesión incorrecto."
+
+#: client/views.py:156
+#| msgid "Email already in use."
+msgid "Email already used."
+msgstr "Este correo ya está siendo utilizado."
+
+#: client/views.py:158
+#| msgid "Invalid Login"
+msgid "Invalid email."
+msgstr "Correo electrónico no válido."
 
 #: guest/models.py:7
 msgid "Account"
@@ -736,22 +752,6 @@ msgstr "Transacción entrante"
 msgid "Outgoing Transaction"
 msgstr "Transacción saliente"
 
-#: transactions/templates/pagination.html:6
-msgid "Previous"
-msgstr "Previo"
-
-#: transactions/templates/pagination.html:9
-msgid "Page"
-msgstr "Página"
-
-#: transactions/templates/pagination.html:9
-msgid "of"
-msgstr "de"
-
-#: transactions/templates/pagination.html:12
-msgid "Next"
-msgstr "Siguiente"
-
 #: transactions/templates/transactions/movements.html:7
 #: transactions/templates/transactions/transaction/detail.html:22
 #: transactions/templates/transactions/transaction/pdf.html:21
@@ -853,49 +853,66 @@ msgstr "entrante/"
 msgid "outgoing/"
 msgstr "saliente/"
 
-#: transactions/urls.py:11
-msgid "movements/<int:account_id>/"
-msgstr "movimientos/<int:account_id>/"
+#: transactions/urls.py:10
+msgid "client/<slug:account_slug>/"
+msgstr "cuenta/<slug:account_slug>/"
 
-#: transactions/urls.py:15
-msgid "client/#"
-msgstr "cliente/#"
+#: transactions/views.py:30
+msgid "Unrecognized card"
+msgstr "Tarjeta no reconocida."
 
-#: transactions/urls.py:16
-msgid "movements/"
-msgstr "movimientos/"
-
-#: transactions/views.py:63
+#: transactions/views.py:64
 msgid "Unable to operate with the given card"
 msgstr "No es posible operar con la tarjeta indicada."
 
-#: transactions/views.py:70 transactions/views.py:116
+#: transactions/views.py:71 transactions/views.py:117
 msgid "Data not consistent with request"
 msgstr "Los datos no son consistentes con la petición."
 
-#: transactions/views.py:109
+#: transactions/views.py:110
 msgid "Unable to operate with the given account"
 msgstr "No es posible operar con la cuenta indicada."
 
-#: transactions/views.py:135
+#: transactions/views.py:136
 msgid "Unregistered entity"
 msgstr "Entidad no registrada."
 
-#: transactions/views.py:150
+#: transactions/views.py:151
 msgid "Amount exceeds account's available money"
 msgstr "La cantidad excede el dinero disponible en la cuenta."
 
-#: transactions/views.py:183
+#: transactions/views.py:184
 msgid "Unable to reach the recipient."
 msgstr "Imposible llegar al destinatario."
 
-#: transactions/views.py:189
+#: transactions/views.py:190
 msgid "Agent"
 msgstr "Agente"
 
-#: transactions/views.py:192
+#: transactions/views.py:193
 msgid "You must have an active account in order to make a transaction."
 msgstr "Debe tener una cuenta activa para poder realizar una transacción."
+
+#~ msgid "Previous"
+#~ msgstr "Previo"
+
+#~ msgid "Page"
+#~ msgstr "Página"
+
+#~ msgid "of"
+#~ msgstr "de"
+
+#~ msgid "Next"
+#~ msgstr "Siguiente"
+
+#~ msgid "movements/<int:account_id>/"
+#~ msgstr "movimientos/<int:account_id>/"
+
+#~ msgid "client/#"
+#~ msgstr "cliente/#"
+
+#~ msgid "movements/"
+#~ msgstr "movimientos/"
 
 #~ msgid "Your CAC is:"
 #~ msgstr "Su CAC es:"
@@ -906,10 +923,6 @@ msgstr "Debe tener una cuenta activa para poder realizar una transacción."
 #, fuzzy
 #~ msgid "Show account code"
 #~ msgstr "Recuperación de cuenta"
-
-#, fuzzy
-#~ msgid "<slug:account_slug>/"
-#~ msgstr "cuenta/<slug:account_slug>/modificar"
 
 #, fuzzy
 #~ msgid "ES"
