@@ -60,6 +60,7 @@ class Card(models.Model):
         TERMINATED = "TE", _("Terminated")
 
     alias = models.CharField(_('alias'), max_length=120)
+    slug = models.SlugField(max_length=120, blank=True)
     status = models.CharField(
         _('status'), max_length=2, choices=States.choices, default=States.ACTIVE
     )
@@ -69,6 +70,11 @@ class Card(models.Model):
     image = models.ImageField(
         _('image'), upload_to='card/%Y/%m/%d/', default="card.png", blank=True
     )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.alias)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.alias

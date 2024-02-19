@@ -68,7 +68,7 @@ def modify_account(request, account_slug):
         account = Account.objects.get(user=user, slug=account_slug)
         if form.is_valid():
             new_slug = slugify(form.cleaned_data['alias'])
-            if not user.accounts.filter(slug=new_slug).exists():
+            if not user.accounts.filter(slug=new_slug).exclude(id=account.id).exists():
                 account.alias = form.cleaned_data['alias']
                 account.status = form.cleaned_data['status']
                 account.save()
@@ -87,7 +87,8 @@ def create_card(request):
     if request.method == 'POST':
         form = CardCreationForm(request.POST)
         if form.is_valid():
-            if not user.cards.filter(alias=form.cleaned_data['alias']).exists():
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.cards.filter(slug=new_slug).exists():
                 new_card = form.save(commit=False)
                 new_card.pin = random_alphanum(3)
                 new_card.user = user
@@ -107,9 +108,10 @@ def modify_card(request, card_id):
     if request.method == 'POST':
         form = CardModificationForm(request.POST)
         user = Client.objects.get(user=request.user)
-        card = Card.objects.get(user=user, id=card_id)
+        card = Card.objects.get(id=card_id)
         if form.is_valid():
-            if not user.cards.filter(alias=form.cleaned_data['alias']).exists():
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.cards.filter(slug=new_slug).exclude(id=card.id).exists():
                 card.alias = form.cleaned_data['alias']
                 card.status = form.cleaned_data['status']
                 card.save()
@@ -150,7 +152,7 @@ def edit(request):
         profile_form = ClientEditForm(instance=request.user, data=request.POST, files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             email = user_form.cleaned_data['email']
-            if User.objects.filter(email=email).exists():
+            if User.objects.filter(email=email).exclude(id=request.user.id).exists():
                 error = _('Email already used.')
             elif email == '':
                 error = _('Invalid email.')
@@ -163,7 +165,7 @@ def edit(request):
                     {'user_form': user_form, 'profile_form': profile_form},
                 )
             messages.error(request, error)
-            return (
+            return render(
                 request,
                 'client/edit.html',
                 {'user_form': user_form, 'profile_form': profile_form},
