@@ -5,3 +5,4 @@ justfile
 media/
 .mypy_cache
 __pycache__
+.env
