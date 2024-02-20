@@ -3,8 +3,10 @@ from datetime import datetime, timedelta
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
 
 from transactions.models import Comission
 
@@ -29,13 +31,11 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            # Create profile of the user (create saves to db)
             Client.objects.create(user=new_user)
-            # show the user an alternative url
-            # pass the client instead of the user, evaluate implications
-            return redirect('login')
-    else:
-        user_form = ClientRegistrationForm()
+            return render(request, 'registration/register_done.html', {'new_user': new_user})
+        else:
+            return render(request, 'client/register.html', {'user_form': user_form})
+    user_form = ClientRegistrationForm()
     return render(request, 'client/register.html', {'user_form': user_form})
 
 
@@ -45,13 +45,15 @@ def create_account(request):
         form = AccountRegistrationForm(request.POST)
         if form.is_valid():
             user = Client.objects.get(user=request.user)
-            if not user.accounts.filter(alias=form.cleaned_data['alias']).exists():
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.accounts.filter(slug=new_slug).exists():
                 new_account = form.save(commit=False)
                 new_account.user = Client.objects.get(user=request.user)
                 new_account.save()
                 return render(request, 'client/account/account_done.html', {'form': form})
             else:
-                return HttpResponse('Alias already in use.')
+                messages.error(request, _('Alias already exists.'))
+                return render(request, 'client/account/create_account.html', {'form': form})
     else:
         form = AccountRegistrationForm()
         form.fields['user'] = Client.objects.get(user=request.user)
@@ -63,16 +65,19 @@ def modify_account(request, account_slug):
     form = AccountModificationForm(request.POST)
     if request.method == 'POST':
         user = Client.objects.get(user=request.user)
-        accounts = user.accounts.all()
         account = Account.objects.get(user=user, slug=account_slug)
-        if not account_slug:
-            account = Account.objects.get(user=user, slug=accounts[0].slug)
         if form.is_valid():
-            # if not user.accounts.filter(alias=form.cleaned_data['alias'], slug=account.id).exists(
-            account.alias = form.cleaned_data['alias']
-            account.status = form.cleaned_data['status']
-            account.save()
-            return redirect('dashboard')
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.accounts.filter(slug=new_slug).exclude(id=account.id).exists():
+                account.alias = form.cleaned_data['alias']
+                account.status = form.cleaned_data['status']
+                account.save()
+                return redirect('dashboard')
+            else:
+                messages.error(request, _('Alias already exists.'))
+                return render(request, 'client/account/modify_account.html', {'form': form})
+    else:
+        form = AccountModificationForm(instance=get_object_or_404(Account, slug=account_slug))
     return render(request, 'client/account/modify_account.html', {'form': form})
 
 
@@ -82,14 +87,16 @@ def create_card(request):
     if request.method == 'POST':
         form = CardCreationForm(request.POST)
         if form.is_valid():
-            if not user.cards.filter(alias=form.cleaned_data['alias']).exists():
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.cards.filter(slug=new_slug).exists():
                 new_card = form.save(commit=False)
                 new_card.pin = random_alphanum(3)
                 new_card.user = user
                 new_card.save()
                 return render(request, 'client/card/card_done.html', {'form': form})
             else:
-                return HttpResponse('Unable to create card')
+                messages.error(request, _('Alias already exists.'))
+                return render(request, 'client/card/create_card.html', {'form': form})
     else:
         form = CardCreationForm()
         form.fields['account'].queryset = Account.objects.filter(user=user)
@@ -101,14 +108,19 @@ def modify_card(request, card_id):
     if request.method == 'POST':
         form = CardModificationForm(request.POST)
         user = Client.objects.get(user=request.user)
-        card = Card.objects.get(user=user, id=card_id)
+        card = Card.objects.get(id=card_id)
         if form.is_valid():
-            card.alias = form.cleaned_data['alias']
-            card.status = form.cleaned_data['status']
-            card.save()
-            return redirect('dashboard')
+            new_slug = slugify(form.cleaned_data['alias'])
+            if not user.cards.filter(slug=new_slug).exclude(id=card.id).exists():
+                card.alias = form.cleaned_data['alias']
+                card.status = form.cleaned_data['status']
+                card.save()
+                return redirect('dashboard')
+            else:
+                messages.error(request, _('Alias already exists.'))
+                return render(request, 'client/card/modify_card.html', {'form': form})
     else:
-        form = CardModificationForm()
+        form = CardModificationForm(instance=get_object_or_404(Card, id=card_id))
     return render(request, 'client/card/modify_card.html', {'form': form})
 
 
@@ -124,9 +136,9 @@ def user_login(request):
                     login(request, user)
                     return redirect('dashboard')
                 else:
-                    error = 'Client not active'
+                    error = _('Client not active')
             else:
-                error = 'Invalid Login'
+                error = _('Invalid Login')
             messages.error(request, error)
     else:
         form = LoginForm()
@@ -139,11 +151,23 @@ def edit(request):
         user_form = UserEditForm(instance=request.user, data=request.POST)
         profile_form = ClientEditForm(instance=request.user, data=request.POST, files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
+            email = user_form.cleaned_data['email']
+            if User.objects.filter(email=email).exclude(id=request.user.id).exists():
+                error = _('Email already used.')
+            elif email == '':
+                error = _('Invalid email.')
+            else:
+                user_form.save()
+                profile_form.save()
+                return render(
+                    request,
+                    'client/edit_done.html',
+                    {'user_form': user_form, 'profile_form': profile_form},
+                )
+            messages.error(request, error)
             return render(
                 request,
-                'client/edit_done.html',
+                'client/edit.html',
                 {'user_form': user_form, 'profile_form': profile_form},
             )
     else:

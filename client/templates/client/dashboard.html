@@ -1,6 +1,7 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}{% trans "Dashboard" %}{% endblock %}
 
 {% block header %}
     {% include 'header_dashboard.html' %}
@@ -19,7 +20,7 @@
                 {% else %}
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center align-items-end p-5">
-                            <h3>It seems like you don't have any accounts with us yet, please <a href="{% url "create_account" %}">create an account.</a></h3>
+                            <h3>{% trans "It seems like you don't have any accounts with us yet, please" %} <a href="{% url "create_account" %}">{% trans "create an account." %}</a></h3>
                         </div>
                     </div>
                 {% endif %}

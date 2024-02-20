@@ -1,7 +1,8 @@
 {% extends "done_content.html" %}
+{% load i18n %}
 
-{% block title %}Edit your profile{% endblock %}
+{% block title %}{% trans "Edit your profile" %}{% endblock %}
 
-{% block heading %}Profile Succesfully Updated{% endblock %}
-{% block secondary_text %}Edit Again{% endblock %}
+{% block heading %}{% trans "Profile Succesfully Updated" %}{% endblock %}
+{% block secondary_text %}{% trans "Edit Again" %}{% endblock %}
 {% block previous_url %}{% url "edit" %}{% endblock %}

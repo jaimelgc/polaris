@@ -1,41 +1,51 @@
 {% load static %}
+{% load i18n %}
 
 <header class="container-fluid bg-stg-blue pt-2 pb-4 px-5">
     <div class="container">
         <div class="row d-md-flex d-none justify-content-end mb-2">
-            <div class="w-auto text-center bg-lgt-gray border-end border-dark">
-                <a href="#" class="link-under">ES</a>
-            </div>
-            <div class="w-auto text-center bg-lgt-gray">
-                <a href="#" class="link-under">EN</a>
-            </div>
+            <form action="{% url 'set_language' %}" method="post" class="w-auto d-flex align-items-center">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select class="form-select form-select-sm me-2" name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                        {{ language.name_local|title }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-light btn-sm" type="submit">{% trans "Go" %}</button>
+            </form>
         </div>
         <div class="row">
             <!-- logo -->
-            <div class="col-lg-2 col-md-5 col-12 order-1 order-md-1 d-flex justify-content-center align-content-center" >
+            <div class="col-lg-4 col-md-4 col-12 order-1 order-md-1 d-flex justify-content-md-start justify-content-center align-items-center mb-2 p-0" >
                 <a href="{% url 'dashboard' %}"><img src="{% static 'img/polaris_logo_white.svg' %}" id="logo"></a>
             </div>
             <!-- menú extendido para pantallas grandes-->
-            <div class="col-6 order-2 d-none d-md-flex justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-8 col-12 order-lg-2 order-2 d-none d-md-flex justify-content-lg-between justify-content-evenly align-items-center">
                 <button class="btn btn-close-white dropdown-toggle fw-bold" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                    Profile
+                    {% trans "Profile" %}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                    <li><a class="dropdown-item" href="{% url 'edit' %}">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'edit' %}">{% trans "Edit profile" %}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Change password" %}</a></li>
                 </ul>
-                <a href="#" class="link-nos-white-r">Mailbox</a>
-                <a href="#" class="link-nos-white-r">Help</a>
-                <a href="#" class="link-nos-white-r">Contact</a>
+                <a href="#" class="link-nos-white-r text-center">{% trans "Mailbox" %}</a>
+                <a href="#" class="link-nos-white-r">{% trans "Help" %}</a>
+                <a href="#" class="link-nos-white-r">{% trans "Contact" %}</a>
             </div>
-            <div class="col-lg-4 col-12 order-2 d-flex justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-col-12 order-3 d-flex justify-content-center align-items-center">
                 <div class="row">
-                    <div class="col-md-5 text-white p-2 w-auto d-md-block">
+                    <div class="text-white p-2 w-auto d-md-block">
                         {% if request.user.is_authenticated %}
-                        Hi {{ user.first_name }},
-                        <a href="{% url "logout" %}" class="text-decoration-underline text-white">Log out</a>
+                            {% trans "Hi" %} {{ user.first_name }},
+                        <a href="{% url "logout" %}" class="text-decoration-underline text-white">{% trans "Log out" %}</a>
                         {% else %}
-                        <a href="{% url "login" %}">Log in</a>
+                        <a class="text-white" href="{% url "login" %}">{% trans "Log in" %}</a>
                         {% endif %}
                     </div>
                 </div>
@@ -44,17 +54,17 @@
             <div class="col-md-2 col-12 order-3 d-md-none d-flex justify-content-center align-items-center">
                 <div class="btn-group">
                     <button class="btn btn-close-white dropdown-toggle fw-bold " type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                        Profile
+                        {% trans "Profile" %}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item" href="{% url 'edit' %}">Edit profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                        <li><a class="dropdown-item" href="{% url 'edit' %}">{% trans "Edit profile" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'password_change' %}">{% trans "Change password" %}</a></li>
                     </ul>
                 </div>
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a class="link-nos-white-r m-2" href="#">Help</a>
-                    <a class="link-nos-white-r m-2" href="#">Mailbox</a>
-                    <a class="link-nos-white-r m-2" href="#">Contact</a>
+                <div class="btn-group d-flex justify-content-center align-items-center text-center" role="group" aria-label="Button group with nested dropdown">
+                    <a class="link-nos-white-r m-2" href="#">{% trans "Help" %}</a>
+                    <a class="link-nos-white-r m-2" href="#">{% trans "Mailbox" %}</a>
+                    <a class="link-nos-white-r m-2" href="#">{% trans "Contact" %}</a>
                 </div>
             </div>
         </div>

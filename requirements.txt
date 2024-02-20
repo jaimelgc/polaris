@@ -1,6 +1,12 @@
 Django
 pillow
 django-bootstrap-v5
+djangorestframework
 prettyconf
 requests
 easy-thumbnails
+WeasyPrint
+django-rosetta
+django-taggit
+markdown
+django-parler

@@ -1,26 +1,28 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
 
-{% block title %}Modify card{% endblock %}
+{% block title %}{% trans "Modify card" %}{% endblock %}
 
 {% block header %}
     {% include "header_dashboard.html" %}
 {% endblock %}
 
 {% block content %}
+{% include "messages.html" %}
 <div class="container pt-4">
     <div class="col-12 d-flex align-items-center justify-content-center">
-        <h2>Card Modification</h2>
+        <h2>{% trans "Card Modification" %}</h2>
     </div>
 <div class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form method="post" id="new-account-form">
-            <label>New Alias: </label> {{ form.alias }}
+            <label>{% trans "New Alias:" %}</label> {{ form.alias }}
             <br><br>
             {% csrf_token %}
-            <label>Status: </label> {{ form.status }}
+            <label>{% trans "Status:" %}</label> {{ form.status }}
             <br><br>
             {% csrf_token %}
-            <p><input type="submit" value="Save changes"></p>
+            <p><input type="submit" value={% trans "Save changes" %}></p>
         </form>
     </div>
 </div>

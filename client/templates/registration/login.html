@@ -1,6 +1,7 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
 
-{% block title %}Log in{% endblock %}
+{% block title %}{% trans "Log in" %}{% endblock %}
 
 {% block header %}
   {% include "header.html" %}
@@ -15,16 +16,16 @@
     <div class="container d-flex align-items-center justify-content-center h-100 mt-5">
     <form action="{% url 'login' %}" method="post" class="col-12" id="log-in-form">
       <div class="col-12">
-        <h4>Log in</h4><hr>
+        <h4>{% trans "Log in" %}</h4><hr>
         {% if form.errors %}
         {% endif %}
         {{ form.as_p }}
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}" />
-        <p><input type="submit" value="Log-in"></p>
+        <p><input type="submit" value={% trans "Log-in" %}></p>
     </form>
-      <p>If you don't have an account, <a href={% url "register" %}>register here.</a></p>
-      <p><a href="{% url 'password_reset' %}">Forgotten password?</a></p>
+      <p>{% trans "If you don't have an account, " %} <a href={% url "register" %}>{% trans "register here." %}</a></p>
+      <p><a href="{% url 'password_reset' %}">{% trans "Forgotten password?" %}</a></p>
       </div>
     </div>
   </div>

@@ -1,23 +1,29 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
+
 {% block header %}
     {% include "header_dashboard.html" %}
 {% endblock %}
+
 {% block content %}
 <div class="container">
     <table class="table table-bordered table-hover text-center mt-2"> 
         <thead>
             <div class="row">
                 <tr class="">
-                    <th colspan="5"><h1>Transaction Details</h1></th>
+                    <th colspan="5">
+                        <h1>{% trans "Transaction Details" %}</h1>
+                        <a href="{% url 'transaction_pdf' transaction_id=transaction.id  %}">{% trans "Generate PDF" %}</a>
+                    </th>
                 </tr>
             </div>
             <div class="row">
                 <tr>
-                    <th scope="col">Origin</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Concept</th>
-                    <th scope="col">Kind</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">{% trans "Origin" %}</th>
+                    <th scope="col">{% trans "Amount" %}</th>
+                    <th scope="col">{% trans "Concept" %}</th>
+                    <th scope="col">{% trans "Kind" %}</th>
+                    <th scope="col">{% trans "Date" %}</th>
                 </tr>
             </div>
         </thead>
@@ -26,20 +32,20 @@
                     <td scope="row">{{ transaction.agent }}</td>
                     <td>{{ transaction.amount }}</td>
                     <td>{{ transaction.concept }}</td>
-                    <td>{{ transaction.kind }}</td>
-                    <td>{{ transaction.timestamp }}</td>
+                    <td>{{ transaction.get_kind_display }}</td>
+                    <td>{{ transaction.timestamp|date:"d/m/Y, H:i"  }}</td>
                 </tr>                
         </tbody>
     </table>
     <table class="table table-bordered table-hover text-center">
         <thead>
-            <th scope="col">Comission</th>
-            <th scope="col">Amount</th>
+            <th scope="col">{% trans "Comission" %}</th>
+            <th scope="col">{% trans "Amount" %}</th>
         </thead>   
         <tbody>             
             {% for comission in transaction.comissions.all %}
                 <tr>
-                    <td>{{ comission.kind }}</td>
+                    <td>{{ comission.get_kind_display }}</td>
                     <td>{{ comission.amount }}</td>
                 </tr>
             {% endfor %}

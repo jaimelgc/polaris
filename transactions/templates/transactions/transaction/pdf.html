@@ -1,0 +1,56 @@
+{% load i18n %}
+
+<html>
+<head>
+	{% load bootstrap5 %}
+	{% load static %}
+    {% load i18n %}
+	{% bootstrap_css %}
+    <link href="{% static 'css/pdf.css' %}" rel="stylesheet">
+</head>
+<body>
+  <img src="{% static 'img/polaris_logo.png' %}" id="logo">
+  <hr>
+  <h3>{% trans "Transfer voucher" %}</h3>
+  <div class="container">
+    <table class="table table-bordered text-center mt-2"> 
+        <thead>
+            <div class="row">
+                <tr>
+                    <th scope="col">{% trans "Id" %}</th>
+                    <th scope="col">{% trans "Origin" %}</th>
+                    <th scope="col">{% trans "Amount" %}</th>
+                    <th scope="col">{% trans "Concept" %}</th>
+                    <th scope="col">{% trans "Kind" %}</th>
+                    <th scope="col">{% trans "Date" %}</th>
+                </tr>
+            </div>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ transaction.id }}</td>
+                    <td scope="row">{{ transaction.agent }}</td>
+                    <td>{{ transaction.amount }}€</td>
+                    <td>{{ transaction.concept }}</td>
+                    <td>{{ transaction.get_kind_display }}</td>
+                    <td>{{ transaction.timestamp|date:"d/m/Y" }}</td>
+                </tr>                
+        </tbody>
+    </table>
+    <table class="table table-bordered text-center">
+        <thead>
+            <th scope="col">{% trans "Comission" %}</th>
+            <th scope="col">{% trans "Amount" %}</th>
+        </thead>   
+        <tbody>             
+            {% for comission in transaction.comissions.all %}
+                <tr>
+                    <td>{{ comission.get_kind_display  }}</td>
+                    <td>{{ comission.amount }}€</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

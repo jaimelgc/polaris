@@ -1,21 +1,46 @@
 {% load static %}
-<div class="col-6 d-flex flex-column align-items-center">
+{% load i18n %}
+
+<div class="col-6 d-flex flex-column align-items-center justify-content-center">
     <div class="row">
         <h2 class="col-12 text-center text-capitalize">{{ card.alias }}
-            <a href="http://127.0.0.1:8000/client/card/{{ card.id }}/modify"><img class="ml-hgt mb-4" src="{% static 'img/gear_8.png' %}"></a>
+            <a href="{% url 'modify_card' card.id %}"><img class="ml-hgt mb-4" src="{% static 'img/gear_8.png' %}"></a>
         </h2>
     </div>
     <div class="row image-container">
         <img src="{{ card.image.url }}" style="width: 500px;" alt="Card"/>
         <div class="d-lg-block d-none">
             <p class="overlay-code">{{ card.code }}</p>
+            
         </div>
         <div class="d-lg-block d-none">
             <p class="overlay-alias">{{ user.first_name }} {{ user.last_name }}</p>
         </div>
     </div>
     <div class="row">
-        <p class="col-12">Status: {{ card.status }}</p>
+        <p class="col-12 text-center">{% trans "Status:" %} {{ card.get_status_display }}</p>
+        <button type="button" id="cac-btn" class="col-12 d-none d-lg-block btn btn-outline-dark mb-4" onclick=showPin('{{ card.pin }}')>
+            {% trans "Show PIN" %}
+        </button>
     </div>
 </div>
+
+{% comment %} Card data for small screen devices {% endcomment %}
+<div class="col-6 d-flex flex-column align-items-left d-lg-none">
+    <div class="row mt-5">
+        <div class="col-12">
+            <p><u>{{ user.first_name }} {{ user.last_name }}</u></p>
+            <p>{% trans "Code:" %} {{ card.code }}</p>
+            <button type="button" class="col-12 btn btn-outline-dark" onclick=showPin('{{ card.pin }}')>
+                {% trans "Show PIN" %}
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    function showPin(pin) {
+        alert(`{% trans "The card's PIN is:" %} ${pin}`);
+    }    
+</script>
+
 

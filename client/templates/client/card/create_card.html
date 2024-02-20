@@ -1,30 +1,32 @@
 {% extends "guest/base.html" %}
+{% load i18n %}
 
-{% block title %}Create a bank card{% endblock %}
+{% block title %}{% trans "Create a bank card" %}{% endblock %}
 
 {% block header %}
     {% include "header_dashboard.html" %}
 {% endblock %}
 
 {% block content %}
+{% include "messages.html" %}
 <div class="container pt-4">
     <div class="col-12 d-flex align-items-center justify-content-center">
-        <h2>Create a bank card</h2>
+        <h2>{% trans "Create a bank card" %}</h2>
     </div>
     <div class="col-12 d-flex align-items-center justify-content-center">
-        <p>Please, introduce an alias for your card:</p>
+        <p>{% trans "Please, insert an alias for your card:" %}</p>
     </div>
 <div class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
         <form method="post" id="new-card-form">
-            <label for="alias">Alias: </label> 
+            <label for="alias">{% trans "Alias:" %}</label> 
             {{ form.alias }}
             <br><br>
-            <label for="account">Account: </label> 
+            <label for="account">{% trans "Account:" %}</label> 
             {{ form.account }}
             {% csrf_token %}
             <br><br>
-            <p><input type="submit" value="Create new card"></p>
+            <p><input type="submit" value="{% trans 'Create new card' %}"></p>
         </form>
     </div>
 </div>
